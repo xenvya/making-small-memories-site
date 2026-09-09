@@ -10,6 +10,7 @@ for (const path of [
   "/concept-two",
   "/concept-three",
   "/concept-four",
+  "/concept-five",
   "/privacy",
 ]) {
   const page = await browser.newPage({

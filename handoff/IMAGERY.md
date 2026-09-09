@@ -1,5 +1,11 @@
 # Imagery and rights
 
+## Current portrait update
+
+The user supplied `docs/john.jpg` and explicitly requested incorporation into the public concepts. The 1118 × 1118 original is preserved locally. WebP exports at 1118 and 600 pixels are in `public/images/john-and-wife*.webp`, with metadata stripped during encoding. Faces and photographic content are unaltered; CSS provides editorial framing. The image is suitable for the implemented display sizes. All five concepts now use this actual supplied photograph, replacing the initial no-photo approach below. The earlier placeholder specifications are retained only as optional future photography guidance, not a current activation blocker.
+
+## Initial source-access history
+
 ## John and his wife
 
 The requested Facebook page, https://www.facebook.com/johncsmalljr/photos, could not be fetched through public web access. No authentication, privacy control, or usage restriction was bypassed. No personal photo, download permission, or adequate original resolution was established. No stock or AI portrait was substituted.

@@ -6,6 +6,7 @@ const paths = [
   "/concept-two",
   "/concept-three",
   "/concept-four",
+  "/concept-five",
   "/privacy",
 ];
 for (const width of [390, 768, 1440])
@@ -144,4 +145,128 @@ test("Unknown URLs return the custom 404", async ({ page }) => {
   await expect(
     page.getByRole("heading", { name: "A small detour." }),
   ).toBeVisible();
+});
+
+for (const concept of ["one", "two", "three", "four", "five"])
+  for (const width of [390, 1440])
+    test(`${concept} ${width}: booking and Stripe preview walkthroughs`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height: 1000 });
+      await page.goto(`/concept-${concept}`);
+      await page
+        .getByRole("button", { name: "Book a consultation", exact: true })
+        .click();
+      const booking = page.getByRole("dialog", {
+        name: "A conversation with John.",
+      });
+      await expect(booking).toBeVisible();
+      await expect(page.locator("[data-booking-review]")).toBeDisabled();
+      await page.locator(".demo-days button").nth(2).click();
+      await page.getByRole("button", { name: "1:00 PM", exact: true }).click();
+      await page.locator("#demo-service").selectOption("Life coaching");
+      expect(
+        (
+          await new AxeBuilder({ page })
+            .withTags(["wcag2a", "wcag2aa"])
+            .analyze()
+        ).violations,
+      ).toEqual([]);
+      await page.getByRole("button", { name: "Review appointment" }).click();
+      await expect(page.locator("[data-review-service]")).toHaveText(
+        "Life coaching",
+      );
+      await expect(booking).toContainText("No appointment has been booked");
+      await page.getByRole("button", { name: "Choose another time" }).click();
+      await page.keyboard.press("Escape");
+      await expect(booking).not.toBeVisible();
+      await expect(
+        page.getByRole("button", { name: "Book a consultation", exact: true }),
+      ).toBeFocused();
+      await page
+        .getByRole("button", { name: "Preview Stripe payment" })
+        .click();
+      const payment = page.locator("#payment-demo");
+      await expect(payment).toBeVisible();
+      await page
+        .locator("#payment-service")
+        .selectOption("Retirement planning");
+      await page.locator('[data-pay-mode="installments"]').click();
+      await expect(page.locator("[data-checkout-service]")).toHaveText(
+        "Retirement planning",
+      );
+      await expect(page.locator("[data-checkout-mode]")).toContainText(
+        "Installment plan",
+      );
+      expect(
+        (
+          await new AxeBuilder({ page })
+            .withTags(["wcag2a", "wcag2aa"])
+            .analyze()
+        ).violations,
+      ).toEqual([]);
+      await page
+        .getByRole("button", { name: "Finish payment preview" })
+        .click();
+      await expect(payment).toContainText("No payment was made.");
+      await expect(payment.locator("input")).toHaveCount(0);
+      await page
+        .getByRole("button", { name: "Explore another payment option" })
+        .click();
+      await page.locator('[data-pay-mode="full"]').click();
+      await expect(page.locator("[data-checkout-mode]")).toHaveText(
+        "One-time payment",
+      );
+      await page.getByRole("button", { name: "Close payment preview" }).click();
+      await expect(payment).not.toBeVisible();
+    });
+test("Golden Hour and Living Moments journey controls", async ({ page }) => {
+  await page.goto("/concept-four");
+  await page.getByRole("button", { name: "Navigate", exact: false }).click();
+  await expect(page.locator("[data-direction-title]")).toContainText(
+    "benefits",
+  );
+  await page.goto("/concept-five");
+  const field = page.locator(".moment-field");
+  const initial = await field.evaluate((el) =>
+    (el as HTMLCanvasElement).toDataURL(),
+  );
+  await expect
+    .poll(() => field.evaluate((el) => (el as HTMLCanvasElement).toDataURL()))
+    .not.toBe(initial);
+  await page.getByRole("button", { name: "Pause motion" }).click();
+  await expect(
+    page.getByRole("button", { name: "Resume motion" }),
+  ).toHaveAttribute("aria-pressed", "true");
+  expect(
+    await field.evaluate((el) => {
+      const c = el as HTMLCanvasElement;
+      return c
+        .getContext("2d")!
+        .getImageData(0, 0, c.width, c.height)
+        .data.some((x) => x !== 0);
+    }),
+  ).toBe(false);
+  await page.getByRole("button", { name: "Resume motion" }).click();
+  const range = page.getByRole("slider", { name: "Choose your direction" });
+  await range.focus();
+  await page.keyboard.press("End");
+  await expect(range).toHaveAttribute(
+    "aria-valuetext",
+    "Investment options & strategies",
+  );
+  await expect(page.locator("[data-journey-label]")).toHaveText(
+    "Investment options & strategies",
+  );
+  await page.keyboard.press("Home");
+  await expect(page.locator("[data-journey-label]")).toHaveText(
+    "Travel services",
+  );
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.locator("#about").scrollIntoViewIfNeeded();
+  expect(
+    await page
+      .locator(".kinetic-photo")
+      .evaluate((el) => getComputedStyle(el).transform),
+  ).toBe("none");
 });

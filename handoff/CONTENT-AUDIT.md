@@ -1,5 +1,7 @@
 # Content audit
 
+Revision: the user subsequently supplied the portrait and requested public incorporation, an entirely new fourth design, a fifth highly animated concept, and interactive booking/payment demonstrations. The photo is now present in all five concepts. The new demonstrations are explicitly labeled, use sample dates/times, collect no card data, make no booking or charge, and do not invent prices. Source commercial terms remain pending.
+
 Primary source: `docs/Making Small Memories Content and Information.pdf` (6 pages). All six pages were text-extracted, rendered, and visually inspected. The supplied PDF and private proposal/contract documents remain local and are excluded from Git and deployment.
 
 ## Verified content used

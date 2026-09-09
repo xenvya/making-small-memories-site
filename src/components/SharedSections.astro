@@ -2,6 +2,8 @@
 import { business, steps, faqs, services, type Theme } from "../data/business";
 import { offers, stripeUrl, calLink } from "../data/offers";
 import Arrow from "./Arrow.astro";
+import DemoExperiences from "./DemoExperiences.astro";
+import LineIcon from "./LineIcon.astro";
 interface Props {
   theme: Theme;
 }
@@ -27,7 +29,24 @@ const donation = stripeUrl(import.meta.env.PUBLIC_STRIPE_DONATION_URL);
     <ol class="steps">
       {steps.map((s, i) => (
         <li>
-          <span class="step-number">0{i + 1}</span>
+          <span class="step-number">
+            0{i + 1}
+            <svg class="step-trail" viewBox="0 0 180 30" aria-hidden="true">
+              <path
+                d="M1 15h155m-9-8 9 8-9 8"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+              />
+              <circle
+                cx="174"
+                cy="15"
+                r="4"
+                fill="none"
+                stroke="currentColor"
+              />
+            </svg>
+          </span>
           <h3>{s.title}</h3>
           <p>{s.body}</p>
         </li>
@@ -57,6 +76,26 @@ const donation = stripeUrl(import.meta.env.PUBLIC_STRIPE_DONATION_URL);
       Ask about services & pricing <Arrow />
     </a>
   </div>
+  {offers.length === 0 && (
+    <div class="payment-entry">
+      <div class="entry-icon">
+        <LineIcon kind="payment" />
+      </div>
+      <div>
+        <span class="eyebrow">Simple, secure payment</span>
+        <h3>One payment. Or a plan.</h3>
+        <p>Explore the payment experience for your agreed service.</p>
+      </div>
+      <div class="entry-actions">
+        <button class="button" data-open-demo="payment-demo">
+          Preview Stripe payment <Arrow />
+        </button>
+        <span class="small">
+          Pay in full · Installment plan · No charge in preview
+        </span>
+      </div>
+    </div>
+  )}
   {offers.length > 0 && (
     <div class="offers">
       {offers.map((o) => (
@@ -144,6 +183,24 @@ const donation = stripeUrl(import.meta.env.PUBLIC_STRIPE_DONATION_URL);
       <p class="contact-name">Your contact: {business.contact}</p>
     </div>
     <div class="booking-box">
+      {!calendar && (
+        <div class="booking-preview-entry">
+          <LineIcon kind="calendar" />
+          <span class="eyebrow">A conversation with John</span>
+          <h3>
+            Pick a day.
+            <br />
+            Make a little time.
+          </h3>
+          <button class="button" data-open-demo="booking-demo">
+            Book a consultation <Arrow />
+          </button>
+          <p class="small">
+            Explore a sample booking experience. No appointment is reserved.
+          </p>
+        </div>
+      )}
+
       {calendar ? (
         <div class="calendar-booking">
           <span class="eyebrow">A conversation with John</span>
@@ -232,7 +289,7 @@ const donation = stripeUrl(import.meta.env.PUBLIC_STRIPE_DONATION_URL);
   <div>
     <a href="/privacy">Privacy policy</a>
     <a href="/">
-      View all four designs <span aria-hidden="true">↗</span>
+      View all five designs <span aria-hidden="true">↗</span>
     </a>
     <small>
       © {new Date().getFullYear()} {business.legalName}
@@ -265,3 +322,5 @@ const donation = stripeUrl(import.meta.env.PUBLIC_STRIPE_DONATION_URL);
     </p>
   </dialog>
 )}
+
+<DemoExperiences />

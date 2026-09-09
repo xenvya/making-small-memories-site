@@ -75,7 +75,7 @@ let browser;
 try {
   browser = await chromium.launch();
   let passed = 0;
-  for (const slug of ["one", "two", "three", "four"])
+  for (const slug of ["one", "two", "three", "four", "five"])
     for (const width of [390, 1440]) {
       const page = await browser.newPage({ viewport: { width, height: 900 } });
       const errors = [];
@@ -153,7 +153,7 @@ try {
   expect(fixtureFiles).not.toContain("QA fixture");
   expect(fixtureFiles).not.toContain("qa-fixture");
   console.log(
-    `${passed} integration scenarios passed: four themes × mobile/desktop, full and installment payment links, real Cal.com embed bootstrap with intercepted appointment page, modal keyboard/focus, blocked-embed fallback. No live booking or charge made.`,
+    `${passed} integration scenarios passed: five themes × mobile/desktop, full and installment payment links, real Cal.com embed bootstrap with intercepted appointment page, modal keyboard/focus, blocked-embed fallback. No live booking or charge made.`,
   );
 } finally {
   await browser?.close();

@@ -163,11 +163,21 @@ export const concepts = [
     slug: "concept-four",
     theme: "chapter",
     number: "04",
-    name: "The Next Chapter",
-    line: "Make room for what matters.",
+    name: "Golden Hour",
+    line: "Some moments change everything.",
     rationale:
-      "For people ready to actively reshape life after a career. Oversized typography, cobalt ink, and a rhythmic editorial structure communicate energy and confidence without losing warmth.",
-    tags: "Confident · Expressive · Human",
+      "For people ready to make life more meaningful. A cinematic aubergine-and-gold palette, intimate portraiture, animated celestial linework, and a hands-on journey selector bring warmth, energy, and discovery.",
+    tags: "Cinematic · Intimate · Alive",
+  },
+  {
+    slug: "concept-five",
+    theme: "kinetic",
+    number: "05",
+    name: "Living Moments",
+    line: "Life, in motion.",
+    rationale:
+      "For curious people who want to feel possibility. A responsive particle field, scroll-driven typography, moving portrait composition, and a draggable service journey make this the most interactive direction.",
+    tags: "Kinetic · Playful · Exploratory",
   },
 ] as const;
 export type Theme = (typeof concepts)[number]["theme"];

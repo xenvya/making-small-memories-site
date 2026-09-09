@@ -1,6 +1,6 @@
 {
   "base": "https://making-small-memories-concepts.xenvya.workers.dev",
-  "checkedAt": "2026-09-09T00:47:08.457Z",
+  "checkedAt": "2026-09-09T01:17:56.316Z",
   "note": "Observed browser load measurements, not a throttled Lighthouse benchmark.",
   "pages": [
     {
@@ -8,9 +8,9 @@
       "status": 200,
       "metrics": {
         "cls": 0.000741047981168017,
-        "lcp": 328,
-        "bytes": 255011,
-        "requests": 10
+        "lcp": 164,
+        "bytes": 346080,
+        "requests": 12
       },
       "invalidAnchors": [],
       "errors": [],
@@ -58,6 +58,10 @@
           "status": 200
         },
         {
+          "href": "/concept-five",
+          "status": 200
+        },
+        {
           "href": "/privacy",
           "status": 200
         }
@@ -67,10 +71,10 @@
       "path": "/concept-one",
       "status": 200,
       "metrics": {
-        "cls": 0.008910488667723574,
+        "cls": 0.0039593883693954095,
         "lcp": 124,
-        "bytes": 99088,
-        "requests": 8
+        "bytes": 169985,
+        "requests": 10
       },
       "invalidAnchors": [],
       "errors": [],
@@ -111,10 +115,10 @@
       "path": "/concept-two",
       "status": 200,
       "metrics": {
-        "cls": 0.003742932581018518,
-        "lcp": 144,
-        "bytes": 293873,
-        "requests": 7
+        "cls": 0.003742022659866898,
+        "lcp": 196,
+        "bytes": 364917,
+        "requests": 9
       },
       "invalidAnchors": [],
       "errors": [],
@@ -155,10 +159,10 @@
       "path": "/concept-three",
       "status": 200,
       "metrics": {
-        "cls": 0.0018277215877580055,
-        "lcp": 120,
-        "bytes": 70576,
-        "requests": 7
+        "cls": 0.0019530976321373455,
+        "lcp": 156,
+        "bytes": 141754,
+        "requests": 9
       },
       "invalidAnchors": [],
       "errors": [],
@@ -199,10 +203,54 @@
       "path": "/concept-four",
       "status": 200,
       "metrics": {
-        "cls": 0.007860146710431134,
-        "lcp": 128,
-        "bytes": 78652,
-        "requests": 8
+        "cls": 0.002032323314525463,
+        "lcp": 172,
+        "bytes": 362387,
+        "requests": 11
+      },
+      "invalidAnchors": [],
+      "errors": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ],
+      "internalLinks": [
+        {
+          "href": "/privacy",
+          "status": 200
+        },
+        {
+          "href": "/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/concept-five",
+      "status": 200,
+      "metrics": {
+        "cls": 0.00481359260464892,
+        "lcp": 108,
+        "bytes": 344036,
+        "requests": 12
       },
       "invalidAnchors": [],
       "errors": [],
@@ -243,10 +291,10 @@
       "path": "/privacy",
       "status": 200,
       "metrics": {
-        "cls": 0.008497522876880787,
-        "lcp": 112,
-        "bytes": 35358,
-        "requests": 4
+        "cls": 0.0003372723614728009,
+        "lcp": 120,
+        "bytes": 40608,
+        "requests": 5
       },
       "invalidAnchors": [],
       "errors": [],

@@ -1,0 +1,209 @@
+---
+import { services, business } from "../data/business";
+import Arrow from "./Arrow.astro";
+---
+
+<dialog
+  class="experience-dialog"
+  id="booking-demo"
+  aria-labelledby="booking-demo-title"
+>
+  <header class="experience-top">
+    <span class="eyebrow">Appointment experience · Preview</span>
+    <button data-close-demo aria-label="Close booking preview">
+      Close ×
+    </button>
+  </header>
+  <div class="appointment-layout">
+    <aside>
+      <img
+        src="/images/john-and-wife-small.webp"
+        width="600"
+        height="600"
+        alt="John and his wife"
+      />
+      <span class="eyebrow">Making Small Memories</span>
+      <h2 id="booking-demo-title">
+        A conversation
+        <br />
+        with John.
+      </h2>
+      <p>
+        Choose a day. Find a moment.
+        <br />
+        Talk about what comes next.
+      </p>
+      <p class="demo-disclosure">
+        Sample availability only. This walkthrough does not reserve an
+        appointment.
+      </p>
+      <a href={`mailto:${business.email}?subject=Consultation%20request`}>
+        Request a real consultation ↗
+      </a>
+    </aside>
+    <div class="appointment-picker">
+      <div data-booking-stage="choose">
+        <label for="demo-service">What would you like to discuss?</label>
+        <select id="demo-service">
+          {services.map((s) => (
+            <option>{s.label}</option>
+          ))}
+        </select>
+        <div class="month-heading">
+          <h3 data-demo-month></h3>
+          <span>Sample dates</span>
+        </div>
+        <div class="demo-days" aria-label="Choose a sample date"></div>
+        <p class="time-label">Sample times · Eastern Time (America/New_York)</p>
+        <div class="demo-times">
+          <button type="button" data-time="10:00 AM" aria-pressed="false">
+            10:00 AM
+          </button>
+          <button type="button" data-time="1:00 PM" aria-pressed="false">
+            1:00 PM
+          </button>
+          <button type="button" data-time="3:30 PM" aria-pressed="false">
+            3:30 PM
+          </button>
+        </div>
+        <p class="selection-summary" data-booking-summary role="status">
+          Select a day and time to continue.
+        </p>
+        <button class="button" data-booking-review disabled>
+          Review appointment <Arrow />
+        </button>
+      </div>
+      <div data-booking-stage="review" hidden>
+        <span class="eyebrow">Your appointment preview</span>
+        <h3>
+          A little time.
+          <br />A meaningful start.
+        </h3>
+        <dl class="review-details">
+          <dt>Conversation</dt>
+          <dd data-review-service></dd>
+          <dt>Sample appointment</dt>
+          <dd data-review-date></dd>
+          <dt>Time zone</dt>
+          <dd>Eastern Time (America/New_York)</dd>
+        </dl>
+        <p>
+          This is a demonstration. No appointment has been booked and no
+          notification has been sent.
+        </p>
+        <a
+          class="button"
+          href={`mailto:${business.email}?subject=Consultation%20request`}
+        >
+          Contact John to book <Arrow />
+        </a>
+        <button class="demo-back" data-booking-back>
+          ← Choose another time
+        </button>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog
+  class="experience-dialog"
+  id="payment-demo"
+  aria-labelledby="payment-demo-title"
+>
+  <header class="experience-top">
+    <span class="eyebrow">Payment experience · Preview only</span>
+    <button data-close-demo aria-label="Close payment preview">
+      Close ×
+    </button>
+  </header>
+  <div class="payment-layout">
+    <aside class="payment-summary">
+      <span class="eyebrow">Making Small Memories</span>
+      <h2 id="payment-demo-title">
+        A thoughtful plan.
+        <br />A simple payment.
+      </h2>
+      <p>Choose how you would like to pay for your agreed service.</p>
+      <label for="payment-service">Your service</label>
+      <select id="payment-service">
+        {services.map((s) => (
+          <option>{s.label}</option>
+        ))}
+      </select>
+      <div class="payment-choice" role="group" aria-label="Payment arrangement">
+        <button aria-pressed="true" data-pay-mode="full">
+          Pay in full<span>One-time payment</span>
+        </button>
+        <button aria-pressed="false" data-pay-mode="installments">
+          Installment plan<span>Agreed payment schedule</span>
+        </button>
+      </div>
+      <dl class="payment-total">
+        <dt data-pay-label>Payment in full</dt>
+        <dd>Amount agreed with John</dd>
+      </dl>
+      <p class="demo-disclosure">
+        No published prices or installment terms have been supplied. This
+        preview does not charge you or collect payment details.
+      </p>
+    </aside>
+    <div class="checkout-preview">
+      <span class="stripe-caption">
+        Stripe-hosted checkout <span>Visual preview</span>
+      </span>
+      <div data-payment-stage="checkout">
+        <h3>
+          Your payment,
+          <br />
+          taken care of.
+        </h3>
+        <div class="checkout-order">
+          <span data-checkout-service>Travel services</span>
+          <strong data-checkout-mode>One-time payment</strong>
+        </div>
+        <div
+          class="sample-card"
+          aria-label="Illustration of a payment card, not an input field"
+        >
+          <svg viewBox="0 0 36 26" aria-hidden="true">
+            <rect
+              x="1"
+              y="1"
+              width="34"
+              height="24"
+              rx="4"
+              fill="none"
+              stroke="currentColor"
+            />
+            <path d="M1 9h34M6 19h7" stroke="currentColor" />
+          </svg>
+          <span>Card details entered securely on Stripe</span>
+          <span aria-hidden="true">••••</span>
+        </div>
+        <p>
+          In the live experience, this step opens Stripe’s secure checkout to
+          review the exact amount and enter payment details.
+        </p>
+        <button class="button" data-payment-finish>
+          Finish payment preview <Arrow />
+        </button>
+        <p class="small">Demonstration only. No card information required.</p>
+      </div>
+      <div data-payment-stage="done" hidden>
+        <span class="demo-check" aria-hidden="true">
+          ✓
+        </span>
+        <h3>That’s the experience.</h3>
+        <p role="status">Preview complete. No payment was made.</p>
+        <a
+          class="button"
+          href={`mailto:${business.email}?subject=Service%20and%20payment%20inquiry`}
+        >
+          Discuss your service with John <Arrow />
+        </a>
+        <button class="demo-back" data-payment-back>
+          ← Explore another payment option
+        </button>
+      </div>
+    </div>
+  </div>
+</dialog>

@@ -1,6 +1,7 @@
 ---
 import { services, type Theme } from "../data/business";
 import Arrow from "./Arrow.astro";
+import LineIcon from "./LineIcon.astro";
 interface Props {
   theme: Theme;
 }
@@ -65,6 +66,7 @@ const { theme } = Astro.props;
             0{i + 1}
           </div>
           <div>
+            <LineIcon kind={s.id} />
             <span class="eyebrow">{s.label}</span>
             <h3>{s.short}</h3>
             <p>{s.description}</p>
@@ -96,6 +98,7 @@ const { theme } = Astro.props;
             <span class="eyebrow">
               Route 0{i + 1} / {s.category}
             </span>
+            <LineIcon kind={s.id} />
             <h3>{s.label}</h3>
             <p class="service-lead">{s.short}</p>
             <p>{s.description}</p>
@@ -117,6 +120,7 @@ const { theme } = Astro.props;
         <article class="service-row">
           <span class="service-no">0{i + 1}</span>
           <div class="service-title">
+            <LineIcon kind={s.id} />
             <span class="eyebrow">{s.category}</span>
             <h3>{s.label}</h3>
           </div>

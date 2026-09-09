@@ -1,5 +1,11 @@
 # Client activation
 
+## Current presentation experience
+
+All five concepts now expose Payments and Book a consultation in navigation. With live links absent, the booking section opens an interactive sample calendar with service/day/time choices and review; the payments section opens a Stripe-style visual walkthrough with full-payment/installment selection and service association. These are expressly labeled previews. No sensitive data is collected, notification sent, real appointment reserved, price invented, or payment made. Contact links remain available for real inquiries. Supplying the live configuration below activates the existing real Cal.com and hosted-payment paths.
+
+The supplied `docs/john.jpg` portrait has been incorporated on the user’s explicit instruction; personal-photo acquisition is no longer a blocker.
+
 The public site is usable now through John’s verified phone/email. Calendar and payment activation require business-owned links and approved terms. No private API keys are needed for this static site.
 
 ## 1. Booking
@@ -8,7 +14,7 @@ The public site is usable now through John’s verified phone/email. Calendar an
 2. Create one consultation event. The client must set its actual duration, availability, time zone, location/video method and booking questions. No duration or free-session promise is assumed by the site.
 3. Provide its `username/event-slug`. Set `PUBLIC_CAL_LINK` in a local ignored `.env` or the build environment, then rebuild and deploy.
 
-All four designs then show a themed booking panel and a native, keyboard-accessible modal containing Cal.com's inline embed. It loads only after “View appointments” is selected. An ordinary Cal.com link and phone link remain available if the embed is blocked. Escape, close-button and focus restoration are supported. Without configuration, the request form prepares an email draft and explicitly tells visitors that they must send it; it does not pretend to book an appointment or submit an inquiry to a server.
+All five designs then show a themed booking panel and a native, keyboard-accessible modal containing Cal.com's inline embed. It loads only after “View appointments” is selected. An ordinary Cal.com link and phone link remain available if the embed is blocked. Escape, close-button and focus restoration are supported. Without configuration, the request form prepares an email draft and explicitly tells visitors that they must send it; it does not pretend to book an appointment or submit an inquiry to a server.
 
 Reference: https://cal.com/help/embedding/embed-instructions
 
@@ -40,7 +46,7 @@ Configure `PUBLIC_OFFERS_JSON` as a JSON array at build time. Field schema is in
 ]
 ```
 
-This is a schema illustration, not a business offer; never publish the uppercase instruction text. Empty production configuration is intentional. Omit installment fields entirely where no plan is offered. Once approved content is added, it appears in the Working Together section of **all four concepts**. Full-payment and installment CTAs are associated with the same package. If a package is approved before its link is ready, its CTA routes to an inquiry; no dead payment button appears.
+This is a schema illustration, not a business offer; never publish the uppercase instruction text. Empty production configuration is intentional. Omit installment fields entirely where no plan is offered. Once approved content is added, it appears in the Working Together section of **all five concepts**. Full-payment and installment CTAs are associated with the same package. If a package is approved before its link is ready, its CTA routes to an inquiry; no dead payment button appears.
 
 Only HTTPS links on `buy.stripe.com` and `checkout.stripe.com` are accepted. Invalid configured payment destinations fail the build. Stripe collects payment details on its own hosted pages; the site has no card form, checkout backend, API secrets, webhook storage or payment-success claim. Do not paste secret keys or private session data into public configuration.
 

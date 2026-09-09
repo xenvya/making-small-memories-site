@@ -1,0 +1,210 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Arrow from "../components/Arrow.astro";
+import Services from "../components/Services.astro";
+import SharedSections from "../components/SharedSections.astro";
+import { business, services } from "../data/business";
+import "@fontsource/space-grotesk/latin-400.css";
+import "@fontsource/space-grotesk/latin-700.css";
+import "../styles/kinetic.css";
+---
+
+<Base title="Living Moments" theme="kinetic">
+  <Header theme="kinetic" />
+  <main id="main">
+    <section class="kinetic-hero wrap">
+      <canvas class="moment-field" aria-hidden="true"></canvas>
+      <button class="motion-toggle" data-motion-toggle aria-pressed="false">
+        Pause motion
+      </button>
+      <div class="kinetic-kicker">
+        <span class="eyebrow">
+          Life doesn’t stand still. Neither should your dreams.
+        </span>
+        <span class="kinetic-live">
+          <i></i> A little more alive
+        </span>
+      </div>
+      <h1>
+        <span class="kinetic-line">Life,</span>
+        <span class="kinetic-line second-line">
+          in <em>motion.</em>
+          <svg class="kinetic-flower" viewBox="0 0 100 100" aria-hidden="true">
+            {Array.from({ length: 8 }, (_, i) => (
+              <ellipse
+                cx="50"
+                cy="27"
+                rx="10"
+                ry="24"
+                fill="currentColor"
+                transform={`rotate(${i * 45} 50 50)`}
+              />
+            ))}
+            <circle cx="50" cy="50" r="8" fill="var(--bg)" />
+          </svg>
+        </span>
+      </h1>
+      <div class="kinetic-hero-bottom">
+        <p>
+          Go somewhere new.
+          <br />
+          Find your own rhythm.
+          <br />
+          Make a moment that stays with you.
+        </p>
+        <a class="button" href="#journey">
+          Find your direction <Arrow />
+        </a>
+        <a class="kinetic-scroll" href="#about">
+          <span>SCROLL TO FEEL THE POSSIBILITIES</span>
+          <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </section>
+    <section class="kinetic-memory" id="about">
+      <div class="kinetic-memory-copy">
+        <span class="eyebrow">Real people. A meaningful life.</span>
+        <h2>
+          Some things
+          <br />
+          are too good
+          <br />
+          to <em>rush.</em>
+        </h2>
+        <p>{business.mission}</p>
+        <a href="#booking" class="text-link">
+          Make time for a conversation <Arrow />
+        </a>
+      </div>
+      <figure class="kinetic-photo" data-kinetic-photo>
+        <span class="photo-tape" aria-hidden="true"></span>
+        <img
+          src="/images/john-and-wife.webp"
+          srcset="/images/john-and-wife-small.webp 600w, /images/john-and-wife.webp 1118w"
+          sizes="(max-width:700px) 90vw, 45vw"
+          width="1118"
+          height="1118"
+          alt="John C. Small Jr. and his wife sharing a smile in formal attire"
+          loading="lazy"
+        />
+        <figcaption>
+          John & his wife <span>Here’s to the moments.</span>
+        </figcaption>
+      </figure>
+      <span class="memory-coordinate" aria-hidden="true">
+        01 / CONNECTION
+      </span>
+    </section>
+    <div
+      class="kinetic-marquee"
+      role="img"
+      aria-label="Explore. Connect. Become."
+    >
+      <div aria-hidden="true" data-scroll-type>
+        EXPLORE. <span>CONNECT.</span> BECOME. EXPLORE. <span>CONNECT.</span>
+      </div>
+    </div>
+    <section class="kinetic-journey section wrap" id="journey">
+      <div>
+        <span class="eyebrow">The next move is yours</span>
+        <h2>
+          One life.
+          <br />
+          <em>Many directions.</em>
+        </h2>
+        <p>
+          Drag through the possibilities. Choose the part of life you’re ready
+          to explore.
+        </p>
+        <label for="journey-slider">Choose your direction</label>
+        <input
+          id="journey-slider"
+          type="range"
+          min="0"
+          max="4"
+          value="0"
+          step="1"
+          aria-valuetext="Travel services"
+        />
+        <div class="journey-labels" aria-hidden="true">
+          {services.map((s) => (
+            <span>{s.category}</span>
+          ))}
+        </div>
+        <p class="small">Drag, tap, or use the arrow keys.</p>
+      </div>
+      <div class="journey-window">
+        <svg class="journey-orbit" viewBox="0 0 400 400" aria-hidden="true">
+          <circle
+            cx="200"
+            cy="200"
+            r="160"
+            fill="none"
+            stroke="currentColor"
+            stroke-width=".7"
+          />
+          <circle
+            cx="200"
+            cy="200"
+            r="126"
+            fill="none"
+            stroke="currentColor"
+            stroke-width=".7"
+            stroke-dasharray="3 8"
+          />
+          <g data-journey-planet>
+            <circle cx="200" cy="40" r="15" fill="currentColor" />
+            <path d="M200 85v35m-17-17h34" stroke="currentColor" />
+          </g>
+        </svg>
+        <span class="journey-number" aria-hidden="true">
+          01
+        </span>
+        <div class="journey-window-copy" aria-live="polite" aria-atomic="true">
+          <span class="eyebrow" data-journey-label>
+            {services[0].label}
+          </span>
+          <h3 data-journey-title>{services[0].short}</h3>
+          <p data-journey-copy>{services[0].description}</p>
+        </div>
+        <a
+          href="#booking"
+          class="button"
+          data-journey-cta
+          data-interest={services[0].label}
+        >
+          Let’s explore this <Arrow />
+        </a>
+      </div>
+    </section>
+    <section class="kinetic-purpose wrap">
+      <span class="eyebrow">Support for a life in motion</span>
+      <p class="lead">{business.about}</p>
+    </section>
+    <Services theme="kinetic" />
+    <section class="kinetic-pledge wrap">
+      <span class="eyebrow">Less autopilot. More intention.</span>
+      <p data-kinetic-words>
+        Slow down.
+        <br />
+        Look around.
+        <br />
+        <em>This is your life.</em>
+      </p>
+      <svg viewBox="0 0 400 150" aria-hidden="true">
+        <path
+          d="M10 100C90-80 180 250 280 65s-50-15 90 20m-40-15 40 15-25 28"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </svg>
+    </section>
+    <SharedSections theme="kinetic" />
+  </main>
+  <script>
+    import "../scripts/kinetic";
+  </script>
+</Base>

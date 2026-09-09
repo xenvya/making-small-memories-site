@@ -1,0 +1,24 @@
+---
+const { kind = "travel" } = Astro.props;
+const paths: Record<string, string> = {
+  travel: "M5 19 27 9 20 31 16 22 5 19Zm11 3L27 9M5 30h6M7 6v6M4 9h6",
+  coaching:
+    "M18 4a10 10 0 0 0-6 18v5h12v-5A10 10 0 0 0 18 4ZM13 31h10M15 35h6M18 10v8M14 14h8",
+  benefits: "M18 4 30 9v10c0 7-12 14-12 14S6 26 6 19V9L18 4ZM12 18l4 4 8-9",
+  retirement: "M5 30h26M8 26V15l10-9 10 9v11M14 30V19h8v11M27 5v6",
+  investment: "M5 5v26h27M11 24v-7M18 24V12M25 24V7M8 10l9-5",
+  calendar:
+    "M7 6h22v25H7ZM7 13h22M12 3v7M24 3v7M12 18h3M21 18h3M12 24h3M21 24h3",
+  payment: "M4 9h28v21H4ZM4 15h28M9 24h7M24 23h3",
+};
+---
+
+<svg class="line-icon" viewBox="0 0 36 38" fill="none" aria-hidden="true">
+  <path
+    d={paths[kind] || paths.travel}
+    stroke="currentColor"
+    stroke-width="1.2"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+  />
+</svg>

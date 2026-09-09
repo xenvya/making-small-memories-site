@@ -1,0 +1,38 @@
+---
+import Art from "./Art.astro";
+import Arrow from "./Arrow.astro";
+---
+
+<section class="portrait-story wrap section">
+  <figure class="portrait-frame">
+    <img
+      src="/images/john-and-wife.webp"
+      srcset="/images/john-and-wife-small.webp 600w, /images/john-and-wife.webp 1118w"
+      sizes="(max-width:700px) 90vw, 40vw"
+      width="1118"
+      height="1118"
+      loading="lazy"
+      alt="John C. Small Jr. and his wife, smiling together in formal attire"
+    />
+    <figcaption>John C. Small Jr. & his wife</figcaption>
+    <Art kind="flower" class="portrait-rosette" />
+  </figure>
+  <div>
+    <span class="eyebrow">The people. The moments. The meaning.</span>
+    <h2>
+      The best part
+      <br />
+      is who you
+      <br />
+      <em>share it with.</em>
+    </h2>
+    <p>
+      Connection is at the heart of Making Small Memories. A conversation with
+      John is a place to begin thinking about the experiences, goals, and people
+      that matter to you.
+    </p>
+    <a href="#booking" class="text-link">
+      Start a conversation with John <Arrow />
+    </a>
+  </div>
+</section>

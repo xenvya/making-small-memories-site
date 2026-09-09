@@ -3,10 +3,10 @@ import fs from "node:fs/promises";
 import sharp from "sharp";
 const base = process.env.TEST_BASE_URL || "http://localhost:4321";
 const browser = await chromium.launch();
-const names = ["keepsake", "horizon", "fieldnotes", "chapter"];
+const names = ["keepsake", "horizon", "fieldnotes", "chapter", "kinetic"];
 await fs.mkdir("handoff/screenshots", { recursive: true });
 for (const [i, name] of names.entries()) {
-  const slug = ["one", "two", "three", "four"][i];
+  const slug = ["one", "two", "three", "four", "five"][i];
   const page = await browser.newPage({
     viewport: { width: 1440, height: 1060 },
     reducedMotion: "reduce",
