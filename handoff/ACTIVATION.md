@@ -60,7 +60,7 @@ Supply an approved donation purpose and business-owned Stripe Payment Link. Set 
 
 ## 4. Personal story and imagery
 
-Supply an approved short biography, the wife's preferred public name (if included), approved testimonials with attribution/permission, and the photographs specified in `IMAGERY.md`. These were not in the source. Approve the business identity and insurance/healthcare language in the privacy policy before adopting one concept as the final business website.
+Supply an approved short biography, approved testimonials with attribution/permission, and any additional photographs specified in `IMAGERY.md`. Veronica Kouassi Small's preferred public name was supplied after the source PDF and is now used with the approved couple's photograph across all five concepts. Approve the business identity and insurance/healthcare language in the privacy policy before adopting one concept as the final business website.
 
 ## 5. Build and deployment
 

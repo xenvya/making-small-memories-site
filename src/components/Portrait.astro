@@ -1,6 +1,7 @@
 ---
 import Art from "./Art.astro";
 import Arrow from "./Arrow.astro";
+import { business } from "../data/business";
 ---
 
 <section class="portrait-story wrap section">
@@ -12,9 +13,9 @@ import Arrow from "./Arrow.astro";
       width="1118"
       height="1118"
       loading="lazy"
-      alt="John C. Small Jr. and his wife, smiling together in formal attire"
+      alt={`${business.contact} and ${business.partner}, smiling together in formal attire`}
     />
-    <figcaption>John C. Small Jr. & his wife</figcaption>
+    <figcaption>{business.couple}</figcaption>
     <Art kind="flower" class="portrait-rosette" />
   </figure>
   <div>

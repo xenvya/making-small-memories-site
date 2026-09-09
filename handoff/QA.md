@@ -37,7 +37,7 @@ Golden Hour replaces The Next Chapter. Living Moments adds canvas particles, scr
 - Browser plugin discovery found no connected browser; standalone Playwright Chromium provided local and deployed QA. Physical iOS/Android devices, Safari/WebKit and Firefox were not tested.
 - No production Stripe links, commercial terms or business-owned Cal.com event URL were supplied. Therefore no live payment, refund, notification, calendar availability or actual appointment was verified. These depend on client activation.
 - No real message, charge or booking was sent during QA. The inquiry form opens a draft in the visitor's mail app; final email delivery depends on their mail client and requires them to send it.
-- The user supplied and explicitly requested use of the portrait of John and his wife. Optimized 1118px and 600px WebP variants are published across all five concepts. No Facebook images were fetched or substituted. See IMAGERY.md for provenance.
+- The user supplied and explicitly requested use of the portrait of John C. Small Jr. and Veronica Kouassi Small. Optimized 1118px and 600px WebP variants are published across all five concepts. No Facebook images were fetched or substituted. See IMAGERY.md for provenance.
 - Booking dates/times are explicitly sample availability; payment previews collect no card details and create no charges. Production activation remains separate from these interactive demonstrations.
 - The condensed privacy policy retains supplied substance while omitting an unrelated company name. Client confirmation of the policy's applicability remains necessary.
 

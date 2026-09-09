@@ -6,7 +6,7 @@ The user supplied `docs/john.jpg` and explicitly requested incorporation into th
 
 ## Initial source-access history
 
-## John and his wife
+## John C. Small Jr. and Veronica Kouassi Small
 
 The requested Facebook page, https://www.facebook.com/johncsmalljr/photos, could not be fetched through public web access. No authentication, privacy control, or usage restriction was bypassed. No personal photo, download permission, or adequate original resolution was established. No stock or AI portrait was substituted.
 
@@ -16,7 +16,7 @@ Needed files:
 
 | Placeholder | Client-supplied image | Minimum original size | Placement and usage |
 | --- | --- | --- | --- |
-| john-and-wife.svg | Natural portrait of John and his wife together; both clearly identifiable; relaxed, warm light | 2400 × 3000 px preferred, 1600 × 2000 minimum | Keepsake editorial portrait, optional Chapter story spread; allow a 4:5 crop with safe space around faces |
+| john-and-wife.svg | Natural portrait of John C. Small Jr. and Veronica Kouassi Small together; both clearly identifiable; relaxed, warm light | 2400 × 3000 px preferred, 1600 × 2000 minimum | Keepsake editorial portrait, optional story spread; allow a 4:5 crop with safe space around faces |
 | john-portrait.svg | Solo portrait of John, facing camera, simple environment | 1800 × 2400 px preferred | About/contact area; 3:4 crop |
 | shared-travel.svg | A travel memory showing the couple together or their own travel scene, with location and context approved for publication | 3000 × 2000 px preferred, 2000 × 1333 minimum | Open Horizon wide image and travel narrative; 3:2/16:9 crop |
 

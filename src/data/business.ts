@@ -2,6 +2,8 @@ export const business = {
   name: "Making Small Memories",
   legalName: "Making Small Memories LLC",
   contact: "John C. Small Jr.",
+  partner: "Veronica Kouassi Small",
+  couple: "John C. Small Jr. & Veronica Kouassi Small",
   phone: "757-232-7664",
   tel: "+17572327664",
   email: "johncurtis.small324@gmail.com",

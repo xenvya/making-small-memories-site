@@ -83,10 +83,10 @@ import "../styles/chapter.css";
             sizes="(max-width:700px) 90vw, 45vw"
             width="1118"
             height="1118"
-            alt="John C. Small Jr. and his wife, dressed for a special occasion"
+            alt={`${business.contact} and ${business.partner}, dressed for a special occasion`}
             fetchpriority="high"
           />
-          <figcaption>John C. Small Jr. & his wife</figcaption>
+          <figcaption>{business.couple}</figcaption>
         </figure>
         <div class="golden-seal">
           <svg viewBox="0 0 120 120" aria-hidden="true">

@@ -15,7 +15,7 @@ Service copy is edited for clarity while retaining scope. The investment section
 
 ## Material not present in the source
 
-No package names, prices, installment amounts, number/frequency of installments, paid appointment offers, payment links, scheduler, hours, physical address, testimonials, founder biography, wife's name, or approved personal photographs appear in the PDF. We did not infer these from private contracts or outside sources. No unverified commercial offer is published.
+No package names, prices, installment amounts, number/frequency of installments, paid appointment offers, payment links, scheduler, hours, physical address, testimonials, founder biography, wife's name, or approved personal photographs appear in the PDF. The user subsequently supplied and approved the couple's photograph and identified John's wife as Veronica Kouassi Small; both are now used across the concepts. We did not infer these details from private contracts or outside sources. No unverified commercial offer is published.
 
 Instead of fictional packages or testimonials, all four pages provide complete verified service descriptions, a service/pricing inquiry, and a direct consultation request. The Keepsake mission excerpt is explicitly attributed to the company's mission, not a customer. The three-step section frames questions visitors can ask; it does not claim a proprietary delivery process, duration, or service guarantee. FAQs are editorial summaries of supplied service and contact information.
 
