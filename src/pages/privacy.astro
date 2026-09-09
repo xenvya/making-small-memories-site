@@ -1,0 +1,103 @@
+---
+import Base from "../layouts/Base.astro";
+import { business } from "../data/business";
+---
+
+<Base title="Privacy policy">
+  <header class="site-header legal-header wrap">
+    <a class="wordmark" href="/">
+      Making Small
+      <br />
+      <span>Memories.</span>
+    </a>
+    <a href="/">Back to the collection</a>
+  </header>
+  <main id="main" class="legal wrap">
+    <span class="eyebrow">Your information matters</span>
+    <h1>Privacy policy</h1>
+    <p>Effective date: May 30, 2026</p>
+    <p>
+      Making Small Memories is committed to protecting your privacy and
+      safeguarding personal information shared through our website. This policy
+      explains how we collect, use, disclose, and protect information when you
+      visit our website, communicate with us, or use our services.
+    </p>
+    <h2>Information we collect</h2>
+    <p>
+      We may collect information you voluntarily provide, including your name,
+      phone number, email address, mailing address, insurance information,
+      appointment or inquiry details, and information submitted through contact
+      forms or scheduling systems.
+    </p>
+    <p>
+      Certain information may be collected automatically, including your IP
+      address, browser type, device information, pages visited, website usage
+      data, and cookies or analytics information.
+    </p>
+    <h2>How we use your information</h2>
+    <p>
+      We may use your information to respond to inquiries, schedule
+      appointments, provide services and related support, improve the website,
+      communicate about services and scheduling, maintain business and legal
+      records, and comply with applicable laws and regulations.
+    </p>
+    <h2>Third-party services</h2>
+    <p>
+      Our website may link to scheduling systems, payment processors, social
+      media platforms, and other external resources. We are not responsible for
+      the privacy practices of third-party websites or services.
+    </p>
+    <h2>Data security and confidentiality</h2>
+    <p>
+      We implement reasonable administrative, technical, and physical safeguards
+      to protect information. No online transmission or storage system can be
+      guaranteed completely secure.
+    </p>
+    <p>
+      Communications through this website, standard email, or text messaging may
+      not always be fully secure. Do not submit emergency, highly sensitive, or
+      urgent medical or mental health information through website forms. If you
+      are experiencing a medical or mental health emergency, call 911 or go to
+      your nearest emergency room.
+    </p>
+    <h2>Children’s privacy</h2>
+    <p>
+      Our website is not intended for children under 13 without parental or
+      guardian involvement.
+    </p>
+    <h2>Cookies and analytics</h2>
+    <p>
+      Our website may use cookies, analytics tools, and similar technologies to
+      improve functionality and understand website usage. You may disable
+      cookies through your browser settings.
+    </p>
+    <h2>Sharing information</h2>
+    <p>
+      We do not sell your personal information. We may share information when
+      necessary with service providers assisting business operations, with
+      insurance companies or healthcare entities when authorized, when required
+      by law, or to protect the safety, rights, or property of clients, staff,
+      or the public.
+    </p>
+    <h2>Your rights</h2>
+    <p>
+      You may request access to your personal information, correction of
+      inaccurate information, deletion of certain information where permitted by
+      law, or withdrawal of consent for communications. Contact us using the
+      details below.
+    </p>
+    <h2>Changes to this policy</h2>
+    <p>
+      We may update this policy at any time. Updates will be posted here with a
+      revised effective date.
+    </p>
+    <h2>Contact us</h2>
+    <p>
+      {business.legalName}
+      <br />
+      <a href={`tel:${business.tel}`}>{business.phone}</a>
+      <br />
+      <a href={`mailto:${business.email}`}>{business.email}</a>
+    </p>
+  </main>
+</Base>

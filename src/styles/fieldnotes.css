@@ -1,0 +1,355 @@
+.fieldnotes {
+  --bg: #f0f0e4;
+  --ink: #263e31;
+  --accent: #405939;
+  --line: #adb5a0;
+  --soft: #e1e5d6;
+  --display: "Fraunces", serif;
+}
+.fieldnotes .eyebrow,
+.fieldnotes .step-number,
+.fieldnotes .service-no {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 400;
+}
+.fieldnotes .wordmark {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: 24px;
+}
+.fieldnotes .site-header {
+  border-bottom: 1px solid var(--line);
+}
+.field-hero {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 65px;
+  align-items: center;
+  padding-block: 65px 80px;
+}
+.field-title h1 {
+  font-size: clamp(55px, 6.7vw, 96px);
+  line-height: 1.05;
+  letter-spacing: -0.06em;
+  margin-top: 28px;
+}
+.field-title h1 em {
+  font-weight: 400;
+  color: #667b44;
+}
+.field-title p {
+  margin: 30px 0;
+  font-size: 16px;
+}
+.field-map {
+  aspect-ratio: 1/1.15;
+  background: #dce1cb;
+  position: relative;
+  overflow: hidden;
+  color: #4b613c;
+  border: 1px solid #a3ae8f;
+}
+.field-map svg {
+  position: absolute;
+  inset: 30px 0 0;
+  width: 100%;
+  height: 90%;
+}
+.map-top {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 8px;
+  gap: 14px;
+}
+.map-marker {
+  position: absolute;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  padding: 7px 9px;
+  background: #f0f0e4;
+  display: flex;
+  gap: 14px;
+  border: 1px solid #899c76;
+  white-space: nowrap;
+}
+.map-marker > span {
+  border-right: 1px solid #a3ae8f;
+  padding-right: 10px;
+}
+.marker-one {
+  bottom: 22%;
+  left: 10%;
+}
+.marker-two {
+  left: 41%;
+  top: 46%;
+}
+.marker-three {
+  right: 6%;
+  top: 18%;
+}
+.map-bottom {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.map-bottom > span {
+  font-size: 46px;
+  font-weight: 400;
+}
+.map-bottom p {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  text-align: right;
+}
+.field-ribbon {
+  background: var(--ink);
+  color: var(--bg);
+  padding-block: 23px;
+}
+.field-ribbon > .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+}
+.field-ribbon p {
+  font-size: 11px;
+}
+.field-about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 80px;
+}
+.field-about > .eyebrow {
+  grid-column: 1/-1;
+}
+.field-about h2 {
+  font-size: clamp(40px, 4.5vw, 65px);
+}
+.field-about .lead {
+  font-size: 22px;
+}
+.field-about p:not(.lead) {
+  font-size: 15px;
+}
+.fieldnotes .services {
+  border-top: 1px solid var(--line);
+}
+.field-guide {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 100px;
+}
+.guide-index {
+  position: sticky;
+  top: 35px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+}
+.guide-index a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 14px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+  transition: background 0.2s;
+}
+.guide-index a > span {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+}
+.guide-index a.active {
+  background: var(--ink);
+  color: var(--bg);
+}
+.guide-entry {
+  padding: 45px 0;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 35px;
+}
+.guide-entry:first-child {
+  padding-top: 25px;
+}
+.guide-entry h3 {
+  font-size: 42px;
+  margin: 20px 0;
+}
+.guide-entry .service-lead {
+  font-size: 21px;
+  line-height: 1.5;
+}
+.guide-entry p:not(.service-lead),
+.guide-entry li {
+  font-size: 15px;
+}
+.guide-entry .text-link {
+  font-size: 13px;
+}
+.field-note {
+  padding: 45px 50px;
+  background: #ddd6b5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 90px;
+  border-left: 4px solid var(--ink);
+}
+.field-note p {
+  font-family: var(--display);
+  font-size: 32px;
+  line-height: 1.3;
+}
+.field-note > span:last-child {
+  font-size: 52px;
+}
+.fieldnotes .arrangements h2,
+.fieldnotes .faq h2 {
+  font-size: 54px;
+}
+.fieldnotes .booking h2 {
+  font-size: 58px;
+}
+.fieldnotes .steps h3 {
+  font-size: 29px;
+}
+@media (max-width: 1000px) {
+  .field-hero {
+    gap: 30px;
+  }
+  .field-title h1 {
+    font-size: 62px;
+  }
+  .map-marker {
+    font-size: 8px;
+  }
+  .field-guide {
+    gap: 50px;
+  }
+  .guide-entry h3 {
+    font-size: 36px;
+  }
+  .field-note {
+    padding: 35px;
+    gap: 25px;
+  }
+  .field-note p {
+    font-size: 27px;
+  }
+  .field-about {
+    gap: 32px 40px;
+  }
+}
+@media (max-width: 700px) {
+  .field-hero {
+    grid-template-columns: 1fr;
+    padding-block: 36px 50px;
+    gap: 38px;
+  }
+  .field-title h1 {
+    font-size: 59px;
+  }
+  .field-title p {
+    font-size: 15px;
+    margin-block: 24px;
+  }
+  .field-map {
+    aspect-ratio: 1/1;
+    max-width: 430px;
+    width: 100%;
+    margin: auto;
+  }
+  .map-marker {
+    font-size: 9px;
+  }
+  .map-top {
+    font-size: 7px;
+  }
+  .field-ribbon > .wrap {
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .field-ribbon p {
+    font-size: 10px;
+  }
+  .field-about {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .field-guide {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .guide-index {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .guide-index a {
+    font-size: 11px;
+    padding: 14px 9px;
+    gap: 9px;
+  }
+  .guide-index a:last-child {
+    grid-column: 1/-1;
+  }
+  .guide-entry h3 {
+    font-size: 34px;
+  }
+  .guide-entry .service-lead {
+    font-size: 20px;
+  }
+  .field-note {
+    display: block;
+    padding: 28px 24px;
+    margin-bottom: 70px;
+  }
+  .field-note p {
+    font-size: 27px;
+    margin-top: 20px;
+  }
+  .field-note > span:last-child {
+    display: none;
+  }
+  .fieldnotes .arrangements h2,
+  .fieldnotes .faq h2 {
+    font-size: 44px;
+  }
+  .fieldnotes .booking h2 {
+    font-size: 44px;
+  }
+  .fieldnotes .guide-entry {
+    padding-block: 30px;
+  }
+}
+@media (min-width: 701px) and (max-width: 1000px) {
+  .fieldnotes .booking h2,
+  .fieldnotes .faq h2,
+  .fieldnotes .arrangements h2 {
+    font-size: 43px;
+  }
+  .field-map {
+    min-height: 340px;
+  }
+  .map-bottom p {
+    font-size: 8px;
+  }
+}

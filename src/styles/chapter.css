@@ -1,0 +1,302 @@
+.chapter {
+  --bg: #f2efe6;
+  --ink: #252b3b;
+  --accent: #2947c8;
+  --line: #bcbcb6;
+  --soft: #dddff0;
+  --display: "Space Grotesk", sans-serif;
+}
+.chapter h1,
+.chapter h2,
+.chapter h3 {
+  font-weight: 700;
+}
+.chapter .wordmark {
+  font-family: var(--display);
+  font-size: 22px;
+}
+.chapter .site-header {
+  border-bottom: 1px solid var(--ink);
+}
+.chapter .nav-cta {
+  color: var(--accent);
+}
+.chapter-hero {
+  padding-block: 38px 65px;
+}
+.chapter-kicker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+.chapter-hero h1 {
+  font-size: clamp(84px, 12vw, 176px);
+  line-height: 0.95;
+  letter-spacing: -0.075em;
+  margin-top: 54px;
+  max-width: 1200px;
+}
+.chapter-hero h1 > span {
+  color: var(--accent);
+}
+.chapter-hero-bottom {
+  display: grid;
+  grid-template-columns: 0.7fr 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+  margin-top: 46px;
+}
+.chapter-asterisk {
+  font-size: 116px;
+  line-height: 1;
+  color: var(--accent);
+}
+.chapter-hero-bottom p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+.chapter-hero-bottom .button {
+  justify-self: end;
+}
+.chapter-about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.chapter-about-title {
+  background: var(--accent);
+  color: var(--bg);
+  padding: 70px max(56px, calc((100vw - 1280px) / 2));
+  padding-right: 50px;
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+}
+.chapter-about-title h2 {
+  font-size: clamp(55px, 6vw, 86px);
+  line-height: 1;
+  margin-top: 42px;
+  position: relative;
+  z-index: 1;
+}
+.chapter-about-title h2 em {
+  font-weight: 400;
+}
+.chapter-about-title svg {
+  width: 230px;
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  transform: rotate(20deg);
+  opacity: 0.3;
+}
+.chapter-about-copy {
+  padding: 75px max(56px, calc((100vw - 1280px) / 2));
+  padding-left: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #e4dccb;
+}
+.chapter-about-copy .lead {
+  font-size: 27px;
+  margin-top: 28px;
+}
+.chapter-about-copy p:not(.lead) {
+  font-size: 15px;
+}
+.chapter-about-copy .text-link {
+  align-self: start;
+  margin-top: 20px;
+}
+.chapter .section-heading {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  max-width: none;
+  gap: 25px 70px;
+}
+.chapter .section-heading > .eyebrow {
+  grid-column: 1/-1;
+  margin: 0;
+}
+.chapter .section-heading h2 {
+  font-size: clamp(48px, 6vw, 80px);
+}
+.chapter .section-heading > p {
+  align-self: end;
+  margin: 0;
+}
+.chapter .service-row {
+  grid-template-columns: 60px 1.2fr 1.3fr 52px;
+  gap: 30px;
+  padding: 40px 0;
+}
+.chapter .service-no {
+  font-family: var(--display);
+  font-size: 34px;
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: -0.05em;
+}
+.chapter .service-title h3 {
+  font-size: 30px;
+}
+.chapter .service-title .eyebrow {
+  color: var(--accent);
+}
+.chapter .round-link {
+  border-radius: 0;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.chapter .round-link:hover {
+  color: var(--bg);
+  background: var(--accent);
+}
+.chapter-manifesto {
+  padding-bottom: 100px;
+}
+.chapter-manifesto > p {
+  font-family: var(--display);
+  font-size: clamp(58px, 9vw, 130px);
+  line-height: 1.04;
+  letter-spacing: -0.06em;
+  font-weight: 700;
+  margin-top: 36px;
+}
+.chapter-manifesto > p > span {
+  color: var(--accent);
+}
+.chapter .process {
+  background: #d6dc53;
+}
+.chapter .steps h3 {
+  font-size: 27px;
+}
+.chapter .steps li {
+  border-color: #687036;
+}
+.chapter .booking {
+  background: var(--accent);
+}
+.chapter .booking h2 {
+  font-size: clamp(44px, 4.8vw, 70px);
+}
+.chapter .arrangements h2,
+.chapter .faq h2 {
+  font-size: clamp(42px, 4.4vw, 62px);
+}
+@media (max-width: 1000px) {
+  .chapter-about-title {
+    padding: 50px 32px;
+    min-height: 600px;
+  }
+  .chapter-about-copy {
+    padding: 50px 32px;
+  }
+  .chapter-about-copy .lead {
+    font-size: 24px;
+  }
+  .chapter-hero-bottom {
+    grid-template-columns: 80px 1fr 1.2fr;
+    gap: 20px;
+  }
+  .chapter-asterisk {
+    font-size: 86px;
+  }
+  .chapter .service-row {
+    grid-template-columns: 40px 1fr 1.2fr 44px;
+    gap: 20px;
+  }
+  .chapter .service-title h3 {
+    font-size: 25px;
+  }
+}
+@media (max-width: 700px) {
+  .chapter-hero {
+    padding-block: 28px 45px;
+  }
+  .chapter-kicker > span:last-child {
+    display: none;
+  }
+  .chapter-hero h1 {
+    font-size: clamp(65px, 16.4vw, 106px);
+    margin-top: 34px;
+  }
+  .chapter-hero-bottom {
+    grid-template-columns: 70px 1fr;
+    gap: 22px;
+    margin-top: 32px;
+  }
+  .chapter-asterisk {
+    font-size: 82px;
+  }
+  .chapter-hero-bottom p {
+    font-size: 13px;
+  }
+  .chapter-hero-bottom .button {
+    grid-column: 1/-1;
+    justify-self: start;
+  }
+  .chapter-about {
+    grid-template-columns: 1fr;
+  }
+  .chapter-about-title {
+    min-height: 430px;
+    padding: 40px 24px;
+  }
+  .chapter-about-title h2 {
+    font-size: 66px;
+    margin-top: 32px;
+  }
+  .chapter-about-title svg {
+    width: 160px;
+    right: 15px;
+    bottom: 0;
+  }
+  .chapter-about-copy {
+    padding: 45px 24px;
+  }
+  .chapter .section-heading {
+    display: block;
+  }
+  .chapter .section-heading h2 {
+    font-size: 50px;
+    margin-top: 24px;
+  }
+  .chapter .section-heading p {
+    margin-top: 20px;
+  }
+  .chapter .service-row {
+    grid-template-columns: 32px 1fr 44px;
+    gap: 14px;
+    padding-block: 30px;
+  }
+  .chapter .service-no {
+    font-size: 26px;
+  }
+  .chapter .service-title h3 {
+    font-size: 28px;
+  }
+  .chapter-manifesto {
+    padding-bottom: 70px;
+  }
+  .chapter-manifesto > p {
+    font-size: 56px;
+  }
+  .chapter .booking h2 {
+    font-size: 44px;
+  }
+}
+@media (min-width: 701px) and (max-width: 1000px) {
+  .chapter .section-heading {
+    grid-template-columns: 1fr;
+  }
+  .chapter .section-heading > p {
+    max-width: 500px;
+  }
+  .chapter .section-heading h2 {
+    font-size: 54px;
+  }
+}

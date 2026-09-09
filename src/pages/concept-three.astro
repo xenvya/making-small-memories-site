@@ -1,0 +1,95 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Art from "../components/Art.astro";
+import Arrow from "../components/Arrow.astro";
+import Services from "../components/Services.astro";
+import SharedSections from "../components/SharedSections.astro";
+import { business } from "../data/business";
+import "@fontsource/fraunces/latin-400.css";
+import "@fontsource/ibm-plex-mono/latin-400.css";
+import "../styles/fieldnotes.css";
+---
+
+<Base title="Field Notes" theme="fieldnotes">
+  <Header theme="fieldnotes" />
+  <main id="main">
+    <section class="field-hero wrap">
+      <div class="field-title">
+        <span class="eyebrow">A field guide to your next chapter</span>
+        <h1>
+          A little direction.
+          <br />A world of
+          <br />
+          <em>possibility.</em>
+        </h1>
+        <p>
+          Practical guidance for life’s turning points.
+          <br />
+          Personal attention to what comes next.
+        </p>
+        <a class="button" href="#booking">
+          Let’s find your next step <Arrow />
+        </a>
+      </div>
+      <div class="field-map">
+        <div class="map-top">
+          <span>MAKING SMALL MEMORIES</span>
+          <span>FIELD GUIDE / 01</span>
+        </div>
+        <Art kind="map" />
+        <div class="map-marker marker-one">
+          <span>01</span>Where you are
+        </div>
+        <div class="map-marker marker-two">
+          <span>02</span>What matters
+        </div>
+        <div class="map-marker marker-three">
+          <span>03</span>What’s next
+        </div>
+        <div class="map-bottom">
+          <span aria-hidden="true">⊕</span>
+          <p>
+            There’s no single right route.
+            <br />
+            There’s the one that’s right for you.
+          </p>
+        </div>
+      </div>
+    </section>
+    <div class="field-ribbon">
+      <div class="wrap">
+        <span>YOUR LIFE, IN VIEW</span>
+        <p>
+          Travel / Transition / Benefits / Retirement / Investment education
+        </p>
+      </div>
+    </div>
+    <section class="field-about section wrap" id="about">
+      <span class="eyebrow">01 / Our purpose</span>
+      <h2>
+        A steady point.
+        <br />A wider perspective.
+      </h2>
+      <div>
+        <p class="lead">{business.about}</p>
+        <p>{business.mission}</p>
+        <p>
+          Our vision:{" "}
+          {business.vision.charAt(0).toLowerCase() + business.vision.slice(1)}
+        </p>
+      </div>
+    </section>
+    <Services theme="fieldnotes" />
+    <aside class="field-note wrap">
+      <span class="eyebrow">A note for the journey</span>
+      <p>
+        You can plan for tomorrow
+        <br />
+        and still make a memory <em>today.</em>
+      </p>
+      <span aria-hidden="true">↗</span>
+    </aside>
+    <SharedSections theme="fieldnotes" />
+  </main>
+</Base>

@@ -1,0 +1,97 @@
+---
+import Base from "../layouts/Base.astro";
+import { concepts } from "../data/business";
+import Arrow from "../components/Arrow.astro";
+import "@fontsource/cormorant-garamond/latin-400.css";
+import "../styles/gallery.css";
+---
+
+<Base
+  title="Four ways to make a memory"
+  description="Explore four distinct website directions for Making Small Memories: The Keepsake, Open Horizon, Field Notes, and The Next Chapter."
+>
+  <header class="gallery-header wrap">
+    <a class="wordmark" href="/">
+      Making Small
+      <br />
+      <span>Memories.</span>
+    </a>
+    <span class="eyebrow">A collection of possibilities / 2026</span>
+    <a href="#collection" class="text-link">
+      Explore the collection <Arrow />
+    </a>
+  </header>
+  <main id="main">
+    <section class="gallery-intro wrap">
+      <div>
+        <span class="eyebrow">One purpose. Four perspectives.</span>
+        <h1>
+          A small beginning.
+          <br />
+          <em>A world of possibility.</em>
+        </h1>
+      </div>
+      <p>
+        Four considered directions for Making Small Memories. Different
+        expressions of the same belief: the little moments deserve a little more
+        room.
+      </p>
+    </section>
+    <section
+      id="collection"
+      class="concept-collection wrap"
+      aria-label="Four website concepts"
+    >
+      {concepts.map((c) => (
+        <article class={`concept-preview preview-${c.theme}`}>
+          <a
+            href={`/${c.slug}`}
+            class="preview-image"
+            aria-label={`Open ${c.name}`}
+          >
+            <img
+              src={`/images/preview-${c.theme}.webp`}
+              alt={`${c.name} website preview`}
+              width="1440"
+              height="1060"
+              loading="lazy"
+            />
+            <span class="preview-open">
+              Explore this direction <Arrow />
+            </span>
+          </a>
+          <div class="preview-info">
+            <span class="preview-number">{c.number}</span>
+            <div>
+              <span class="eyebrow">{c.tags}</span>
+              <h2>
+                <a href={`/${c.slug}`}>{c.name}</a>
+              </h2>
+              <p>{c.rationale}</p>
+            </div>
+            <a
+              class="preview-arrow"
+              href={`/${c.slug}`}
+              aria-label={`View ${c.name}`}
+            >
+              <Arrow />
+            </a>
+          </div>
+        </article>
+      ))}
+    </section>
+    <section class="gallery-close wrap">
+      <span class="eyebrow">At the heart of every direction</span>
+      <p>
+        Slow down. Connect.
+        <br />
+        <em>Make a memory.</em>
+      </p>
+      <span>Making Small Memories LLC</span>
+    </section>
+  </main>
+  <footer class="gallery-footer wrap">
+    <p>Four perspectives. One meaningful next chapter.</p>
+    <a href="/privacy">Privacy policy</a>
+  </footer>
+</Base>

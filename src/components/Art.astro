@@ -1,0 +1,66 @@
+---
+const { kind = "flower", class: className = "" } = Astro.props;
+---
+
+<svg class={className} viewBox="0 0 600 600" fill="none" aria-hidden="true">
+  {kind === "flower" ? (
+    <>
+      <circle
+        cx="300"
+        cy="300"
+        r="242"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity=".3"
+      />
+      {Array.from({ length: 12 }, (_, i) => (
+        <ellipse
+          cx="300"
+          cy="208"
+          rx="52"
+          ry="113"
+          stroke="currentColor"
+          stroke-width="1.2"
+          transform={`rotate(${i * 30} 300 300)`}
+        />
+      ))}
+      <circle cx="300" cy="300" r="28" fill="currentColor" />
+    </>
+  ) : kind === "map" ? (
+    <>
+      {Array.from({ length: 16 }, (_, i) => (
+        <path
+          d={`M${-130 + i * 26} 600 C${-100 + i * 29} 420 ${410 + i * 10} 520 ${290 + i * 23} 270 S${110 + i * 22} 120 ${350 + i * 22} -20`}
+          stroke="currentColor"
+          stroke-width="1"
+          opacity=".25"
+        />
+      ))}
+      <path
+        class="route-line"
+        d="M100 480C100 330 350 455 300 280S490 160 470 90"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-dasharray="6 7"
+      />
+      <circle cx="100" cy="480" r="10" fill="currentColor" />
+      <circle cx="300" cy="280" r="10" fill="currentColor" />
+      <circle cx="470" cy="90" r="10" fill="currentColor" />
+      <circle cx="470" cy="90" r="26" stroke="currentColor" />
+    </>
+  ) : (
+    <>
+      <path
+        d="M65 455V280a235 235 0 01470 0v175"
+        stroke="currentColor"
+        stroke-width="65"
+      />
+      <path
+        d="M180 455V285a120 120 0 01240 0v170"
+        stroke="currentColor"
+        stroke-width="35"
+      />
+      <path d="M278 455V300a22 22 0 0144 0v155" fill="currentColor" />
+    </>
+  )}
+</svg>

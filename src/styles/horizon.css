@@ -1,0 +1,345 @@
+.horizon {
+  --bg: #f5f8f5;
+  --ink: #153d50;
+  --accent: #12556b;
+  --line: #b8c9cc;
+  --soft: #e2eeec;
+  --display: "Manrope", sans-serif;
+  --sans: "Manrope", sans-serif;
+}
+.horizon h1,
+.horizon h2,
+.horizon h3 {
+  font-weight: 600;
+}
+.horizon h1 {
+  font-size: clamp(70px, 9.8vw, 148px);
+  line-height: 1.01;
+  letter-spacing: -0.065em;
+}
+.horizon h2 {
+  font-size: clamp(40px, 4.5vw, 65px);
+  line-height: 1.12;
+  letter-spacing: -0.055em;
+}
+.horizon .button {
+  border-radius: 100px;
+}
+.horizon .wordmark {
+  font-weight: 800;
+}
+.horizon-top {
+  padding: 55px 0 50px;
+  position: relative;
+}
+.horizon-top > .eyebrow {
+  margin-bottom: 26px;
+}
+.horizon-top h1 > span {
+  color: #3d747e;
+}
+.horizon-intro {
+  position: absolute;
+  right: 0;
+  bottom: 63px;
+  font-size: 14px;
+}
+.horizon-intro .button {
+  margin-top: 22px;
+}
+.horizon-landscape {
+  position: relative;
+  height: 530px;
+  overflow: hidden;
+}
+.horizon-landscape > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 62%;
+}
+.landscape-label {
+  position: absolute;
+  bottom: 35px;
+  left: max(56px, calc((100% - 1280px) / 2));
+  right: max(56px, calc((100% - 1280px) / 2));
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.landscape-label > span {
+  font-size: clamp(28px, 3.5vw, 50px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  background: #f5f8f5;
+  padding: 25px 32px;
+}
+.landscape-label > a {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: var(--bg);
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  font-size: 30px;
+}
+.horizon-landscape figcaption {
+  position: absolute;
+  right: 24px;
+  top: 20px;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  background: #f5f8f5e8;
+  padding: 6px 10px;
+}
+.horizon-about h2 {
+  margin-top: 26px;
+}
+.horizon-about h2 > span {
+  color: #56747b;
+}
+.horizon-about-bottom {
+  display: grid;
+  grid-template-columns: 0.45fr 1.5fr 0.65fr;
+  gap: 65px;
+  margin-top: 54px;
+}
+.horizon-sun {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  width: 110px;
+  height: 110px;
+  background: #e8bd72;
+  font-size: 60px;
+}
+.horizon-about-bottom .lead {
+  font-size: 22px;
+}
+.horizon-about-bottom p:not(.lead) {
+  font-size: 15px;
+}
+.horizon-about-bottom .side-note {
+  border-left: 1px solid var(--line);
+  padding-left: 25px;
+  font-size: 13px;
+  line-height: 1.9;
+}
+.horizon .services {
+  padding-top: 20px;
+}
+.service-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--line);
+  gap: 12px;
+}
+.service-tabs > button {
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: none;
+  padding: 20px 16px;
+  text-align: left;
+  flex: 1;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+.service-tabs > button[aria-selected="true"] {
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 800;
+}
+.service-tabs > button:hover {
+  background: var(--soft);
+}
+.service-panel {
+  background: var(--soft);
+  padding: 64px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 70px;
+  min-height: 470px;
+}
+.panel-number {
+  font-size: clamp(120px, 14vw, 200px);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.08em;
+  color: #527e80;
+}
+.service-panel h3 {
+  font-size: clamp(30px, 3.5vw, 46px);
+  margin: 20px 0;
+}
+.service-panel p,
+.service-panel li {
+  font-size: 15px;
+}
+.service-panel > div:last-child {
+  max-width: 660px;
+}
+.horizon-statement {
+  background: #183f4a;
+  color: var(--bg);
+  padding: 64px;
+  margin-bottom: 100px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+}
+.horizon-statement > p {
+  font-size: clamp(35px, 4vw, 57px);
+  line-height: 1.18;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+}
+.horizon-statement > p > span {
+  color: #b9d4ca;
+}
+.horizon-statement .button {
+  background: #edcc91;
+  color: #183f4a;
+  white-space: nowrap;
+  border: 0;
+}
+.horizon .steps h3 {
+  font-size: 27px;
+}
+.horizon .booking-box {
+  border-radius: 18px;
+}
+.horizon .booking h2 {
+  font-size: clamp(42px, 4.8vw, 65px);
+}
+@media (max-width: 1100px) {
+  .horizon-intro {
+    position: static;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .horizon-intro .button {
+    margin: 0;
+  }
+  .horizon-about-bottom {
+    gap: 35px;
+  }
+  .horizon-statement {
+    padding: 42px;
+  }
+  .service-panel {
+    padding: 40px;
+    gap: 35px;
+  }
+  .landscape-label {
+    left: 32px;
+    right: 32px;
+  }
+}
+@media (max-width: 700px) {
+  .horizon-top {
+    padding: 30px 0 32px;
+  }
+  .horizon h1 {
+    font-size: 68px;
+  }
+  .horizon-top > .eyebrow {
+    font-size: 10px;
+  }
+  .horizon-intro {
+    display: block;
+    margin-top: 24px;
+    font-size: 14px;
+  }
+  .horizon-intro .button {
+    margin-top: 22px;
+  }
+  .horizon-landscape {
+    height: 390px;
+  }
+  .horizon-landscape > img {
+    object-position: 40% 50%;
+  }
+  .landscape-label {
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+  }
+  .landscape-label > span {
+    font-size: 25px;
+    padding: 20px;
+  }
+  .landscape-label > a {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+  }
+  .horizon-landscape figcaption {
+    font-size: 8px;
+    right: 12px;
+    top: 12px;
+  }
+  .horizon-about-bottom {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 30px;
+  }
+  .horizon-sun {
+    width: 65px;
+    height: 65px;
+    font-size: 35px;
+  }
+  .horizon-about-bottom .side-note {
+    display: none;
+  }
+  .horizon-about-bottom .lead {
+    font-size: 20px;
+  }
+  .service-tabs {
+    overflow-x: auto;
+    gap: 0;
+  }
+  .service-tabs > button {
+    min-width: 106px;
+    padding: 16px 10px;
+    font-size: 13px;
+  }
+  .service-tabs > button > span {
+    display: none;
+  }
+  .service-panel {
+    grid-template-columns: 1fr;
+    padding: 28px 24px;
+    gap: 24px;
+    min-height: 560px;
+  }
+  .panel-number {
+    font-size: 60px;
+  }
+  .service-panel h3 {
+    font-size: 32px;
+  }
+  .horizon-statement {
+    padding: 32px 24px;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 70px;
+    gap: 30px;
+  }
+  .horizon-statement > p {
+    font-size: 34px;
+  }
+  .horizon .booking h2 {
+    font-size: 42px;
+  }
+}
+@media (max-width: 700px) {
+  .horizon h1 {
+    font-size: clamp(49px, 14.4vw, 80px);
+  }
+}

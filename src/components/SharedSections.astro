@@ -1,0 +1,267 @@
+---
+import { business, steps, faqs, services, type Theme } from "../data/business";
+import { offers, stripeUrl, calLink } from "../data/offers";
+import Arrow from "./Arrow.astro";
+interface Props {
+  theme: Theme;
+}
+
+const calendar = calLink(import.meta.env.PUBLIC_CAL_LINK);
+const donation = stripeUrl(import.meta.env.PUBLIC_STRIPE_DONATION_URL);
+---
+
+<section class="process section" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <div class="section-heading">
+      <span class="eyebrow">A place to begin</span>
+      <h2 id="process-title">
+        You don’t need all
+        <br />
+        the answers to start.
+      </h2>
+      <p>
+        Bring your questions. Start a conversation about the life you want to
+        make room for.
+      </p>
+    </div>
+    <ol class="steps">
+      {steps.map((s, i) => (
+        <li>
+          <span class="step-number">0{i + 1}</span>
+          <h3>{s.title}</h3>
+          <p>{s.body}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+<section
+  class="arrangements section wrap"
+  id="payments"
+  aria-labelledby="arrangements-title"
+>
+  <div>
+    <span class="eyebrow">Working together</span>
+    <h2 id="arrangements-title">
+      Your goals.
+      <br />A thoughtful fit.
+    </h2>
+  </div>
+  <div>
+    <p class="lead">Start with a conversation about the support you need.</p>
+    <p>
+      Discuss your service, scope, fees, and payment arrangements with John
+      before moving forward.
+    </p>
+    <a class="text-link" href="#booking" data-interest="Services and pricing">
+      Ask about services & pricing <Arrow />
+    </a>
+  </div>
+  {offers.length > 0 && (
+    <div class="offers">
+      {offers.map((o) => (
+        <article class="offer">
+          <h3>{o.name}</h3>
+          <p>{o.description}</p>
+          <p>{o.fullPriceLabel}</p>
+          {stripeUrl(o.fullPaymentUrl) ? (
+            <a class="button" href={stripeUrl(o.fullPaymentUrl)!}>
+              Pay in full <Arrow />
+            </a>
+          ) : (
+            <a
+              class="button"
+              href="#booking"
+              data-interest={`${o.name}: payment in full`}
+            >
+              Arrange payment in full <Arrow />
+            </a>
+          )}
+          {o.installmentLabel && (
+            <>
+              <p>{o.installmentLabel}</p>
+              {stripeUrl(o.installmentUrl) ? (
+                <a class="text-link" href={stripeUrl(o.installmentUrl)!}>
+                  Choose installment plan <Arrow />
+                </a>
+              ) : (
+                <a
+                  class="text-link"
+                  href="#booking"
+                  data-interest={`${o.name}: installment plan`}
+                >
+                  Discuss installment plan <Arrow />
+                </a>
+              )}
+            </>
+          )}
+        </article>
+      ))}
+    </div>
+  )}
+</section>
+<section class="faq section wrap" id="faq" aria-labelledby="faq-title">
+  <div>
+    <span class="eyebrow">A little clarity</span>
+    <h2 id="faq-title">
+      Good questions.
+      <br />A clear beginning.
+    </h2>
+  </div>
+  <div class="faq-list">
+    {faqs.map((f) => (
+      <details>
+        <summary>
+          {f.q}
+          <span aria-hidden="true">+</span>
+        </summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+</section>
+<section class="booking section" id="booking" aria-labelledby="booking-title">
+  <div class="wrap booking-grid">
+    <div>
+      <span class="eyebrow">Your next small step</span>
+      <h2 id="booking-title">
+        Let’s make room
+        <br />
+        for what matters.
+      </h2>
+      <p>
+        Connect with John about travel, life’s transitions, and the
+        possibilities ahead.
+      </p>
+      <div class="contact-links">
+        <a href={`tel:${business.tel}`}>
+          {business.phone} <span aria-hidden="true">↗</span>
+        </a>
+        <a href={`mailto:${business.email}`}>
+          {business.email} <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <p class="contact-name">Your contact: {business.contact}</p>
+    </div>
+    <div class="booking-box">
+      {calendar ? (
+        <div class="calendar-booking">
+          <span class="eyebrow">A conversation with John</span>
+          <h3>Choose a time to connect.</h3>
+          <p>Open the calendar to see available appointments.</p>
+          <button class="button" data-open-calendar>
+            View appointments <Arrow />
+          </button>
+          <p class="small">
+            You can also{" "}
+            <a
+              href={`https://cal.com/${calendar}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              open the calendar in a new tab
+            </a>{" "}
+            or contact John directly.
+          </p>
+        </div>
+      ) : (
+        <form id="consultation-form">
+          <span class="eyebrow">Start the conversation</span>
+          <h3>What’s on your mind?</h3>
+          <label for="interest">I’d like to talk about</label>
+          <select id="interest" name="interest">
+            {services.map((s) => (
+              <option>{s.label}</option>
+            ))}
+            <option>Services and pricing</option>
+            <option>Donations</option>
+            <option>Something else</option>
+          </select>
+          <label for="first-name">
+            Your name <span>(optional)</span>
+          </label>
+          <input
+            id="first-name"
+            name="name"
+            autocomplete="given-name"
+            maxlength="80"
+          />
+          <button class="button" type="submit">
+            Request a consultation <Arrow />
+          </button>
+          <p class="small">
+            Opens a message in your email app. Your request is sent only when
+            you send that email. Prefer to talk?{" "}
+            <a href={`tel:${business.tel}`}>Call John</a>.
+          </p>
+          <p id="email-status" role="status" class="small"></p>
+        </form>
+      )}
+      <p class="privacy-note">
+        Please leave medical records and sensitive personal details out of your
+        message. <a href="/privacy">Privacy policy</a>
+      </p>
+    </div>
+  </div>
+</section>
+<aside class="giving wrap">
+  <div>
+    <span class="eyebrow">Small moments. Shared meaning.</span>
+    <p>Interested in supporting Making Small Memories?</p>
+  </div>
+  {donation ? (
+    <a class="text-link" href={donation}>
+      Make a donation <Arrow />
+    </a>
+  ) : (
+    <a
+      class="text-link"
+      href={`mailto:${business.email}?subject=Donation%20inquiry`}
+    >
+      Ask about donations <Arrow />
+    </a>
+  )}
+</aside>
+<footer class="footer wrap">
+  <a href="#main" class="wordmark">
+    Making Small
+    <br />
+    <span>Memories.</span>
+  </a>
+  <p>Slow down. Connect. Make a memory.</p>
+  <div>
+    <a href="/privacy">Privacy policy</a>
+    <a href="/">
+      View all four designs <span aria-hidden="true">↗</span>
+    </a>
+    <small>
+      © {new Date().getFullYear()} {business.legalName}
+    </small>
+  </div>
+</footer>
+{calendar && (
+  <dialog
+    class="calendar-dialog"
+    aria-labelledby="calendar-title"
+    data-calendar={calendar}
+  >
+    <div class="dialog-heading">
+      <h2 id="calendar-title">A conversation with John</h2>
+      <button class="dialog-close" aria-label="Close appointment calendar">
+        Close ×
+      </button>
+    </div>
+    <div id="cal-inline"></div>
+    <p class="small">
+      Calendar not appearing?{" "}
+      <a
+        href={`https://cal.com/${calendar}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open Cal.com in a new tab
+      </a>{" "}
+      or <a href={`tel:${business.tel}`}>call John</a>.
+    </p>
+  </dialog>
+)}

@@ -1,0 +1,283 @@
+{
+  "base": "https://making-small-memories-concepts.xenvya.workers.dev",
+  "checkedAt": "2026-09-09T00:47:08.457Z",
+  "note": "Observed browser load measurements, not a throttled Lighthouse benchmark.",
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "metrics": {
+        "cls": 0.000741047981168017,
+        "lcp": 328,
+        "bytes": 255011,
+        "requests": 10
+      },
+      "invalidAnchors": [],
+      "errors": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ],
+      "internalLinks": [
+        {
+          "href": "/",
+          "status": 200
+        },
+        {
+          "href": "/concept-one",
+          "status": 200
+        },
+        {
+          "href": "/concept-two",
+          "status": 200
+        },
+        {
+          "href": "/concept-three",
+          "status": 200
+        },
+        {
+          "href": "/concept-four",
+          "status": 200
+        },
+        {
+          "href": "/privacy",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/concept-one",
+      "status": 200,
+      "metrics": {
+        "cls": 0.008910488667723574,
+        "lcp": 124,
+        "bytes": 99088,
+        "requests": 8
+      },
+      "invalidAnchors": [],
+      "errors": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ],
+      "internalLinks": [
+        {
+          "href": "/privacy",
+          "status": 200
+        },
+        {
+          "href": "/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/concept-two",
+      "status": 200,
+      "metrics": {
+        "cls": 0.003742932581018518,
+        "lcp": 144,
+        "bytes": 293873,
+        "requests": 7
+      },
+      "invalidAnchors": [],
+      "errors": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ],
+      "internalLinks": [
+        {
+          "href": "/privacy",
+          "status": 200
+        },
+        {
+          "href": "/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/concept-three",
+      "status": 200,
+      "metrics": {
+        "cls": 0.0018277215877580055,
+        "lcp": 120,
+        "bytes": 70576,
+        "requests": 7
+      },
+      "invalidAnchors": [],
+      "errors": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ],
+      "internalLinks": [
+        {
+          "href": "/privacy",
+          "status": 200
+        },
+        {
+          "href": "/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/concept-four",
+      "status": 200,
+      "metrics": {
+        "cls": 0.007860146710431134,
+        "lcp": 128,
+        "bytes": 78652,
+        "requests": 8
+      },
+      "invalidAnchors": [],
+      "errors": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ],
+      "internalLinks": [
+        {
+          "href": "/privacy",
+          "status": 200
+        },
+        {
+          "href": "/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/privacy",
+      "status": 200,
+      "metrics": {
+        "cls": 0.008497522876880787,
+        "lcp": 112,
+        "bytes": 35358,
+        "requests": 4
+      },
+      "invalidAnchors": [],
+      "errors": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ],
+      "internalLinks": [
+        {
+          "href": "/",
+          "status": 200
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "making-small-memories-concepts",
+  "account_id": "1ebe80039762616a77000dcc7f6b9bda",
+  "compatibility_date": "2026-09-08",
+  "assets": { "directory": "./dist", "html_handling": "drop-trailing-slash", "not_found_handling": "404-page" },
+  "observability": { "enabled": true, "traces": { "enabled": true } }
+}

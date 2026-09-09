@@ -1,0 +1,56 @@
+{
+  "name": "making-small-memories-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "dev": "astro dev --host 0.0.0.0",
+    "build": "astro build",
+    "preview": "astro preview --host 0.0.0.0",
+    "check": "astro check",
+    "lint": "prettier --check src tests scripts astro.config.mjs playwright.config.ts",
+    "format": "prettier --write src tests scripts astro.config.mjs playwright.config.ts",
+    "deploy": "wrangler deploy",
+    "deploy:check": "wrangler deploy --dry-run",
+    "test:integrations": "node scripts/integration-qa.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xenvya/making-small-memories-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/xenvya/making-small-memories-site/issues"
+  },
+  "homepage": "https://github.com/xenvya/making-small-memories-site#readme",
+  "dependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/dm-sans": "^5.3.0",
+    "@fontsource/fraunces": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/manrope": "^5.3.0",
+    "@fontsource/space-grotesk": "^5.3.0",
+    "astro": "^7.3.2",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.5.0",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^1.0.0",
+    "sharp": "^0.35.4",
+    "wrangler": "^4.130.0"
+  },
+  "overrides": {
+    "sharp": "^0.35.4"
+  }
+}

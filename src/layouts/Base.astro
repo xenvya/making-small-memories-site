@@ -1,0 +1,84 @@
+---
+import "@fontsource/dm-sans/latin-400.css";
+import "@fontsource/dm-sans/latin-500.css";
+import "@fontsource/dm-sans/latin-700.css";
+import "../styles/global.css";
+import { business } from "../data/business";
+interface Props {
+  title: string;
+  description?: string;
+  theme?: string;
+}
+const {
+  title,
+  description = "Thoughtful travel, life coaching, VA benefits guidance, retirement planning, and investment education. Make room for what matters with Making Small Memories.",
+  theme = "gallery",
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | Making Small Memories</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f4f0e8" />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${title} | Making Small Memories`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta
+      property="og:image"
+      content={new URL("/images/social.jpg", Astro.site)}
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: business.legalName,
+        email: business.email,
+        telephone: business.tel,
+        url: Astro.site,
+      })}
+    ></script>
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
+    <noscript>
+      <style>
+        .service-panel[hidden] {
+          display: grid !important;
+        }
+        .service-tabs {
+          display: none !important;
+        }
+        .site-header nav {
+          display: flex !important;
+        }
+        .menu-toggle {
+          display: none !important;
+        }
+      </style>
+    </noscript>
+    <slot name="head" />
+  </head>
+  <body class={theme}>
+    <a class="skip" href="#main">
+      Skip to content
+    </a>
+    <slot />
+    <script>
+      import "../scripts/site";
+    </script>
+  </body>
+</html>

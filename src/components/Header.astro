@@ -1,0 +1,26 @@
+---
+const { theme } = Astro.props;
+---
+
+<header class="site-header wrap">
+  <a href="#main" class="wordmark" aria-label="Making Small Memories home">
+    Making Small
+    <br />
+    <span>
+      Memories<span class="wordmark-dot">.</span>
+    </span>
+  </a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">
+    Menu <span aria-hidden="true">+</span>
+  </button>
+  <nav id="main-nav" aria-label="Main navigation">
+    <a href="#about">Our purpose</a>
+    <a href="#services">
+      {theme === "fieldnotes" ? "The field guide" : "How we help"}
+    </a>
+    <a href="#faq">Questions</a>
+    <a class="nav-cta" href="#booking">
+      Let’s talk <span aria-hidden="true">↗</span>
+    </a>
+  </nav>
+</header>
