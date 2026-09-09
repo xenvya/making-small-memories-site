@@ -6,7 +6,7 @@ Live gallery: https://making-small-memories-concepts.xenvya.workers.dev
 
 Direct routes: `/concept-one`, `/concept-two`, `/concept-three`, `/concept-four`, `/concept-five`; shared privacy route `/privacy`; custom 404.
 
-Cloudflare account: Terrance@xenvya.com's Account (`1ebe80039762616a77000dcc7f6b9bda`). Worker: `making-small-memories-concepts`. Final deployed version: `e4770fdb-cec8-430e-b4a7-3c6d8de12cec`. Static HTML/assets deployment succeeded. Public HTTPS routes and response headers verified. No custom-domain DNS or existing Worker was changed.
+Cloudflare account: Terrance@xenvya.com's Account (`1ebe80039762616a77000dcc7f6b9bda`). Worker: `making-small-memories-concepts`. Final deployed version: `6f0e4391-fb82-4a3b-869d-16c0e2e5bb0c`. Static HTML/assets deployment succeeded. Public HTTPS routes and response headers verified. No custom-domain DNS or existing Worker was changed.
 
 ## Completed checks
 
