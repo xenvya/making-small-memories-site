@@ -109,6 +109,12 @@
   object-fit: cover;
   object-position: 50% 25%;
 }
+.keepsake .portrait-print > img {
+  height: calc(100% - 24px);
+  object-fit: contain;
+  object-position: 50% 100%;
+  filter: drop-shadow(0 12px 14px rgba(64, 46, 37, 0.12));
+}
 .portrait-print figcaption {
   font-family: var(--sans);
   font-size: 10px;

@@ -7,6 +7,7 @@ export const business = {
   phone: "757-232-7664",
   tel: "+17572327664",
   email: "johncurtis.small324@gmail.com",
+  facebook: "https://www.facebook.com/johncsmalljr",
   mission:
     "We help people turn everyday moments into meaningful memories. Through thoughtful experiences, personalized details, and heartfelt creativity, we create opportunities to slow down, connect, celebrate, and cherish the little moments that become the stories we remember most.",
   vision:

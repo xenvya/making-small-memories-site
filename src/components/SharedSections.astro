@@ -179,6 +179,9 @@ const donation = stripeUrl(import.meta.env.PUBLIC_STRIPE_DONATION_URL);
         <a href={`mailto:${business.email}`}>
           {business.email} <span aria-hidden="true">↗</span>
         </a>
+        <a href={business.facebook} target="_blank" rel="noopener noreferrer">
+          Facebook <span aria-hidden="true">↗</span>
+        </a>
       </div>
       <p class="contact-name">Your contact: {business.contact}</p>
     </div>
