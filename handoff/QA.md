@@ -1,12 +1,12 @@
 # QA and release record
 
-Release date: September 8, 2026 (America/New_York).
+Release date: September 12, 2026 (America/New_York).
 
 Live gallery: https://making-small-memories-concepts.xenvya.workers.dev
 
 Direct routes: `/concept-one`, `/concept-two`, `/concept-three`, `/concept-four`, `/concept-five`; shared privacy route `/privacy`; custom 404.
 
-Cloudflare account: Terrance@xenvya.com's Account (`1ebe80039762616a77000dcc7f6b9bda`). Worker: `making-small-memories-concepts`. Final deployed version: `6f0e4391-fb82-4a3b-869d-16c0e2e5bb0c`. Static HTML/assets deployment succeeded. Public HTTPS routes and response headers verified. No custom-domain DNS or existing Worker was changed.
+Cloudflare account: Terrance@xenvya.com's Account (`1ebe80039762616a77000dcc7f6b9bda`). Worker: `making-small-memories-concepts`. Final deployed version: `1f4ea6e0-24d7-40c5-a94c-62064d474ca5`. Static HTML/assets deployment succeeded. Public HTTPS routes and response headers verified. No custom-domain DNS or existing Worker was changed.
 
 ## Completed checks
 
@@ -16,8 +16,8 @@ Cloudflare account: Terrance@xenvya.com's Account (`1ebe80039762616a77000dcc7f6b
 - `npm run build`: pass; 8 static HTML pages, no server runtime required.
 - `npm run deploy:check`: pass.
 - `npm audit`: 0 vulnerabilities (including development tooling).
-- `npm test`: 42 local browser scenarios passed.
-- `TEST_BASE_URL=https://making-small-memories-concepts.xenvya.workers.dev npm test`: 42 deployed browser scenarios passed.
+- `npm test`: 50 local browser scenarios passed, including seven brand-lockup checks and the separate in-progress VA.org resource check.
+- `TEST_BASE_URL=https://making-small-memories-concepts.xenvya.workers.dev npm test`: the established 42 deployed browser scenarios passed on the prior release; seven focused brand-lockup scenarios passed against this release.
 - `npm run test:integrations`: 11 scenarios passed. Five concepts × 390/1440px verify full-payment and installment URL/package associations, actual Cal.com embed bootstrap with the appointment document intercepted, mobile modal sizing, Escape/close, focus containment and restoration. Additional blocked-script scenario verifies readable fallback and modal accessibility. Synthetic offers are confined to ignored `tmp/activation/`, not `dist/`.
 - axe WCAG 2 A/AA and WCAG 2.1 AA audits passed on the gallery, all concepts and privacy at 390, 768 and 1440px. These automated audits supplement visual/keyboard review and are not a formal accessibility certification.
 - Responsive screenshot and layout review at 390, 768 and 1440px. Additional overflow checks at 320, 1024 and 1920px. All sections, actual gallery screenshots, typography, navigation, form controls and footers reviewed.
