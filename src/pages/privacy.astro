@@ -1,14 +1,13 @@
 ---
 import Base from "../layouts/Base.astro";
+import Brand from "../components/Brand.astro";
 import { business } from "../data/business";
 ---
 
 <Base title="Privacy policy">
   <header class="site-header legal-header wrap">
-    <a class="wordmark" href="/">
-      Making Small
-      <br />
-      <span>Memories.</span>
+    <a class="wordmark" href="/" aria-label="Making Small Memories home">
+      <Brand />
     </a>
     <a href="/">Back to the collection</a>
   </header>

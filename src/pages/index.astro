@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import { concepts } from "../data/business";
 import Arrow from "../components/Arrow.astro";
+import Brand from "../components/Brand.astro";
 import "@fontsource/cormorant-garamond/latin-400.css";
 import "../styles/gallery.css";
 ---
@@ -11,10 +12,8 @@ import "../styles/gallery.css";
   description="Explore five distinct website directions for Making Small Memories: The Keepsake, Open Horizon, Field Notes, and Golden Hour, and Living Moments."
 >
   <header class="gallery-header wrap">
-    <a class="wordmark" href="/">
-      Making Small
-      <br />
-      <span>Memories.</span>
+    <a class="wordmark" href="/" aria-label="Making Small Memories home">
+      <Brand />
     </a>
     <span class="eyebrow">A collection of possibilities / 2026</span>
     <a href="#collection" class="text-link">

@@ -1,0 +1,80 @@
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.58em;
+  width: fit-content;
+}
+
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.58em;
+  font-family: "DM Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.brand-symbol {
+  width: 1.72em;
+  height: 1.72em;
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
+.brand-orbit {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 1.55;
+}
+
+.brand-orbit--outer {
+  opacity: 0.44;
+}
+
+.brand-orbit--inner {
+  opacity: 0.82;
+}
+
+.brand-moment {
+  fill: var(--accent, currentColor);
+}
+
+.brand-spark {
+  fill: none;
+  stroke: var(--accent, currentColor);
+  stroke-linecap: round;
+  stroke-width: 1.6;
+}
+
+.brand-name {
+  display: grid;
+  line-height: 0.89;
+  white-space: nowrap;
+}
+
+.brand-name > span:first-child {
+  letter-spacing: -0.055em;
+}
+
+.brand-name > span:last-child {
+  letter-spacing: -0.04em;
+}
+
+.brand-period {
+  color: var(--accent, currentColor);
+}
+
+.keepsake .brand-period {
+  display: inline;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .wordmark .brand-symbol {
+    transition: transform 320ms ease;
+  }
+
+  .wordmark:hover .brand-symbol {
+    transform: rotate(8deg);
+  }
+}

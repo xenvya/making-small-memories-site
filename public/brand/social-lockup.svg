@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="470" height="155" viewBox="0 0 470 155">
+  <rect width="470" height="155" rx="3" fill="#f6f0e6"/>
+  <g transform="translate(28 25)">
+    <g transform="translate(0 8) scale(1.25)">
+      <path d="M39.6 28.9A16.3 16.3 0 1 1 27.1 7.9" fill="none" stroke="#402e25" stroke-linecap="round" stroke-width="1.55" opacity=".44"/>
+      <path d="M15.2 13.9A12.4 12.4 0 0 1 36.1 26.5 12.4 12.4 0 0 1 19.4 35.2" fill="none" stroke="#402e25" stroke-linecap="round" stroke-width="1.55" opacity=".82"/>
+      <circle cx="24" cy="24" r="3.35" fill="#98442f"/>
+      <path d="M37.6 5.5v7.2M34 9.1h7.2" fill="none" stroke="#98442f" stroke-linecap="round" stroke-width="1.6"/>
+    </g>
+    <g fill="#402e25" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700" letter-spacing="-1.4">
+      <text x="76" y="35">Making Small</text>
+      <text x="76" y="62">Memories<tspan fill="#98442f">.</tspan></text>
+    </g>
+    <text x="76" y="94" fill="#756055" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing=".7">SLOW DOWN. CONNECT. MAKE A MEMORY.</text>
+  </g>
+</svg>

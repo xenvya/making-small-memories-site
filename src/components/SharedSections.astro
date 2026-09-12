@@ -2,6 +2,7 @@
 import { business, steps, faqs, services, type Theme } from "../data/business";
 import { offers, stripeUrl, calLink } from "../data/offers";
 import Arrow from "./Arrow.astro";
+import Brand from "./Brand.astro";
 import DemoExperiences from "./DemoExperiences.astro";
 import LineIcon from "./LineIcon.astro";
 interface Props {
@@ -283,10 +284,8 @@ const donation = stripeUrl(import.meta.env.PUBLIC_STRIPE_DONATION_URL);
   )}
 </aside>
 <footer class="footer wrap">
-  <a href="#main" class="wordmark">
-    Making Small
-    <br />
-    <span>Memories.</span>
+  <a href="#main" class="wordmark" aria-label="Making Small Memories home">
+    <Brand />
   </a>
   <p>Slow down. Connect. Make a memory.</p>
   <div>
