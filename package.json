@@ -16,7 +16,8 @@
     "format": "prettier --write src tests scripts astro.config.mjs playwright.config.ts",
     "deploy": "wrangler deploy",
     "deploy:check": "wrangler deploy --dry-run",
-    "test:integrations": "node scripts/integration-qa.mjs"
+    "test:integrations": "node scripts/integration-qa.mjs",
+    "images:travel": "node scripts/prepare-travel-gallery.mjs"
   },
   "repository": {
     "type": "git",

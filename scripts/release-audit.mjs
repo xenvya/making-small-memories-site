@@ -27,11 +27,21 @@ for (const path of ["/", "/privacy"]) {
   });
   const response = await page.goto(base + path);
   await page.evaluate(() => document.fonts.ready);
+  const galleryMore = page.locator(
+    '[data-gallery-more][aria-expanded="false"]',
+  );
+  if (await galleryMore.count()) await galleryMore.click();
   await page.evaluate(() => scrollTo(0, document.body.scrollHeight));
-  await page
-    .locator("img")
+  await page.locator("img[src]").evaluateAll(async (imgs) => {
+    imgs.forEach((img) => (img.loading = "eager"));
+    await Promise.all(imgs.map((img) => img.decode().catch(() => {})));
+  });
+  const brokenImages = await page
+    .locator("img[src]")
     .evaluateAll((imgs) =>
-      Promise.all(imgs.map((i) => i.decode().catch(() => {}))),
+      imgs
+        .filter((img) => !img.complete || !img.naturalWidth)
+        .map((img) => img.currentSrc || img.src),
     );
   await page.evaluate(() => scrollTo(0, 0));
   const invalidAnchors = await page
@@ -90,6 +100,7 @@ for (const path of ["/", "/privacy"]) {
     metrics,
     invalidAnchors,
     errors,
+    brokenImages,
     widths,
     internalLinks: linkResults,
   });
@@ -118,6 +129,7 @@ console.log(
       lcpMs: Math.round(r.metrics.lcp),
       transferKB: Math.round(r.metrics.bytes / 1024),
       errors: r.errors,
+      brokenImages: r.brokenImages,
       invalidAnchors: r.invalidAnchors,
       overflow: r.widths.filter((w) => w.overflow),
       badLinks: r.internalLinks.filter((l) => l.status !== 200),
@@ -130,6 +142,7 @@ if (
   report.some(
     (r) =>
       r.errors.length ||
+      r.brokenImages.length ||
       r.invalidAnchors.length ||
       r.widths.some((w) => w.overflow) ||
       r.internalLinks.some((l) => l.status !== 200),

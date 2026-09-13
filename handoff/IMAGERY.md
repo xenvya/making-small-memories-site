@@ -6,6 +6,10 @@ The user supplied `docs/john.jpg` and explicitly requested incorporation into th
 
 For Concept One, the user later supplied `docs/IMG_5623.heic`, a 4032 × 3024 movie-theater portrait, and requested a complete background and foreground-plant removal. The project-specific exports are `public/images/john-and-veronica-movies-cutout.webp` (1086 × 1448) and `public/images/john-and-veronica-movies-cutout-small.webp` (600 × 800). Both are lossless WebP files with real alpha transparency and stripped metadata. The source background and vegetation were removed, small occluded lower-body areas were reconstructed, and the final subject mask was alpha-matted and visually checked on the Concept One cream background. The other four concepts retain the earlier supplied portrait.
 
+## Travel gallery
+
+The user supplied and authorized all 33 travel photographs in the numbered subfolders of `docs/images-to-use/`. Their display order and accessible descriptions are recorded in `src/data/travelPhotos.json`. `npm run images:travel` creates a full and thumbnail WebP for each photograph in `public/images/travel/`, applies embedded orientation, strips EXIF/location metadata, preserves the original aspect ratio, and never enlarges a source beyond its available resolution. The source folders remain local and excluded from deployment.
+
 ## Initial source-access history
 
 ## John C. Small Jr. and Veronica Kouassi Small

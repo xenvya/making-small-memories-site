@@ -26,7 +26,8 @@ for (const width of [390, 768, 1440])
           images
             .filter(
               (image) =>
-                !(image as HTMLImageElement).complete ||
+                image.hasAttribute("src") &&
+                (image as HTMLImageElement).complete &&
                 !(image as HTMLImageElement).naturalWidth,
             )
             .map((image) => (image as HTMLImageElement).src),
@@ -96,6 +97,43 @@ test("homepage exposes the approved external resources", async ({ page }) => {
   );
 });
 
+test("travel gallery exposes all photographs and keyboard lightbox navigation", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const gallery = page.locator("[data-travel-gallery]");
+  const items = gallery.locator("[data-gallery-index]");
+  await expect(gallery).toBeVisible();
+  await expect(items).toHaveCount(33);
+  await expect(items.nth(7)).toBeVisible();
+  await expect(items.nth(8)).toBeHidden();
+
+  const more = gallery.locator("[data-gallery-more]");
+  await expect(more).toHaveAccessibleName("View all 33 photographs");
+  await more.click();
+  await expect(more).toHaveAttribute("aria-expanded", "true");
+  await expect(items.last()).toBeVisible();
+
+  await items.first().click();
+  const lightbox = gallery.locator("[data-travel-lightbox]");
+  await expect(lightbox).toBeVisible();
+  await expect(lightbox.locator("[data-lightbox-count]")).toHaveText(
+    "Travel memory 1 of 33",
+  );
+  await expect(lightbox.locator("[data-lightbox-image]")).toHaveAttribute(
+    "src",
+    "/images/travel/travel-memory-01.webp",
+  );
+
+  await page.keyboard.press("ArrowRight");
+  await expect(lightbox.locator("[data-lightbox-count]")).toHaveText(
+    "Travel memory 2 of 33",
+  );
+  await page.keyboard.press("Escape");
+  await expect(lightbox).not.toBeVisible();
+  await expect(items.first()).toBeFocused();
+});
+
 for (const path of [
   "/concept-one",
   "/concept-two",
@@ -121,6 +159,8 @@ test("No JavaScript preserves service and contact content", async ({
     page.getByText("Investment options & strategies", { exact: true }).first(),
   ).toBeVisible();
   await expect(page.locator("#booking")).toBeAttached();
+  await expect(page.locator("[data-gallery-index]")).toHaveCount(33);
+  await expect(page.locator("[data-gallery-index]").last()).toBeVisible();
   await context.close();
 });
 

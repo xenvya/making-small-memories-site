@@ -1,0 +1,444 @@
+---
+import photos from "../data/travelPhotos.json";
+
+const featuredSlugs = [
+  "travel-memory-01",
+  "travel-memory-02",
+  "travel-memory-05",
+  "travel-memory-07",
+  "travel-memory-08",
+  "travel-memory-10",
+  "travel-memory-17",
+  "travel-memory-31",
+];
+const featured = featuredSlugs.flatMap((slug) =>
+  photos.filter((photo) => photo.slug === slug),
+);
+const orderedPhotos = [
+  ...featured,
+  ...photos.filter((photo) => !featuredSlugs.includes(photo.slug)),
+];
+const photoCount = photos.length;
+---
+
+<section
+  class="travel-gallery"
+  aria-labelledby="travel-gallery-title"
+  data-travel-gallery
+>
+  <div class="travel-gallery-heading">
+    <div>
+      <span class="eyebrow">Travel memories · {photoCount} photographs</span>
+      <h3 id="travel-gallery-title">A few places. A lifetime of stories.</h3>
+    </div>
+    <p>
+      Cruises, coastlines, celebrations, and the people who made every journey
+      matter.
+    </p>
+  </div>
+
+  <div class="travel-gallery-grid" id="travel-gallery-grid">
+    {orderedPhotos.map((photo, index) => (
+      <button
+        class="travel-gallery-item"
+        type="button"
+        data-gallery-index={index}
+        data-full={`/images/travel/${photo.slug}.webp`}
+        data-alt={photo.alt}
+        aria-label={`Open travel memory ${index + 1}: ${photo.alt}`}
+      >
+        <img
+          src={`/images/travel/${photo.slug}-thumb.webp`}
+          alt={photo.alt}
+          width="720"
+          height="540"
+          loading={index < 8 ? "eager" : "lazy"}
+          decoding="async"
+        />
+        <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+      </button>
+    ))}
+  </div>
+
+  <button
+    class="travel-gallery-more"
+    type="button"
+    aria-expanded="false"
+    aria-controls="travel-gallery-grid"
+    data-gallery-more
+  >
+    <span data-gallery-more-label>View all {photoCount} photographs</span>
+    <span aria-hidden="true">↓</span>
+  </button>
+
+  <dialog
+    class="travel-lightbox"
+    aria-labelledby="travel-lightbox-caption"
+    data-travel-lightbox
+  >
+    <div class="travel-lightbox-shell">
+      <header>
+        <span class="eyebrow" data-lightbox-count aria-live="polite"></span>
+        <button type="button" data-lightbox-close>
+          Close <span aria-hidden="true">×</span>
+        </button>
+      </header>
+      <figure>
+        <img data-lightbox-image alt="" />
+        <figcaption
+          id="travel-lightbox-caption"
+          data-lightbox-caption
+        ></figcaption>
+      </figure>
+      <nav aria-label="Travel gallery navigation">
+        <button type="button" data-lightbox-previous>
+          <span aria-hidden="true">←</span> Previous
+        </button>
+        <button type="button" data-lightbox-next>
+          Next <span aria-hidden="true">→</span>
+        </button>
+      </nav>
+    </div>
+  </dialog>
+</section>
+
+<script>
+  const galleries = document.querySelectorAll<HTMLElement>(
+    "[data-travel-gallery]",
+  );
+
+  galleries.forEach((gallery) => {
+    const items = [
+      ...gallery.querySelectorAll<HTMLButtonElement>("[data-gallery-index]"),
+    ];
+    const moreButton = gallery.querySelector<HTMLButtonElement>(
+      "[data-gallery-more]",
+    );
+    const moreLabel = gallery.querySelector<HTMLElement>(
+      "[data-gallery-more-label]",
+    );
+    const dialog = gallery.querySelector<HTMLDialogElement>(
+      "[data-travel-lightbox]",
+    );
+    const image = gallery.querySelector<HTMLImageElement>(
+      "[data-lightbox-image]",
+    );
+    const caption = gallery.querySelector<HTMLElement>(
+      "[data-lightbox-caption]",
+    );
+    const counter = gallery.querySelector<HTMLElement>("[data-lightbox-count]");
+    const closeButton = gallery.querySelector<HTMLButtonElement>(
+      "[data-lightbox-close]",
+    );
+    const previousButton = gallery.querySelector<HTMLButtonElement>(
+      "[data-lightbox-previous]",
+    );
+    const nextButton = gallery.querySelector<HTMLButtonElement>(
+      "[data-lightbox-next]",
+    );
+
+    if (
+      !moreButton ||
+      !moreLabel ||
+      !dialog ||
+      !image ||
+      !caption ||
+      !counter ||
+      !closeButton ||
+      !previousButton ||
+      !nextButton
+    )
+      return;
+
+    let currentIndex = 0;
+    let lastTrigger: HTMLButtonElement | null = null;
+
+    const preload = (index: number) => {
+      const source = items[index]?.dataset.full;
+      if (!source) return;
+      const preloadImage = new Image();
+      preloadImage.src = source;
+    };
+
+    const render = (index: number) => {
+      currentIndex = (index + items.length) % items.length;
+      const item = items[currentIndex];
+      const source = item.dataset.full || "";
+      const alt = item.dataset.alt || "Travel memory";
+      image.src = source;
+      image.alt = alt;
+      caption.textContent = alt;
+      counter.textContent = `Travel memory ${currentIndex + 1} of ${items.length}`;
+      preload((currentIndex - 1 + items.length) % items.length);
+      preload((currentIndex + 1) % items.length);
+    };
+
+    moreButton.addEventListener("click", () => {
+      const expanded = gallery.dataset.expanded === "true";
+      gallery.dataset.expanded = String(!expanded);
+      moreButton.setAttribute("aria-expanded", String(!expanded));
+      moreLabel.textContent = expanded
+        ? `View all ${items.length} photographs`
+        : "Show fewer photographs";
+      moreButton.querySelector<HTMLElement>("[aria-hidden]")!.textContent =
+        expanded ? "↓" : "↑";
+    });
+
+    items.forEach((item, index) => {
+      item.addEventListener("click", () => {
+        lastTrigger = item;
+        render(index);
+        if (typeof dialog.showModal === "function") dialog.showModal();
+        else window.open(item.dataset.full, "_blank", "noopener,noreferrer");
+      });
+    });
+
+    closeButton.addEventListener("click", () => dialog.close());
+    previousButton.addEventListener("click", () => render(currentIndex - 1));
+    nextButton.addEventListener("click", () => render(currentIndex + 1));
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+    dialog.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        render(currentIndex - 1);
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        render(currentIndex + 1);
+      }
+    });
+    dialog.addEventListener("close", () => lastTrigger?.focus());
+  });
+</script>
+
+<style>
+  .travel-gallery {
+    margin: 10px 0 54px;
+    padding: clamp(28px, 4vw, 52px);
+    border: 1px solid var(--line);
+    background: color-mix(in srgb, var(--soft) 58%, var(--bg));
+  }
+
+  .travel-gallery-heading {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    align-items: end;
+    gap: 40px;
+    margin-bottom: 34px;
+  }
+
+  .travel-gallery-heading .eyebrow {
+    margin-bottom: 14px;
+  }
+
+  .travel-gallery-heading h3 {
+    max-width: 650px;
+    font-size: clamp(34px, 4vw, 54px);
+  }
+
+  .travel-gallery-heading p {
+    max-width: 420px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .travel-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .travel-gallery-item {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    padding: 0;
+    border: 0;
+    background: #d9cdbf;
+    color: #fff;
+  }
+
+  .travel-gallery-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 62%, #1e151080);
+    pointer-events: none;
+  }
+
+  .travel-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 300ms ease;
+  }
+
+  .travel-gallery-item > span {
+    position: absolute;
+    z-index: 1;
+    right: 12px;
+    bottom: 10px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+
+  .travel-gallery-item:hover img {
+    transform: scale(1.035);
+  }
+
+  .travel-gallery-item:focus-visible {
+    z-index: 2;
+    outline-color: var(--accent);
+    outline-offset: 4px;
+  }
+
+  :global(.js)
+    .travel-gallery:not([data-expanded="true"])
+    .travel-gallery-item:nth-child(n + 9) {
+    display: none;
+  }
+
+  .travel-gallery-more {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    min-height: 54px;
+    margin-top: 18px;
+    padding: 14px 18px;
+    border: 1px solid var(--line);
+    background: transparent;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  :global(.js) .travel-gallery-more {
+    display: flex;
+  }
+
+  .travel-gallery-more:hover {
+    background: var(--bg);
+  }
+
+  .travel-lightbox {
+    width: min(1120px, calc(100% - 28px));
+    max-width: none;
+    max-height: 94dvh;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #6f5e52;
+    background: #211915;
+    color: #f8f0e5;
+  }
+
+  .travel-lightbox::backdrop {
+    background: #130d0acc;
+    backdrop-filter: blur(8px);
+  }
+
+  .travel-lightbox-shell {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    max-height: 94dvh;
+  }
+
+  .travel-lightbox header,
+  .travel-lightbox nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px 20px;
+  }
+
+  .travel-lightbox header {
+    border-bottom: 1px solid #6f5e52;
+  }
+
+  .travel-lightbox nav {
+    border-top: 1px solid #6f5e52;
+  }
+
+  .travel-lightbox button {
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font-size: 13px;
+  }
+
+  .travel-lightbox button:hover {
+    color: #f2bda9;
+  }
+
+  .travel-lightbox figure {
+    display: grid;
+    min-height: 0;
+    padding: 20px;
+  }
+
+  .travel-lightbox figure img {
+    width: 100%;
+    height: min(68dvh, 760px);
+    object-fit: contain;
+  }
+
+  .travel-lightbox figcaption {
+    max-width: 760px;
+    margin: 14px auto 0;
+    color: #cdbfb4;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .travel-gallery-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 700px) {
+    .travel-gallery {
+      margin-bottom: 42px;
+      padding: 22px 16px;
+    }
+
+    .travel-gallery-heading {
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .travel-gallery-heading h3 {
+      font-size: 36px;
+    }
+
+    .travel-gallery-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .travel-lightbox header,
+    .travel-lightbox nav {
+      padding: 10px 12px;
+    }
+
+    .travel-lightbox figure {
+      padding: 12px;
+    }
+
+    .travel-lightbox figure img {
+      height: 64dvh;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .travel-gallery-item img {
+      transition: none;
+    }
+  }
+</style>

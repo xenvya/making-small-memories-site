@@ -28,7 +28,7 @@ npm run deploy:check
 npm audit
 ```
 
-`npm test` runs browser scenarios including WCAG A/AA checks at mobile/tablet/desktop sizes, navigation, inquiries, FAQs, approved external resources, legacy redirects, and no-JavaScript fallback. `TEST_BASE_URL` switches the same suite to the deployed site. The integration harness builds synthetic offers/calendar data only into ignored `tmp/activation/`, checks the real Cal.com embed bootstrap with the appointment page intercepted, checks package/payment associations and modal keyboard behavior, and tests blocked-embed fallback. It never creates a real booking or charge and cannot publish its fixtures through the production `dist/` target.
+`npm test` runs browser scenarios including WCAG A/AA checks at mobile/tablet/desktop sizes, navigation, the 33-photo travel gallery and keyboard lightbox, inquiries, FAQs, approved external resources, legacy redirects, and no-JavaScript fallback. `TEST_BASE_URL` switches the same suite to the deployed site. The integration harness builds synthetic offers/calendar data only into ignored `tmp/activation/`, checks the real Cal.com embed bootstrap with the appointment page intercepted, checks package/payment associations and modal keyboard behavior, and tests blocked-embed fallback. It never creates a real booking or charge and cannot publish its fixtures through the production `dist/` target.
 
 ```sh
 TEST_BASE_URL=https://making-small-memories-concepts.xenvya.workers.dev npm test
@@ -40,6 +40,7 @@ The release audit checks all internal links and section anchors, console errors,
 ## Architecture
 
 - `src/data/business.ts`: source-backed mission, audience, services, contact and FAQs.
+- `src/data/travelPhotos.json`: ordered source manifest and accessible descriptions for the travel gallery.
 - `src/data/offers.ts`: typed offer configuration and hosted-URL validation; no invented offers.
 - `src/pages/index.astro`: the selected Keepsake homepage.
 - `src/components/`: shared semantic navigation, services, process, FAQs, payments, booking and footer.
@@ -48,11 +49,12 @@ The release audit checks all internal links and section anchors, console errors,
 - `public/`: only public web assets, response headers and crawl instructions.
 - `wrangler.jsonc`: Cloudflare Workers Static Assets deployment; no dynamic backend or database.
 
-Fonts are self-hosted. The homepage portrait is delivered as responsive WebP. Each route is prerendered HTML and remains readable without JavaScript. Booking loads no third-party code until the visitor opens the calendar. No analytics, browser-storage tracking, or card collection code has been added.
+Fonts are self-hosted. The homepage portrait and travel gallery are delivered as optimized, metadata-free WebP assets; rerun `npm run images:travel` after changing the gallery source manifest or files. Each route is prerendered HTML and remains readable without JavaScript. Booking loads no third-party code until the visitor opens the calendar. No analytics, browser-storage tracking, or card collection code has been added.
 
 ## Client activation and evidence
 
 - [Activation instructions](handoff/ACTIVATION.md)
+- [Invoice-first payment plan](handoff/PAYMENTS.md)
 - [Source audit and missing material](handoff/CONTENT-AUDIT.md)
 - [Photography requirements and artwork provenance](handoff/IMAGERY.md)
 - [QA and deployment record](handoff/QA.md)

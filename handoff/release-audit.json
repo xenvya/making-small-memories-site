@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:4321",
-  "checkedAt": "2026-09-13T21:39:25.728Z",
+  "checkedAt": "2026-09-13T22:45:36.329Z",
   "note": "Observed browser load measurements, not a throttled Lighthouse benchmark.",
   "pages": [
     {
@@ -8,12 +8,13 @@
       "status": 200,
       "metrics": {
         "cls": 0.007296858178980558,
-        "lcp": 104,
-        "bytes": 374332,
-        "requests": 10
+        "lcp": 60,
+        "bytes": 2361471,
+        "requests": 43
       },
       "invalidAnchors": [],
       "errors": [],
+      "brokenImages": [],
       "widths": [
         {
           "width": 320,
@@ -47,13 +48,14 @@
       "path": "/privacy",
       "status": 200,
       "metrics": {
-        "cls": 0.008497522876880787,
+        "cls": 0.00024395177770543982,
         "lcp": 20,
         "bytes": 39755,
         "requests": 4
       },
       "invalidAnchors": [],
       "errors": [],
+      "brokenImages": [],
       "widths": [
         {
           "width": 320,

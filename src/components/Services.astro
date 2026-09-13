@@ -2,6 +2,7 @@
 import { services } from "../data/business";
 import Arrow from "./Arrow.astro";
 import LineIcon from "./LineIcon.astro";
+import TravelGallery from "./TravelGallery.astro";
 ---
 
 <section
@@ -23,46 +24,49 @@ import LineIcon from "./LineIcon.astro";
   </div>
   <div class="service-rows">
     {services.map((service, index) => (
-      <article class="service-row">
-        <span class="service-no">0{index + 1}</span>
-        <div class="service-title">
-          <LineIcon kind={service.id} />
-          <span class="eyebrow">{service.category}</span>
-          <h3>{service.label}</h3>
-        </div>
-        <div class="service-copy">
-          <p>{service.description}</p>
-          {service.resource && (
-            <a
-              class="service-resource"
-              href={service.resource.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${service.resource.label} (opens in a new tab)`}
-            >
-              {service.resource.label} <span aria-hidden="true">↗</span>
-            </a>
-          )}
-          <details>
-            <summary>
-              What we can explore <span aria-hidden="true">+</span>
-            </summary>
-            <ul>
-              {service.details.map((detail) => (
-                <li>{detail}</li>
-              ))}
-            </ul>
-          </details>
-        </div>
-        <a
-          class="round-link"
-          href="#booking"
-          data-interest={service.label}
-          aria-label={`Discuss ${service.label}`}
-        >
-          <Arrow />
-        </a>
-      </article>
+      <>
+        <article class="service-row">
+          <span class="service-no">0{index + 1}</span>
+          <div class="service-title">
+            <LineIcon kind={service.id} />
+            <span class="eyebrow">{service.category}</span>
+            <h3>{service.label}</h3>
+          </div>
+          <div class="service-copy">
+            <p>{service.description}</p>
+            {service.resource && (
+              <a
+                class="service-resource"
+                href={service.resource.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${service.resource.label} (opens in a new tab)`}
+              >
+                {service.resource.label} <span aria-hidden="true">↗</span>
+              </a>
+            )}
+            <details>
+              <summary>
+                What we can explore <span aria-hidden="true">+</span>
+              </summary>
+              <ul>
+                {service.details.map((detail) => (
+                  <li>{detail}</li>
+                ))}
+              </ul>
+            </details>
+          </div>
+          <a
+            class="round-link"
+            href="#booking"
+            data-interest={service.label}
+            aria-label={`Discuss ${service.label}`}
+          >
+            <Arrow />
+          </a>
+        </article>
+        {service.id === "travel" && <TravelGallery />}
+      </>
     ))}
   </div>
 </section>
