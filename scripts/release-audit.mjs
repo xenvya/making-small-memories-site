@@ -4,15 +4,7 @@ const base = process.env.TEST_BASE_URL || "http://localhost:4321";
 const browser = await chromium.launch();
 const report = [];
 await fs.mkdir("handoff/screenshots", { recursive: true });
-for (const path of [
-  "/",
-  "/concept-one",
-  "/concept-two",
-  "/concept-three",
-  "/concept-four",
-  "/concept-five",
-  "/privacy",
-]) {
+for (const path of ["/", "/privacy"]) {
   const page = await browser.newPage({
     viewport: { width: 1440, height: 1000 },
     reducedMotion: "reduce",
@@ -57,7 +49,7 @@ for (const path of [
     requests: performance.getEntriesByType("resource").length,
   }));
   await page.screenshot({
-    path: `handoff/screenshots/live-${path === "/" ? "gallery" : path.slice(1)}-desktop.png`,
+    path: `handoff/screenshots/live-${path === "/" ? "home" : path.slice(1)}-desktop.png`,
     fullPage: true,
   });
   const widths = [];
@@ -71,7 +63,7 @@ for (const path of [
     });
     if (width === 390 || width === 768)
       await page.screenshot({
-        path: `handoff/screenshots/live-${path === "/" ? "gallery" : path.slice(1)}-${width}.png`,
+        path: `handoff/screenshots/live-${path === "/" ? "home" : path.slice(1)}-${width}.png`,
         fullPage: true,
       });
   }

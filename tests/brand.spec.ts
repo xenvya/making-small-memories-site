@@ -1,14 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const routes = [
-  "/",
-  "/concept-one",
-  "/concept-two",
-  "/concept-three",
-  "/concept-four",
-  "/concept-five",
-  "/privacy",
-];
+const routes = ["/", "/privacy"];
 
 for (const route of routes) {
   test(`${route}: presents the complete brand lockup`, async ({ page }) => {

@@ -259,6 +259,15 @@ button {
 .service-copy p {
   font-size: 15px;
 }
+.service-resource {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 500;
+}
 .service-copy details {
   margin-top: 18px;
 }

@@ -29,6 +29,7 @@ export const services = [
       "International destination and relocation exploration",
     ],
     note: "For the places you have been meaning to go.",
+    resource: null,
   },
   {
     id: "coaching",
@@ -43,6 +44,7 @@ export const services = [
       "Daily routines and stress management through change",
     ],
     note: "For a new direction, at your own pace.",
+    resource: null,
   },
   {
     id: "benefits",
@@ -57,6 +59,10 @@ export const services = [
       "Guidance on HISA, dental enrollment, and CHAMPVA options",
     ],
     note: "For clearer questions and a more organized next step.",
+    resource: {
+      label: "Visit VA.org",
+      url: "https://va.org",
+    },
   },
   {
     id: "retirement",
@@ -71,6 +77,7 @@ export const services = [
       "Workplace contribution and health-coverage planning",
     ],
     note: "For a retirement that feels like your own.",
+    resource: null,
   },
   {
     id: "investment",
@@ -85,6 +92,7 @@ export const services = [
       "Cash reserves, low-risk bonds, and growth foundations",
     ],
     note: "For thoughtful conversations about your future.",
+    resource: null,
   },
 ] as const;
 export const steps = [
@@ -131,56 +139,3 @@ export const faqs = [
     a: "Your name, a way to reach you, and the service you are interested in are a good starting point. Please do not send medical records or other highly sensitive information through email or scheduling forms.",
   },
 ];
-export const concepts = [
-  {
-    slug: "concept-one",
-    theme: "keepsake",
-    number: "01",
-    name: "The Keepsake",
-    line: "A life well lived. A moment well kept.",
-    rationale:
-      "For individuals and families seeking a personal connection. Warm paper tones, literary typography, and a collected, intimate composition make the first conversation feel approachable.",
-    tags: "Warm · Personal · Editorial",
-  },
-  {
-    slug: "concept-two",
-    theme: "horizon",
-    number: "02",
-    name: "Open Horizon",
-    line: "There’s more life out there.",
-    rationale:
-      "For retirees and explorers looking forward to possibility. Ocean blue, expansive scenery, and an interactive service compass turn planning into an invitation to explore.",
-    tags: "Expansive · Optimistic · Fluid",
-  },
-  {
-    slug: "concept-three",
-    theme: "fieldnotes",
-    number: "03",
-    name: "Field Notes",
-    line: "A little direction. A world of possibility.",
-    rationale:
-      "For veterans and people navigating a major transition. An olive field-guide palette, precise notation, and a scroll-aware route through the services create a calm sense of orientation.",
-    tags: "Grounded · Clear · Purposeful",
-  },
-  {
-    slug: "concept-four",
-    theme: "chapter",
-    number: "04",
-    name: "Golden Hour",
-    line: "Some moments change everything.",
-    rationale:
-      "For people ready to make life more meaningful. A cinematic aubergine-and-gold palette, intimate portraiture, animated celestial linework, and a hands-on journey selector bring warmth, energy, and discovery.",
-    tags: "Cinematic · Intimate · Alive",
-  },
-  {
-    slug: "concept-five",
-    theme: "kinetic",
-    number: "05",
-    name: "Living Moments",
-    line: "Life, in motion.",
-    rationale:
-      "For curious people who want to feel possibility. A responsive particle field, scroll-driven typography, moving portrait composition, and a draggable service journey make this the most interactive direction.",
-    tags: "Kinetic · Playful · Exploratory",
-  },
-] as const;
-export type Theme = (typeof concepts)[number]["theme"];

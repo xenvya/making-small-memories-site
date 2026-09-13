@@ -1,14 +1,10 @@
 ---
-import { business, steps, faqs, services, type Theme } from "../data/business";
+import { business, steps, faqs, services } from "../data/business";
 import { offers, stripeUrl, calLink } from "../data/offers";
 import Arrow from "./Arrow.astro";
 import Brand from "./Brand.astro";
 import DemoExperiences from "./DemoExperiences.astro";
 import LineIcon from "./LineIcon.astro";
-interface Props {
-  theme: Theme;
-}
-
 const calendar = calLink(import.meta.env.PUBLIC_CAL_LINK);
 const donation = stripeUrl(import.meta.env.PUBLIC_STRIPE_DONATION_URL);
 ---
@@ -290,9 +286,6 @@ const donation = stripeUrl(import.meta.env.PUBLIC_STRIPE_DONATION_URL);
   <p>Slow down. Connect. Make a memory.</p>
   <div>
     <a href="/privacy">Privacy policy</a>
-    <a href="/">
-      View all five designs <span aria-hidden="true">↗</span>
-    </a>
     <small>
       © {new Date().getFullYear()} {business.legalName}
     </small>

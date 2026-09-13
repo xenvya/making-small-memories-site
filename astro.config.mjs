@@ -5,5 +5,12 @@ export default defineConfig({
     "https://making-small-memories-concepts.xenvya.workers.dev",
   output: "static",
   trailingSlash: "never",
+  redirects: {
+    "/concept-one": "/",
+    "/concept-two": "/",
+    "/concept-three": "/",
+    "/concept-four": "/",
+    "/concept-five": "/",
+  },
   build: { format: "file" },
 });

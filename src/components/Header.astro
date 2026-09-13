@@ -1,7 +1,5 @@
 ---
 import Brand from "./Brand.astro";
-
-const { theme } = Astro.props;
 ---
 
 <header class="site-header wrap">
@@ -13,9 +11,7 @@ const { theme } = Astro.props;
   </button>
   <nav id="main-nav" aria-label="Main navigation">
     <a href="#about">Our purpose</a>
-    <a href="#services">
-      {theme === "fieldnotes" ? "The field guide" : "How we help"}
-    </a>
+    <a href="#services">How we help</a>
     <a href="#payments">Payments</a>
     <a class="nav-cta" href="#booking">
       Book a consultation <span aria-hidden="true">↗</span>

@@ -10,13 +10,20 @@ interface Props {
   title: string;
   description?: string;
   theme?: string;
+  robots?: string;
 }
 const {
   title,
   description = "Thoughtful travel, life coaching, VA benefits guidance, retirement planning, and investment education. Make room for what matters with Making Small Memories.",
   theme = "gallery",
+  robots = "index, follow",
 } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site);
+const canonicalPath = Astro.url.pathname
+  .replace(/\/index\.html$/, "/")
+  .replace(/\.html$/, "");
+const canonical = new URL(canonicalPath, Astro.site);
+const documentTitle =
+  title === business.name ? title : `${title} | ${business.name}`;
 ---
 
 <!doctype html>
@@ -24,14 +31,14 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title} | Making Small Memories</title>
+    <title>{documentTitle}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#f4f0e8" />
-    <meta name="robots" content="noindex, follow" />
+    <meta name="robots" content={robots} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={`${title} | Making Small Memories`} />
+    <meta property="og:title" content={documentTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta
