@@ -1,80 +1,44 @@
 .wordmark {
   display: inline-flex;
   align-items: center;
-  gap: 0.58em;
   width: fit-content;
 }
 
 .brand-lockup {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.58em;
-  font-family: "DM Sans", sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-}
-
-.brand-symbol {
-  width: 1.72em;
-  height: 1.72em;
+  display: block;
+  width: 176px;
   flex: 0 0 auto;
-  overflow: visible;
 }
 
-.brand-orbit {
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-width: 1.55;
+.brand-lockup--mark {
+  width: 156px;
 }
 
-.brand-orbit--outer {
-  opacity: 0.44;
-}
-
-.brand-orbit--inner {
-  opacity: 0.82;
-}
-
-.brand-moment {
-  fill: var(--accent, currentColor);
-}
-
-.brand-spark {
-  fill: none;
-  stroke: var(--accent, currentColor);
-  stroke-linecap: round;
-  stroke-width: 1.6;
-}
-
-.brand-name {
-  display: grid;
-  line-height: 0.89;
-  white-space: nowrap;
-}
-
-.brand-name > span:first-child {
-  letter-spacing: -0.055em;
-}
-
-.brand-name > span:last-child {
-  letter-spacing: -0.04em;
-}
-
-.brand-period {
-  color: var(--accent, currentColor);
-}
-
-.keepsake .brand-period {
-  display: inline;
+.brand-signature {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .wordmark .brand-symbol {
-    transition: transform 320ms ease;
+  .brand-signature {
+    transition:
+      transform 320ms ease,
+      filter 320ms ease;
   }
 
-  .wordmark:hover .brand-symbol {
-    transform: rotate(8deg);
+  .wordmark:hover .brand-signature {
+    transform: translateY(-2px);
+    filter: drop-shadow(0 5px 8px rgb(64 46 37 / 10%));
+  }
+}
+
+@media (max-width: 700px) {
+  .brand-lockup {
+    width: 142px;
+  }
+
+  .brand-lockup--mark {
+    width: 126px;
   }
 }

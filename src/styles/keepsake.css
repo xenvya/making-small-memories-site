@@ -8,9 +8,7 @@
   --display: "Cormorant Garamond", serif;
 }
 .keepsake .wordmark {
-  font-family: var(--display);
-  font-size: 28px;
-  font-weight: 400;
+  color: var(--ink);
 }
 .keepsake .wordmark-dot {
   display: none;

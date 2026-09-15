@@ -4,32 +4,26 @@ interface Props {
 }
 
 const { markOnly = false } = Astro.props;
+const src = markOnly
+  ? "/brand/msm-signature-serif-mark.png"
+  : "/brand/msm-signature-serif.png";
+const width = 1075;
+const height = markOnly ? 428 : 564;
 ---
 
 <span class:list={["brand-lockup", { "brand-lockup--mark": markOnly }]}>
-  <svg
-    class="brand-symbol"
-    viewBox="0 0 48 48"
-    aria-hidden="true"
-    focusable="false"
-  >
-    <path
-      class="brand-orbit brand-orbit--outer"
-      d="M39.6 28.9A16.3 16.3 0 1 1 27.1 7.9"
-    />
-    <path
-      class="brand-orbit brand-orbit--inner"
-      d="M15.2 13.9A12.4 12.4 0 0 1 36.1 26.5 12.4 12.4 0 0 1 19.4 35.2"
-    />
-    <circle class="brand-moment" cx="24" cy="24" r="3.35" />
-    <path class="brand-spark" d="M37.6 5.5v7.2M34 9.1h7.2" />
-  </svg>
-  {!markOnly && (
-    <span class="brand-name" aria-hidden="true">
-      <span>Making Small</span>
-      <span>
-        Memories<span class="brand-period">.</span>
-      </span>
-    </span>
-  )}
+  <img
+    class="brand-signature"
+    src={src}
+    srcset={
+      markOnly
+        ? undefined
+        : "/brand/msm-signature-serif-small.png 540w, /brand/msm-signature-serif.png 1075w"
+    }
+    sizes={markOnly ? undefined : "(max-width: 700px) 142px, 176px"}
+    width={width}
+    height={height}
+    alt=""
+    decoding="async"
+  />
 </span>
