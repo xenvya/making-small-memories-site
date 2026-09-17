@@ -1,12 +1,11 @@
 ---
 import { business, steps, faqs, services } from "../data/business";
-import { offers, stripeUrl, calLink } from "../data/offers";
+import { offers, calLink } from "../data/offers";
 import Arrow from "./Arrow.astro";
 import Brand from "./Brand.astro";
 import DemoExperiences from "./DemoExperiences.astro";
 import LineIcon from "./LineIcon.astro";
 const calendar = calLink(import.meta.env.PUBLIC_CAL_LINK);
-const donation = stripeUrl(import.meta.env.PUBLIC_STRIPE_DONATION_URL);
 ---
 
 <section class="process section" id="process" aria-labelledby="process-title">
@@ -73,26 +72,59 @@ const donation = stripeUrl(import.meta.env.PUBLIC_STRIPE_DONATION_URL);
       Ask about services & pricing <Arrow />
     </a>
   </div>
-  {offers.length === 0 && (
-    <div class="payment-entry">
-      <div class="entry-icon">
-        <LineIcon kind="payment" />
-      </div>
-      <div>
-        <span class="eyebrow">Simple, secure payment</span>
-        <h3>One payment. Or a plan.</h3>
-        <p>Explore the payment experience for your agreed service.</p>
-      </div>
-      <div class="entry-actions">
-        <button class="button" data-open-demo="payment-demo">
-          Preview Stripe payment <Arrow />
-        </button>
-        <span class="small">
-          Pay in full · Installment plan · No charge in preview
-        </span>
-      </div>
+  <div class="accepted-payments" aria-labelledby="payment-methods-title">
+    <div class="payment-intro">
+      <span class="eyebrow">Simple ways to pay</span>
+      <h3 id="payment-methods-title">
+        A little clarity. Every step of the way.
+      </h3>
+      <p>
+        We accept Cash App, Venmo, and Zelle. Once your service and amount are
+        agreed, John will share the payment instructions with you.
+      </p>
     </div>
-  )}
+    <div class="payment-methods">
+      <article class="payment-method">
+        <span class="payment-mark" aria-hidden="true">
+          $
+        </span>
+        <h4>Cash App</h4>
+        <p>
+          Pay through Cash App using the recipient details provided by John.
+        </p>
+      </article>
+      <article class="payment-method">
+        <span class="payment-mark" aria-hidden="true">
+          V
+        </span>
+        <h4>Venmo</h4>
+        <p>Send your agreed payment to the Venmo profile shared with you.</p>
+      </article>
+      <article class="payment-method">
+        <span class="payment-mark" aria-hidden="true">
+          Z
+        </span>
+        <h4>Zelle</h4>
+        <p>
+          Use Zelle through your participating bank with the recipient details
+          John provides.
+        </p>
+      </article>
+    </div>
+    <div class="payment-next-step">
+      <p>
+        <strong>Ready to take the next step?</strong>
+        <br />
+        Confirm the amount and recipient with John before sending your payment.
+      </p>
+      <a
+        class="button"
+        href={`mailto:${business.email}?subject=Payment%20instructions%20request&body=Hi%20John%2C%20please%20share%20the%20payment%20instructions%20for%20my%20service.`}
+      >
+        Request payment instructions <Arrow />
+      </a>
+    </div>
+  </div>
   {offers.length > 0 && (
     <div class="offers">
       {offers.map((o) => (
@@ -100,35 +132,23 @@ const donation = stripeUrl(import.meta.env.PUBLIC_STRIPE_DONATION_URL);
           <h3>{o.name}</h3>
           <p>{o.description}</p>
           <p>{o.fullPriceLabel}</p>
-          {stripeUrl(o.fullPaymentUrl) ? (
-            <a class="button" href={stripeUrl(o.fullPaymentUrl)!}>
-              Pay in full <Arrow />
-            </a>
-          ) : (
-            <a
-              class="button"
-              href="#booking"
-              data-interest={`${o.name}: payment in full`}
-            >
-              Arrange payment in full <Arrow />
-            </a>
-          )}
+          <a
+            class="button"
+            href="#booking"
+            data-interest={`${o.name}: payment in full`}
+          >
+            Arrange payment in full <Arrow />
+          </a>
           {o.installmentLabel && (
             <>
               <p>{o.installmentLabel}</p>
-              {stripeUrl(o.installmentUrl) ? (
-                <a class="text-link" href={stripeUrl(o.installmentUrl)!}>
-                  Choose installment plan <Arrow />
-                </a>
-              ) : (
-                <a
-                  class="text-link"
-                  href="#booking"
-                  data-interest={`${o.name}: installment plan`}
-                >
-                  Discuss installment plan <Arrow />
-                </a>
-              )}
+              <a
+                class="text-link"
+                href="#booking"
+                data-interest={`${o.name}: installment plan`}
+              >
+                Discuss installment plan <Arrow />
+              </a>
             </>
           )}
         </article>
@@ -266,18 +286,12 @@ const donation = stripeUrl(import.meta.env.PUBLIC_STRIPE_DONATION_URL);
     <span class="eyebrow">Small moments. Shared meaning.</span>
     <p>Interested in supporting Making Small Memories?</p>
   </div>
-  {donation ? (
-    <a class="text-link" href={donation}>
-      Make a donation <Arrow />
-    </a>
-  ) : (
-    <a
-      class="text-link"
-      href={`mailto:${business.email}?subject=Donation%20inquiry`}
-    >
-      Ask about donations <Arrow />
-    </a>
-  )}
+  <a
+    class="text-link"
+    href={`mailto:${business.email}?subject=Donation%20inquiry`}
+  >
+    Ask about donations <Arrow />
+  </a>
 </aside>
 <footer class="footer wrap">
   <a href="#main" class="wordmark" aria-label="Making Small Memories home">

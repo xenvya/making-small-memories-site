@@ -12,9 +12,7 @@ const fixture = [
     serviceId: "travel",
     description: "Synthetic integration test. Not a real business offer.",
     fullPriceLabel: "$120 (test fixture)",
-    fullPaymentUrl: "https://buy.stripe.com/test_full_fixture",
     installmentLabel: "3 payments of $40 (test fixture)",
-    installmentUrl: "https://buy.stripe.com/test_installment_fixture",
   },
 ];
 execFileSync(
@@ -88,14 +86,14 @@ try {
     );
     await page.goto("http://localhost:4322/");
     await expect(
-      page.getByRole("link", { name: "Pay in full", exact: true }),
-    ).toHaveAttribute("href", fixture[0].fullPaymentUrl);
+      page.getByRole("link", { name: "Arrange payment in full", exact: true }),
+    ).toHaveAttribute("href", "#booking");
     await expect(
       page.getByRole("link", {
-        name: "Choose installment plan",
+        name: "Discuss installment plan",
         exact: true,
       }),
-    ).toHaveAttribute("href", fixture[0].installmentUrl);
+    ).toHaveAttribute("href", "#booking");
     await expect(
       page.getByText(fixture[0].installmentLabel, { exact: true }),
     ).toBeVisible();
@@ -152,7 +150,7 @@ try {
   expect(fixtureFiles).not.toContain("QA fixture");
   expect(fixtureFiles).not.toContain("qa-fixture");
   console.log(
-    `${passed} integration scenarios passed: selected homepage at mobile/desktop, full and installment payment links, real Cal.com embed bootstrap with intercepted appointment page, modal keyboard/focus, blocked-embed fallback. No live booking or charge made.`,
+    `${passed} integration scenarios passed: selected homepage at mobile/desktop, full-payment and installment inquiry links, real Cal.com embed bootstrap with intercepted appointment page, modal keyboard/focus, blocked-embed fallback. No live booking or charge made.`,
   );
 } finally {
   await browser?.close();

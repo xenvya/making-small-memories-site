@@ -2,11 +2,11 @@
 
 ## Current website experience
 
-The selected Keepsake website exposes Payments and Book a consultation in navigation. With live links absent, the booking section opens an interactive sample calendar with service/day/time choices and review; the payments section opens a Stripe-style visual walkthrough with full-payment/installment selection and service association. These are expressly labeled previews. No sensitive data is collected, notification sent, real appointment reserved, price invented, or payment made. Contact links remain available for real inquiries. Supplying the live configuration below activates the existing real Cal.com and hosted-payment paths.
+The selected Keepsake website exposes Payments and Book a consultation in navigation. Payments are collected only through Cash App, Venmo, and Zelle. The payment section names these methods and opens an email draft to request instructions from John. The booking section retains its clearly labeled sample calendar until a live Cal.com link is supplied. No payment is processed or marked complete on the website.
 
 The supplied `docs/john.jpg` portrait has been incorporated on the user’s explicit instruction; personal-photo acquisition is no longer a blocker.
 
-The public site is usable now through John’s verified phone/email. Calendar and payment activation require business-owned links and approved terms. No private API keys are needed for this static site.
+The public site is usable now through John’s verified phone/email. Calendar activation requires a business-owned link. Payment instructions are shared directly after service and amount are agreed. No private API keys are needed for this static site.
 
 ## 1. Booking
 
@@ -20,16 +20,9 @@ Reference: https://cal.com/help/embedding/embed-instructions
 
 ## 2. Payments and packages
 
-The PDF has **no offers or pricing**. Supply for every approved offer:
+Only Cash App, Venmo, and Zelle are accepted. See [Payment instructions](PAYMENTS.md). No recipient handles or QR codes have been supplied; the site does not invent them or treat the contact email/phone as a payment destination.
 
-- Public package name and exact service scope.
-- Applicable service ID: `travel`, `coaching`, `benefits`, `retirement` or `investment`.
-- Currency, total price and approved displayed payment-in-full label.
-- A finalized Stripe-hosted payment-in-full link.
-- If installments apply: total owed, amount and count of payments, frequency, first-payment timing, any fees, and approved displayed installment label.
-- A finalized Stripe-hosted installment URL whose underlying billing arrangement matches those finite terms.
-
-Configure `PUBLIC_OFFERS_JSON` as a JSON array at build time. Field schema is in `src/data/offers.ts`:
+The PDF has no offers or pricing. Configure `PUBLIC_OFFERS_JSON` only with approved public package names, service scope, service ID, and price labels. Optional installment labels must contain approved terms. All package actions lead to an inquiry with John; payment URLs are no longer part of the schema.
 
 ```json
 [
@@ -38,25 +31,16 @@ Configure `PUBLIC_OFFERS_JSON` as a JSON array at build time. Field schema is in
     "name": "CLIENT APPROVED PACKAGE NAME",
     "serviceId": "travel",
     "description": "CLIENT APPROVED SCOPE",
-    "fullPriceLabel": "CLIENT APPROVED CURRENCY AND TOTAL",
-    "fullPaymentUrl": "",
-    "installmentLabel": "CLIENT APPROVED COMPLETE INSTALLMENT TERMS",
-    "installmentUrl": ""
+    "fullPriceLabel": "CLIENT APPROVED CURRENCY AND TOTAL"
   }
 ]
 ```
 
-This is a schema illustration, not a business offer; never publish the uppercase instruction text. Empty production configuration is intentional. Omit installment fields entirely where no plan is offered. Once approved content is added, it appears in the Working Together section. Full-payment and installment CTAs are associated with the same package. If a package is approved before its link is ready, its CTA routes to an inquiry; no dead payment button appears.
-
-Only HTTPS links on `buy.stripe.com` and `checkout.stripe.com` are accepted. Invalid configured payment destinations fail the build. Stripe collects payment details on its own hosted pages; the site has no card form, checkout backend, API secrets, webhook storage or payment-success claim. Do not paste secret keys or private session data into public configuration.
-
-Use durable Payment Links for approved one-time offers. A generic recurring subscription Payment Link is **not** automatically a finite installment plan. The client's Stripe setup must enforce the approved end/count; an ephemeral Checkout Session URL also needs a service that issues fresh sessions rather than being permanently reused. Until the business supplies a finalized arrangement, keep the installment URL empty and use the inquiry fallback. No unapproved recurring billing is created by this site.
-
-Reference: https://docs.stripe.com/payment-links
+This illustrates the schema; do not publish placeholder content. Leave production offers empty until approved.
 
 ## 3. Donations
 
-Supply an approved donation purpose and business-owned Stripe Payment Link. Set `PUBLIC_STRIPE_DONATION_URL`, rebuild, and deploy. Confirm donor-facing receipts/wording in Stripe. The current experience offers a direct donation inquiry and makes no nonprofit or tax deduction claim.
+The donation action opens an inquiry with John. Any agreed contribution uses Cash App, Venmo, or Zelle. No nonprofit or tax deduction claim is made.
 
 ## 4. Personal story and imagery
 

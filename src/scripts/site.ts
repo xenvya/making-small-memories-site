@@ -322,47 +322,6 @@ document.querySelector("[data-booking-back]")?.addEventListener("click", () => {
   bookingStage("choose");
   document.querySelector<HTMLSelectElement>("#demo-service")?.focus();
 });
-document
-  .querySelectorAll<HTMLButtonElement>("[data-pay-mode]")
-  .forEach((button) =>
-    button.addEventListener("click", () => {
-      document
-        .querySelectorAll("[data-pay-mode]")
-        .forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
-      const full = button.dataset.payMode === "full";
-      document.querySelector("[data-pay-label]")!.textContent = full
-        ? "Payment in full"
-        : "Installment terms";
-      document.querySelector("[data-checkout-mode]")!.textContent = full
-        ? "One-time payment"
-        : "Installment plan · schedule agreed with John";
-    }),
-  );
-document
-  .querySelector<HTMLSelectElement>("#payment-service")
-  ?.addEventListener("change", (e) => {
-    document.querySelector("[data-checkout-service]")!.textContent = (
-      e.target as HTMLSelectElement
-    ).value;
-  });
-function paymentStage(stage: string) {
-  document
-    .querySelectorAll<HTMLElement>("[data-payment-stage]")
-    .forEach((el) => (el.hidden = el.dataset.paymentStage !== stage));
-}
-document
-  .querySelector("[data-payment-finish]")
-  ?.addEventListener("click", () => {
-    paymentStage("done");
-    document
-      .querySelector<HTMLAnchorElement>('[data-payment-stage="done"] .button')
-      ?.focus();
-  });
-document.querySelector("[data-payment-back]")?.addEventListener("click", () => {
-  paymentStage("checkout");
-  document.querySelector<HTMLButtonElement>("[data-payment-finish]")?.focus();
-});
-
 const directionButtons = [
   ...document.querySelectorAll<HTMLButtonElement>("[data-direction]"),
 ];

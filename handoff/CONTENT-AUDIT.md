@@ -24,7 +24,7 @@ Instead of fictional packages or testimonials, all four pages provide complete v
 - The service overview includes unresolved reference markers [1]–[5] and an apparent drafting-assistant question. No linked bibliography is provided; markers and drafting artifacts were omitted.
 - The confidentiality paragraph names “Impact Coaching, Consulting, and Counseling Center.” This unrelated identity was omitted from the condensed website privacy policy. Its confidentiality/security substance was preserved. The client should confirm the policy applies to Making Small Memories and whether the insurance/healthcare provisions accurately describe operations.
 - No physical mailing address is invented.
-- Donations are available as an inquiry until the client supplies an approved Stripe link and donation purpose. No tax-deductibility claim is made.
+- Donations are available as an inquiry until the client supplies an approved payment instructions and donation purpose. No tax-deductibility claim is made.
 
 ## SEO
 

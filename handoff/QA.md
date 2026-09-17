@@ -40,3 +40,9 @@ Detailed machine-readable results are stored in `release-audit.json`. The final 
 - The condensed privacy policy retains supplied substance while omitting an unrelated company name. Client confirmation of the policy's applicability remains necessary.
 
 Local visual evidence is in the ignored `handoff/screenshots/` folder. Reproduce via `scripts/screenshots.mjs` or `scripts/release-audit.mjs`.
+
+## Payment methods update — September 17, 2026
+
+Replaced the payment preview and hosted checkout configuration with Cash App, Venmo, and Zelle method cards and an email action requesting payment instructions. Package inquiries and donations also route through John. This supersedes the earlier payment-preview and hosted-payment activation notes above.
+
+Validation: Astro check (zero diagnostics), production build, formatting, 20 browser tests, 3 integration scenarios, deployment dry run, and visual review of desktop and 390px payment-section screenshots all passed. No live transfers were attempted; recipient details are shared directly by John.

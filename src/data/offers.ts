@@ -6,9 +6,7 @@ export interface Offer {
   serviceId: string;
   description: string;
   fullPriceLabel: string;
-  fullPaymentUrl: string;
   installmentLabel?: string;
-  installmentUrl?: string;
 }
 export function parseOffers(raw: string | undefined): Offer[] {
   if (!raw) return [];
@@ -40,18 +38,6 @@ export function parseOffers(raw: string | undefined): Offer[] {
     if (!services.includes(String(o.serviceId)) || ids.has(String(o.id)))
       throw new Error("Offer needs a valid service and unique ID.");
     ids.add(String(o.id));
-    for (const key of ["fullPaymentUrl", "installmentUrl"]) {
-      if (
-        o[key] !== undefined &&
-        o[key] !== "" &&
-        (typeof o[key] !== "string" || !stripeUrl(o[key] as string))
-      )
-        throw new Error(`Invalid Stripe URL: ${key}.`);
-    }
-    if (o.installmentUrl && !o.installmentLabel)
-      throw new Error(
-        "Installment terms must be supplied with the payment link.",
-      );
     if (
       o.installmentLabel !== undefined &&
       (typeof o.installmentLabel !== "string" || !o.installmentLabel.trim())
@@ -63,27 +49,11 @@ export function parseOffers(raw: string | undefined): Offer[] {
       serviceId: String(o.serviceId),
       description: String(o.description),
       fullPriceLabel: String(o.fullPriceLabel),
-      fullPaymentUrl: String(o.fullPaymentUrl || ""),
       installmentLabel: o.installmentLabel as string | undefined,
-      installmentUrl: o.installmentUrl as string | undefined,
     };
   });
 }
 export const offers = parseOffers(import.meta.env.PUBLIC_OFFERS_JSON);
-export function stripeUrl(value: string | undefined): string | null {
-  if (!value) return null;
-  try {
-    const u = new URL(value);
-    return u.protocol === "https:" &&
-      ["buy.stripe.com", "checkout.stripe.com"].includes(u.hostname) &&
-      !u.username &&
-      !u.password
-      ? u.href
-      : null;
-  } catch {
-    return null;
-  }
-}
 export function calLink(value: string | undefined): string | null {
   return value && /^[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+$/.test(value) ? value : null;
 }

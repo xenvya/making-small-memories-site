@@ -426,22 +426,6 @@
   font-size: 21px;
   font-family: var(--display);
 }
-.stripe-caption {
-  font-size: 14px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding-bottom: 22px;
-  border-bottom: 1px solid var(--line);
-}
-.stripe-caption > span {
-  font-size: 9px;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
 .checkout-preview h3 {
   font-size: 36px;
   margin: 30px 0;
@@ -699,9 +683,6 @@
   }
   .checkout-preview h3 {
     font-size: 32px;
-  }
-  .stripe-caption {
-    font-size: 13px;
   }
   .booking-preview-entry h3 {
     font-size: 34px;

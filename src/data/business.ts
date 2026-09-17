@@ -128,7 +128,7 @@ export const faqs = [
   },
   {
     q: "How do I find out about pricing and payment?",
-    a: "Contact John to discuss the service, scope, fees, and payment arrangements before making a commitment.",
+    a: "We accept Cash App, Venmo, and Zelle. Contact John to agree on your service, scope, and fees. He will then share the payment instructions and recipient details.",
   },
   {
     q: "How do I arrange a consultation?",

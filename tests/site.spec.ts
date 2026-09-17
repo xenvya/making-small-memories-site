@@ -173,7 +173,7 @@ test("Unknown URLs return the custom 404", async ({ page }) => {
 });
 
 for (const width of [390, 1440])
-  test(`homepage ${width}: booking and Stripe preview walkthroughs`, async ({
+  test(`homepage ${width}: booking and accepted payment methods`, async ({
     page,
   }) => {
     await page.setViewportSize({ width, height: 1000 });
@@ -205,31 +205,26 @@ for (const width of [390, 1440])
       page.getByRole("button", { name: "Book a consultation", exact: true }),
     ).toBeFocused();
 
-    await page.getByRole("button", { name: "Preview Stripe payment" }).click();
-    const payment = page.locator("#payment-demo");
-    await expect(payment).toBeVisible();
-    await page.locator("#payment-service").selectOption("Retirement planning");
-    await page.locator('[data-pay-mode="installments"]').click();
-    await expect(page.locator("[data-checkout-service]")).toHaveText(
-      "Retirement planning",
+    const payment = page.locator("#payments");
+    await payment.scrollIntoViewIfNeeded();
+    await expect(payment.locator(".payment-method")).toHaveCount(3);
+    for (const method of ["Cash App", "Venmo", "Zelle"]) {
+      await expect(
+        payment.getByRole("heading", { name: method, exact: true }),
+      ).toBeVisible();
+    }
+    await expect(
+      payment.getByRole("link", { name: "Request payment instructions" }),
+    ).toHaveAttribute(
+      "href",
+      /^mailto:.*subject=Payment%20instructions%20request/,
     );
-    await expect(page.locator("[data-checkout-mode]")).toContainText(
-      "Installment plan",
-    );
+    await expect(
+      page.locator('a[href*="stripe.com"], #payment-demo'),
+    ).toHaveCount(0);
+    await expect(page.locator("body")).not.toContainText(/stripe/i);
     expect(
       (await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa"]).analyze())
         .violations,
     ).toEqual([]);
-    await page.getByRole("button", { name: "Finish payment preview" }).click();
-    await expect(payment).toContainText("No payment was made.");
-    await expect(payment.locator("input")).toHaveCount(0);
-    await page
-      .getByRole("button", { name: "Explore another payment option" })
-      .click();
-    await page.locator('[data-pay-mode="full"]').click();
-    await expect(page.locator("[data-checkout-mode]")).toContainText(
-      "One-time payment",
-    );
-    await page.getByRole("button", { name: "Close payment preview" }).click();
-    await expect(payment).not.toBeVisible();
   });

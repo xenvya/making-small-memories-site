@@ -17,8 +17,18 @@ for (const [name, path] of [
     path: `handoff/screenshots/${name}-desktop.png`,
     fullPage: true,
   });
+  if (name === "home") {
+    await page
+      .locator("#payments")
+      .screenshot({ path: "handoff/screenshots/payments-desktop.png" });
+  }
   for (const width of [768, 390]) {
     await page.setViewportSize({ width, height: 1000 });
+    if (name === "home") {
+      await page
+        .locator("#payments")
+        .screenshot({ path: `handoff/screenshots/payments-${width}.png` });
+    }
     await page.screenshot({
       path: `handoff/screenshots/${name}-${width}.png`,
       fullPage: true,

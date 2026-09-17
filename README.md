@@ -1,6 +1,6 @@
 # Making Small Memories
 
-A complete static Astro website with an editorial single-page experience, verified business content, configurable Stripe-hosted payment links, and an on-demand Cal.com booking modal.
+A complete static Astro website with an editorial single-page experience, verified business content, Cash App, Venmo, and Zelle payment instructions, and an on-demand Cal.com booking modal.
 
 **Live website:** https://making-small-memories-concepts.xenvya.workers.dev
 
@@ -41,7 +41,7 @@ The release audit checks all internal links and section anchors, console errors,
 
 - `src/data/business.ts`: source-backed mission, audience, services, contact and FAQs.
 - `src/data/travelPhotos.json`: ordered source manifest and accessible descriptions for the travel gallery.
-- `src/data/offers.ts`: typed offer configuration and hosted-URL validation; no invented offers.
+- `src/data/offers.ts`: typed offer configuration; no invented offers.
 - `src/pages/index.astro`: the selected Keepsake homepage.
 - `src/components/`: shared semantic navigation, services, process, FAQs, payments, booking and footer.
 - `src/styles/`: shared accessible foundations and independent creative systems.
@@ -59,7 +59,7 @@ Fonts are self-hosted. The homepage portrait and travel gallery are delivered as
 - [Photography requirements and artwork provenance](handoff/IMAGERY.md)
 - [QA and deployment record](handoff/QA.md)
 
-The six-page source PDF contains no package prices, installment terms, testimonials, biography or booking URL. The user subsequently supplied and authorized the portrait used on the homepage. The live experience offers verified services, contact and pricing inquiries, plus explicitly labeled interactive appointment and payment previews. It intentionally does not show invented offers or testimonials. Personal-photo layout references are documented in `handoff/images/`, outside the public assets.
+The six-page source PDF contains no package prices, installment terms, testimonials, biography or booking URL. The user subsequently supplied and authorized the portrait used on the homepage. The live experience offers verified services, contact and pricing inquiries, accepted payment methods, plus an explicitly labeled interactive appointment preview. It intentionally does not show invented offers or testimonials. Personal-photo layout references are documented in `handoff/images/`, outside the public assets.
 
 The local client `docs/` and `proposal/` directories are excluded from Git and never deployed. No pre-existing code, Git history, dependency conventions or deployment existed when this work began; the GitHub repository was confirmed empty before initialization. Existing local documents were preserved.
 
