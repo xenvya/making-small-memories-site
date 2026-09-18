@@ -21,14 +21,16 @@ The account, explicit zone IDs and both custom domains are saved in `wrangler.js
 - Lint, Astro checks (zero errors/warnings/hints), production build and Wrangler dry run passed.
 - Local browser checks: 22 passed; one public-domain redirect check intentionally skipped on the local Astro preview.
 - Production browser checks: all 23 passed, including mobile/tablet/desktop accessibility, logo assets, navigation, travel gallery, booking preview, payment instructions, legacy URLs and 404 behavior.
-- The extended production audit found no broken images, bad links, missing anchors or overflow at 320, 390, 768, 1024 and 1920 pixels. Reduced motion was enabled for that audit. Recorded layout shift was below 0.01 on both pages.
+- The final extended production audit passed with no console errors, broken images, bad links, missing anchors or overflow at 320, 390, 768, 1024 and 1920 pixels. Reduced motion was enabled for that audit. Recorded layout shift was below 0.01 on both pages. Current results are saved in `handoff/release-audit.json`.
 
-## Hosting setting still requiring dashboard access
+## Hosting performance monitoring
 
-Cloudflare automatically injects a Web Analytics beacon on the new domain. The existing Content Security Policy blocks that extra script, producing a console error. This does not prevent page rendering, payments inquiries or the consultation preview, but the extended console audit remains failing until the automatic injection is disabled. The policy has not been widened to allow additional tracking.
+Cloudflare's free-plan Real User Measurements (RUM) automatically injected a performance beacon on the new domain. The existing Content Security Policy blocked that extra script, producing a console error. Automatic RUM was disabled for this zone in John's dashboard under **Speed → Real user monitoring → Disable completely**, and the dashboard confirmed **RUM is currently disabled for this zone**. The security policy was preserved.
 
-The deployment OAuth connection can manage Workers and their custom domains, but the Web Analytics API returns HTTP 403. The available browser sessions currently require Cloudflare sign-in.
+After the hosting configuration propagated, public HTML no longer contained the beacon and the repeated production audit confirmed clean browser consoles on both pages. No domain activation steps remain.
 
-To finish this hosting-only setting, sign in to John's account in the Cloudflare dashboard, open **Web Analytics**, select **Manage site** for `makingsmallmemories.com`, and set automatic setup to **Disable**. Then rerun `TEST_BASE_URL=https://makingsmallmemories.com node scripts/release-audit.mjs`. No website rebuild is needed for that dashboard setting.
+The deployment OAuth connection can manage Workers and their custom domains, but the Web Analytics API returns HTTP 403. The client signed in to the dashboard through the invited `terrance@xenvya.com` user, whose accepted membership in John's account was independently verified through the Cloudflare API. No permissions or credentials were changed.
+
+This hosting setting does not require a rebuild and can be re-enabled in the same dashboard. The Worker Logs and Traces settings remain enabled in `wrangler.jsonc`; visitor performance measurement is separate from server-side operational logging.
 
 References: [Custom domains](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/), [Worker-first asset routing](https://developers.cloudflare.com/workers/static-assets/routing/worker-script/), [Web Analytics setup](https://developers.cloudflare.com/web-analytics/get-started/).
