@@ -1,19 +1,21 @@
 {
-  "base": "http://localhost:4321",
-  "checkedAt": "2026-09-13T22:45:36.329Z",
+  "base": "https://makingsmallmemories.com",
+  "checkedAt": "2026-09-18T01:46:27.178Z",
   "note": "Observed browser load measurements, not a throttled Lighthouse benchmark.",
   "pages": [
     {
       "path": "/",
       "status": 200,
       "metrics": {
-        "cls": 0.007296858178980558,
-        "lcp": 60,
-        "bytes": 2361471,
-        "requests": 43
+        "cls": 0.003908491632379132,
+        "lcp": 316,
+        "bytes": 2451350,
+        "requests": 46
       },
       "invalidAnchors": [],
-      "errors": [],
+      "errors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://app.cal.com https://cal.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+      ],
       "brokenImages": [],
       "widths": [
         {
@@ -48,13 +50,15 @@
       "path": "/privacy",
       "status": 200,
       "metrics": {
-        "cls": 0.00024395177770543982,
-        "lcp": 20,
-        "bytes": 39755,
-        "requests": 4
+        "cls": 0.008497522876880787,
+        "lcp": 216,
+        "bytes": 128920,
+        "requests": 7
       },
       "invalidAnchors": [],
-      "errors": [],
+      "errors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://app.cal.com https://cal.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+      ],
       "brokenImages": [],
       "widths": [
         {

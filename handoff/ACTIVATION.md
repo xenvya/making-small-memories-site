@@ -60,10 +60,12 @@ npm run deploy:check
 npm run deploy
 ```
 
-The account is `Terrance@xenvya.com's Account`, Worker `making-small-memories-concepts`. Static assets are built into `dist/`; no client source PDFs, contracts, handoff documents or test fixtures are served. Existing unrelated Workers are untouched. An invalid inherited `CLOUDFLARE_API_TOKEN` masked a working local OAuth session during setup; when that situation applies, use:
+The production account is `Johncurtis.small324@gmail.com's Account` (`e84c719847d85d55e25931925c7c4703`), Worker `making-small-memories-concepts`. The domain is `https://makingsmallmemories.com`; `www` redirects to the main address. Both custom domains are pinned in `wrangler.jsonc` to John's active zone `81068587767e3cb99e0204aeb3b51d4d`, whose nameservers are `magali.ns.cloudflare.com` and `ruben.ns.cloudflare.com`. Do not deploy against the inactive duplicate Xenvya zone. Registration and nameservers remain unchanged.
+
+Static assets are built into `dist/`; no client source PDFs, contracts, handoff documents or test fixtures are served. Existing unrelated Workers are untouched. An invalid inherited `CLOUDFLARE_API_TOKEN` masked a working local OAuth session during setup; when that situation applies, use:
 
 ```sh
-env -u CLOUDFLARE_API_TOKEN -u CLOUDFLARE_API_KEY npm run deploy
+env -u CLOUDFLARE_API_TOKEN -u CF_API_TOKEN -u CLOUDFLARE_API_KEY -u CLOUDFLARE_EMAIL npm run deploy
 ```
 
-Use a valid scoped token for unattended CI instead. Do not commit it. `PUBLIC_SITE_URL` can change canonical/social URLs when the final domain is selected. Configuration changes require a rebuild because the site is static. No custom-domain DNS was changed.
+Use a valid scoped token for unattended CI instead. Do not commit it. `PUBLIC_SITE_URL` defaults to `https://makingsmallmemories.com` for canonical/social URLs. Configuration changes require a rebuild because the site is static. Cloudflare creates the website DNS records and certificates when the declared custom domains are deployed.

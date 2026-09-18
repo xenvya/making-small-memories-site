@@ -2,7 +2,7 @@
 
 A complete static Astro website with an editorial single-page experience, verified business content, Cash App, Venmo, and Zelle payment instructions, and an on-demand Cal.com booking modal.
 
-**Live website:** https://making-small-memories-concepts.xenvya.workers.dev
+**Live website:** https://makingsmallmemories.com
 
 The selected Keepsake direction is served directly at `/`. Legacy concept URLs permanently redirect to the homepage.
 
@@ -31,8 +31,8 @@ npm audit
 `npm test` runs browser scenarios including WCAG A/AA checks at mobile/tablet/desktop sizes, navigation, the 33-photo travel gallery and keyboard lightbox, inquiries, FAQs, approved external resources, legacy redirects, and no-JavaScript fallback. `TEST_BASE_URL` switches the same suite to the deployed site. The integration harness builds synthetic offers/calendar data only into ignored `tmp/activation/`, checks the real Cal.com embed bootstrap with the appointment page intercepted, checks package/payment associations and modal keyboard behavior, and tests blocked-embed fallback. It never creates a real booking or charge and cannot publish its fixtures through the production `dist/` target.
 
 ```sh
-TEST_BASE_URL=https://making-small-memories-concepts.xenvya.workers.dev npm test
-TEST_BASE_URL=https://making-small-memories-concepts.xenvya.workers.dev node scripts/release-audit.mjs
+TEST_BASE_URL=https://makingsmallmemories.com npm test
+TEST_BASE_URL=https://makingsmallmemories.com node scripts/release-audit.mjs
 ```
 
 The release audit checks all internal links and section anchors, console errors, five additional viewport widths, and records unthrottled browser LCP/CLS/transfer measurements in `handoff/release-audit.json`. These are observed measurements, not a Lighthouse score. `node scripts/screenshots.mjs` captures full responsive homepage and privacy-page screenshots. Full QA screenshots are local, ignored artifacts.
@@ -47,7 +47,8 @@ The release audit checks all internal links and section anchors, console errors,
 - `src/styles/`: shared accessible foundations and independent creative systems.
 - `src/scripts/site.ts`: progressive enhancement with no front-end framework runtime.
 - `public/`: only public web assets, response headers and crawl instructions.
-- `wrangler.jsonc`: Cloudflare Workers Static Assets deployment; no dynamic backend or database.
+- `wrangler.jsonc`: Cloudflare Workers deployment to John's account and active domain zone.
+- `worker/main.mjs`: permanent HTTPS and `www` redirects, preserving paths and query parameters, followed by static asset serving. No database or form backend.
 
 Fonts are self-hosted. The homepage portrait and travel gallery are delivered as optimized, metadata-free WebP assets; rerun `npm run images:travel` after changing the gallery source manifest or files. Each route is prerendered HTML and remains readable without JavaScript. Booking loads no third-party code until the visitor opens the calendar. No analytics, browser-storage tracking, or card collection code has been added.
 
@@ -58,6 +59,7 @@ Fonts are self-hosted. The homepage portrait and travel gallery are delivered as
 - [Source audit and missing material](handoff/CONTENT-AUDIT.md)
 - [Photography requirements and artwork provenance](handoff/IMAGERY.md)
 - [QA and deployment record](handoff/QA.md)
+- [Production domain migration and verification](handoff/DOMAIN-MIGRATION.md)
 
 The six-page source PDF contains no package prices, installment terms, testimonials, biography or booking URL. The user subsequently supplied and authorized the portrait used on the homepage. The live experience offers verified services, contact and pricing inquiries, accepted payment methods, plus an explicitly labeled interactive appointment preview. It intentionally does not show invented offers or testimonials. Personal-photo layout references are documented in `handoff/images/`, outside the public assets.
 
@@ -70,6 +72,8 @@ npm run build
 npm run deploy
 ```
 
-Cloudflare account: `1ebe80039762616a77000dcc7f6b9bda`; Worker: `making-small-memories-concepts`. This publishes only `dist/`. No custom domain or unrelated Worker is changed. Build configuration is described in `.env.example`; all `PUBLIC_*` values are public and must never contain secrets. The selected homepage uses `index, follow`; the custom 404 remains `noindex, follow`.
+Cloudflare account: `Johncurtis.small324@gmail.com's Account` (`e84c719847d85d55e25931925c7c4703`); Worker: `making-small-memories-concepts`. Both `makingsmallmemories.com` and `www.makingsmallmemories.com` are declared as custom domains in the active zone `81068587767e3cb99e0204aeb3b51d4d`. Its public nameservers are `magali.ns.cloudflare.com` and `ruben.ns.cloudflare.com`. Registration and nameservers remain in John's account. Subsequent deployments must target this account and zone, rather than the inactive duplicate zone in the Xenvya account.
+
+Only `dist/` and the small redirect Worker are published. The main address is `https://makingsmallmemories.com`; `www` and HTTP requests redirect permanently to HTTPS on that address. Build configuration is described in `.env.example`; all `PUBLIC_*` values are public and must never contain secrets. The default `PUBLIC_SITE_URL` now uses the custom domain for canonical, Open Graph and structured-data URLs. The selected homepage uses `index, follow`; the custom 404 remains `noindex, follow`. Unrelated Workers are untouched.
 
 The `sharp` override ensures the Wrangler/Miniflare dependency uses the patched 0.35.4+ image library. The production site is static and has no image-processing endpoint. Keep the lockfile committed for reproducible installs.

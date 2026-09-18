@@ -1,8 +1,6 @@
 import { defineConfig } from "astro/config";
 export default defineConfig({
-  site:
-    process.env.PUBLIC_SITE_URL ||
-    "https://making-small-memories-concepts.xenvya.workers.dev",
+  site: process.env.PUBLIC_SITE_URL || "https://makingsmallmemories.com",
   output: "static",
   trailingSlash: "never",
   redirects: {
