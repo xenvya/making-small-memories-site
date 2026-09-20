@@ -54,3 +54,5 @@ Replaced the public Payments navigation and service-payment methods with a dedic
 Production offer actions, when offers are configured, request an invoice or an invoice payment-plan discussion. The website collects no financial credentials and makes no nonprofit or tax-deductibility claim.
 
 Validation: formatting, lint, Astro check (zero diagnostics), production build, both Wrangler deployment dry runs, dependency audit (zero vulnerabilities), 22 local browser tests with one expected local-domain skip, and 3 integration scenarios passed. Desktop and 390px donation-section screenshots were visually reviewed with no clipping or overflow.
+
+Post-deployment verification: all 23 browser tests passed on `https://makingsmallmemories.com`; 22 passed with the expected custom-domain redirect test skipped on the concept mirror. The extended live-domain audit found no console errors, broken images, invalid anchors, bad links, or horizontal overflow at 320, 390, 768, 1024, and 1920 pixels. The deployed blue concept donation section was visually reviewed at desktop and 390px.
