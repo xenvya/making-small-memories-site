@@ -6,9 +6,9 @@ Verified September 17, 2026 (America/New_York; September 18 UTC).
 
 The public domain was delegated to `magali.ns.cloudflare.com` and `ruben.ns.cloudflare.com`, which serve John's active zone. The website's custom domains had instead been attached to an inactive duplicate zone in the Xenvya account, assigned `josh.ns.cloudflare.com` and `rayne.ns.cloudflare.com`. Those nameservers were never authoritative for the registered domain.
 
-The website is now deployed in `Johncurtis.small324@gmail.com's Account` (`e84c719847d85d55e25931925c7c4703`). Both custom domains point to the active zone `81068587767e3cb99e0204aeb3b51d4d` and Worker `making-small-memories-concepts`. The current customer-domain deployment version is `be66a81c-41ff-40a3-a9b6-6a83fcb0cb54`.
+The website is now deployed in `Johncurtis.small324@gmail.com's Account` (`e84c719847d85d55e25931925c7c4703`). Both custom domains point to the active zone `81068587767e3cb99e0204aeb3b51d4d` and Worker `making-small-memories-concepts`. The current customer-domain deployment version is `70cf5c14-1e72-4015-bf35-ef5c7d3c946f`.
 
-The review mirror at `https://making-small-memories-concepts.xenvya.workers.dev` is also active at version `158b71e8-4f45-4f60-985a-7883656ecb63`. It uses the Xenvya account and a separate route-free configuration in `wrangler.xenvya.jsonc`, so updating the review mirror cannot change John's custom domains.
+The review mirror at `https://making-small-memories-concepts.xenvya.workers.dev` is also active at version `54324cc0-f889-496a-93d0-bcdfb5c84ea9`. It uses the Xenvya account and a separate route-free configuration in `wrangler.xenvya.jsonc`, so updating the review mirror cannot change John's custom domains.
 
 Registration and public nameservers were not changed. The two obsolete Worker domain attachments were detached from the inactive Xenvya zone (`dc6e5e7bd50d6ffcf54f032fc54ce4ff`). The original Xenvya Worker and unrelated sites were preserved; the inactive zone itself was not deleted.
 
