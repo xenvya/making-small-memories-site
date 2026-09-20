@@ -264,7 +264,11 @@ const photoCount = photos.length;
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 62%, #1e151080);
+    background: linear-gradient(
+      180deg,
+      transparent 62%,
+      var(--gallery-gradient, #1e151080)
+    );
     pointer-events: none;
   }
 
@@ -329,13 +333,13 @@ const photoCount = photos.length;
     max-height: 94dvh;
     margin: auto;
     padding: 0;
-    border: 1px solid #6f5e52;
-    background: #211915;
+    border: 1px solid var(--gallery-line, #6f5e52);
+    background: var(--gallery-frame, #211915);
     color: #f8f0e5;
   }
 
   .travel-lightbox::backdrop {
-    background: #130d0acc;
+    background: var(--gallery-overlay, #130d0acc);
     backdrop-filter: blur(8px);
   }
 
@@ -355,11 +359,11 @@ const photoCount = photos.length;
   }
 
   .travel-lightbox header {
-    border-bottom: 1px solid #6f5e52;
+    border-bottom: 1px solid var(--gallery-line, #6f5e52);
   }
 
   .travel-lightbox nav {
-    border-top: 1px solid #6f5e52;
+    border-top: 1px solid var(--gallery-line, #6f5e52);
   }
 
   .travel-lightbox button {
@@ -372,7 +376,7 @@ const photoCount = photos.length;
   }
 
   .travel-lightbox button:hover {
-    color: #f2bda9;
+    color: var(--gallery-emphasis, #f2bda9);
   }
 
   .travel-lightbox figure {
@@ -390,7 +394,7 @@ const photoCount = photos.length;
   .travel-lightbox figcaption {
     max-width: 760px;
     margin: 14px auto 0;
-    color: #cdbfb4;
+    color: var(--gallery-muted, #cdbfb4);
     font-size: 12px;
     text-align: center;
   }

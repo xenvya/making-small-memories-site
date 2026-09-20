@@ -405,6 +405,34 @@
 .keepsake .payment-next-step .button {
   flex-shrink: 0;
 }
+
+html.concept-preview body.keepsake {
+  --gallery-gradient: #0b213280;
+  --gallery-frame: #132a3b;
+  --gallery-overlay: #07131ecc;
+  --gallery-line: #4d6c82;
+  --gallery-emphasis: #8fc7ec;
+  --gallery-muted: #b7c9d6;
+}
+html.concept-preview .keepsake-print {
+  background: #e3edf5;
+  color: #203548;
+  box-shadow: 8px 18px 28px rgb(29 66 94 / 12%);
+}
+html.concept-preview .keepsake-print figcaption,
+html.concept-preview .art-bottom {
+  color: #203548;
+}
+html.concept-preview .memory-note {
+  background: #dbeaf4;
+  box-shadow: 4px 6px 16px rgb(29 66 94 / 12%);
+}
+html.concept-preview .keepsake .booking {
+  background: #1f3a52;
+}
+html.concept-preview .keepsake .accepted-payments {
+  background: #f8fbfd;
+}
 @media (max-width: 760px) {
   .keepsake .payment-methods {
     grid-template-columns: 1fr;

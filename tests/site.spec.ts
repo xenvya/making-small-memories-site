@@ -22,6 +22,11 @@ for (const width of [390, 768, 1440])
       });
       if (isConceptSite) {
         await expect(conceptNotice).toBeVisible();
+        expect(
+          await page.evaluate(() =>
+            getComputedStyle(document.body).getPropertyValue("--accent").trim(),
+          ),
+        ).toBe("#2e6e9e");
         const liveSiteLink = conceptNotice.getByRole("link", {
           name: "Visit the live website (opens in a new tab)",
         });
@@ -36,6 +41,11 @@ for (const width of [390, 768, 1440])
         );
       } else {
         await expect(conceptNotice).toBeHidden();
+        expect(
+          await page.evaluate(() =>
+            getComputedStyle(document.body).getPropertyValue("--accent").trim(),
+          ),
+        ).toBe(path === "/" ? "#98442f" : "#38463a");
       }
       await expect(page.locator("h1")).toHaveCount(1);
       expect(

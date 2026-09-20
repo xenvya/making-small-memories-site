@@ -65,8 +65,12 @@ const documentTitle =
       if (
         window.location.hostname ===
         "making-small-memories-concepts.xenvya.workers.dev"
-      )
+      ) {
         document.documentElement.classList.add("concept-preview");
+        document
+          .querySelector('meta[name="theme-color"]')
+          ?.setAttribute("content", "#f4f7fa");
+      }
     </script>
     <noscript>
       <style>

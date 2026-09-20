@@ -20,6 +20,10 @@
   height: auto;
 }
 
+.concept-preview .brand-signature {
+  filter: hue-rotate(195deg) saturate(0.9) brightness(0.94);
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .brand-signature {
     transition:
@@ -30,6 +34,11 @@
   .wordmark:hover .brand-signature {
     transform: translateY(-2px);
     filter: drop-shadow(0 5px 8px rgb(64 46 37 / 10%));
+  }
+
+  .concept-preview .wordmark:hover .brand-signature {
+    filter: hue-rotate(195deg) saturate(0.9) brightness(0.94)
+      drop-shadow(0 5px 8px rgb(30 77 112 / 14%));
   }
 }
 

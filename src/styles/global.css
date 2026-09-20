@@ -27,6 +27,12 @@ body {
 }
 .concept-preview body {
   padding-top: 48px;
+  --bg: #f4f7fa;
+  --ink: #203548;
+  --accent: #2e6e9e;
+  --muted: #556b7d;
+  --line: #b7c8d4;
+  --soft: #dfebf3;
 }
 .concept-notice {
   position: fixed;
@@ -52,6 +58,8 @@ body {
 }
 .concept-preview .concept-notice {
   display: flex;
+  background: #173a5e;
+  box-shadow: 0 8px 28px rgb(23 58 94 / 24%);
 }
 .concept-notice > span {
   color: rgb(255 255 255 / 68%);
