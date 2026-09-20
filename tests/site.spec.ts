@@ -14,6 +14,29 @@ for (const width of [390, 768, 1440])
       const response = await page.goto(path);
       expect(response?.ok()).toBeTruthy();
       await page.evaluate(() => document.fonts.ready);
+      const isConceptSite =
+        new URL(page.url()).hostname ===
+        "making-small-memories-concepts.xenvya.workers.dev";
+      const conceptNotice = page.getByRole("complementary", {
+        name: "Concept site notice",
+      });
+      if (isConceptSite) {
+        await expect(conceptNotice).toBeVisible();
+        const liveSiteLink = conceptNotice.getByRole("link", {
+          name: "Visit the live website (opens in a new tab)",
+        });
+        await expect(liveSiteLink).toHaveAttribute(
+          "href",
+          "https://www.makingsmallmemories.com",
+        );
+        await expect(liveSiteLink).toHaveAttribute("target", "_blank");
+        await expect(liveSiteLink).toHaveAttribute(
+          "rel",
+          "noopener noreferrer",
+        );
+      } else {
+        await expect(conceptNotice).toBeHidden();
+      }
       await expect(page.locator("h1")).toHaveCount(1);
       expect(
         await page.evaluate(

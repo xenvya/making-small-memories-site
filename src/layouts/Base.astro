@@ -62,6 +62,11 @@ const documentTitle =
     ></script>
     <script is:inline>
       document.documentElement.classList.add("js");
+      if (
+        window.location.hostname ===
+        "making-small-memories-concepts.xenvya.workers.dev"
+      )
+        document.documentElement.classList.add("concept-preview");
     </script>
     <noscript>
       <style>
@@ -85,6 +90,17 @@ const documentTitle =
     <a class="skip" href="#main">
       Skip to content
     </a>
+    <aside class="concept-notice" aria-label="Concept site notice">
+      <span>Concept preview</span>
+      <a
+        href="https://www.makingsmallmemories.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visit the live website (opens in a new tab)"
+      >
+        Visit the live website <span aria-hidden="true">↗</span>
+      </a>
+    </aside>
     <slot />
     <script>
       import "../scripts/site";
