@@ -25,6 +25,7 @@ npm run build
 npm test
 npm run test:integrations
 npm run deploy:check
+npm run deploy:concept:check
 npm audit
 ```
 
@@ -72,7 +73,9 @@ npm run build
 npm run deploy
 ```
 
-Cloudflare account: `Johncurtis.small324@gmail.com's Account` (`e84c719847d85d55e25931925c7c4703`); Worker: `making-small-memories-concepts`. Both `makingsmallmemories.com` and `www.makingsmallmemories.com` are declared as custom domains in the active zone `81068587767e3cb99e0204aeb3b51d4d`. Its public nameservers are `magali.ns.cloudflare.com` and `ruben.ns.cloudflare.com`. Registration and nameservers remain in John's account. Subsequent deployments must target this account and zone, rather than the inactive duplicate zone in the Xenvya account.
+Cloudflare account: `Johncurtis.small324@gmail.com's Account` (`e84c719847d85d55e25931925c7c4703`); Worker: `making-small-memories-concepts`. Both `makingsmallmemories.com` and `www.makingsmallmemories.com` are declared as custom domains in the active zone `81068587767e3cb99e0204aeb3b51d4d`. Its public nameservers are `magali.ns.cloudflare.com` and `ruben.ns.cloudflare.com`. Registration and nameservers remain in John's account. The customer-facing deployment uses `wrangler.jsonc`.
+
+The same production build is mirrored at `https://making-small-memories-concepts.xenvya.workers.dev` in the Xenvya account for review. That deployment uses `wrangler.xenvya.jsonc` and has no custom-domain routes. Run `npm run deploy:concept` after the customer-domain deployment whenever both public addresses should remain synchronized.
 
 Only `dist/` and the small redirect Worker are published. The main address is `https://makingsmallmemories.com`; `www` and HTTP requests redirect permanently to HTTPS on that address. Build configuration is described in `.env.example`; all `PUBLIC_*` values are public and must never contain secrets. The default `PUBLIC_SITE_URL` now uses the custom domain for canonical, Open Graph and structured-data URLs. The selected homepage uses `index, follow`; the custom 404 remains `noindex, follow`. Unrelated Workers are untouched.
 

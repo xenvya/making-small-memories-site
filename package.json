@@ -16,6 +16,8 @@
     "format": "prettier --write src tests scripts worker astro.config.mjs playwright.config.ts",
     "deploy": "wrangler deploy",
     "deploy:check": "wrangler deploy --dry-run",
+    "deploy:concept": "wrangler deploy --config wrangler.xenvya.jsonc",
+    "deploy:concept:check": "wrangler deploy --config wrangler.xenvya.jsonc --dry-run",
     "test:integrations": "node scripts/integration-qa.mjs",
     "images:travel": "node scripts/prepare-travel-gallery.mjs"
   },
