@@ -9,6 +9,7 @@ export const business = {
   email: "johncurtis.small324@gmail.com",
   facebook: "https://www.facebook.com/johncsmalljr",
   calEvent: "making-small-memories-llc/15min",
+  donationUrl: "https://cash.app/$MSMllcJCSVKS",
   mission:
     "We help people turn everyday moments into meaningful memories. Through thoughtful experiences, personalized details, and heartfelt creativity, we create opportunities to slow down, connect, celebrate, and cherish the little moments that become the stories we remember most.",
   vision:

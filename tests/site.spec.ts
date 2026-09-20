@@ -104,6 +104,15 @@ test("homepage exposes the approved external resources", async ({ page }) => {
     "href",
     "https://www.facebook.com/johncsmalljr",
   );
+  const donation = page.getByRole("link", {
+    name: "Donate with Cash App (opens in a new tab)",
+  });
+  await expect(donation).toHaveAttribute(
+    "href",
+    "https://cash.app/$MSMllcJCSVKS",
+  );
+  await expect(donation).toHaveAttribute("target", "_blank");
+  await expect(donation).toHaveAttribute("rel", "noopener noreferrer");
 });
 
 test("travel gallery exposes all photographs and keyboard lightbox navigation", async ({

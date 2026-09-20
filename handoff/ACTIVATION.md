@@ -18,7 +18,7 @@ Reference: https://cal.com/help/embedding/embed-instructions
 
 ## 2. Payments and packages
 
-Only Cash App, Venmo, and Zelle are accepted. See [Payment instructions](PAYMENTS.md). No recipient handles or QR codes have been supplied; the site does not invent them or treat the contact email/phone as a payment destination.
+Only Cash App, Venmo, and Zelle are accepted for service payments. See [Payment instructions](PAYMENTS.md). Service-payment recipient details are provided by John after the service and amount are agreed; the site does not treat the contact email/phone as a payment destination.
 
 The PDF has no offers or pricing. Configure `PUBLIC_OFFERS_JSON` only with approved public package names, service scope, service ID, and price labels. Optional installment labels must contain approved terms. All package actions lead to an inquiry with John; payment URLs are no longer part of the schema.
 
@@ -38,7 +38,7 @@ This illustrates the schema; do not publish placeholder content. Leave productio
 
 ## 3. Donations
 
-The donation action opens an inquiry with John. Any agreed contribution uses Cash App, Venmo, or Zelle. No nonprofit or tax deduction claim is made.
+The donation action opens the owner-approved Cash App profile at `https://cash.app/$MSMllcJCSVKS`. Visitors are reminded to confirm the cashtag before sending. No nonprofit or tax deduction claim is made.
 
 ## 4. Personal story and imagery
 

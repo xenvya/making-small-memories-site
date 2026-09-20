@@ -285,12 +285,16 @@ const calendar = calLink(import.meta.env.PUBLIC_CAL_LINK || business.calEvent);
   <div>
     <span class="eyebrow">Small moments. Shared meaning.</span>
     <p>Interested in supporting Making Small Memories?</p>
+    <small>Confirm $MSMllcJCSVKS in Cash App before sending.</small>
   </div>
   <a
     class="text-link"
-    href={`mailto:${business.email}?subject=Donation%20inquiry`}
+    href={business.donationUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Donate with Cash App (opens in a new tab)"
   >
-    Ask about donations <Arrow />
+    Donate with Cash App <Arrow />
   </a>
 </aside>
 <footer class="footer wrap">

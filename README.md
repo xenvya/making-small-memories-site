@@ -1,6 +1,6 @@
 # Making Small Memories
 
-A complete static Astro website with an editorial single-page experience, verified business content, Cash App, Venmo, and Zelle payment instructions, and an on-demand Cal.com booking modal.
+A complete static Astro website with an editorial single-page experience, verified business content, Cash App, Venmo, and Zelle payment instructions, Cash App donations, and an on-demand Cal.com booking modal.
 
 **Live website:** https://makingsmallmemories.com
 

@@ -479,6 +479,12 @@ details[open] > summary > span {
   margin-top: 8px;
   font-size: 15px;
 }
+.giving small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
 .footer {
   display: flex;
   justify-content: space-between;
