@@ -1,20 +1,20 @@
-# Payment instructions
+# Invoices and donations
 
-The business accepts **Cash App, Venmo, and Zelle only** for service payments, as requested by the owner. Card checkout and Stripe are removed. The owner subsequently supplied and authorized `https://cash.app/$MSMllcJCSVKS` for donations.
+Making Small Memories handles payment for services through invoices sent by John after the service, scope, and fees are agreed. The website does not collect service payments or publish a service-payment destination.
 
 ## Live website
 
-The Payments section displays the three accepted methods in responsive cards. “Request payment instructions” opens an email draft addressed to John. The FAQ repeats the same payment policy. Customers agree on the service and amount, then receive recipient details directly from John before sending payment.
+The public navigation and homepage use **Donations**. The donation action opens the owner-approved Cash App profile at `https://cash.app/$MSMllcJCSVKS` in a new tab and reminds visitors to confirm `$MSMllcJCSVKS` before sending.
 
-Service-payment recipient details are still shared directly by John after the service and amount are agreed. The public contact email and phone are not assumed to be payment destinations. The site does not collect payment credentials or claim a transfer has been received.
+Service billing is explained separately within the section: customers first discuss the service, scope, and fees with John, then John sends an invoice containing the applicable payment instructions. Package actions, if approved offers are configured later, request an invoice or start a discussion about an invoice payment plan.
 
-The giving section links directly to the authorized Cash App profile for voluntary donations and reminds visitors to confirm `$MSMllcJCSVKS` before sending. The site makes no nonprofit or tax-deductibility claim.
+Donations are voluntary and separate from service invoices. The site makes no nonprofit or tax-deductibility claim, does not collect financial credentials, and does not claim that a donation or invoice has been paid.
 
 ## Business workflow
 
-1. Agree on the service, scope, amount, and any payment schedule with the customer.
-2. Share the chosen Cash App, Venmo, or Zelle recipient details and the exact amount.
-3. Ask the customer to confirm the recipient before sending.
-4. Confirm receipt in the relevant payment account before acknowledging payment.
+1. Agree on the service, scope, fees, and any approved payment schedule with the customer.
+2. Send the customer an invoice with the exact amount, due date, and payment instructions.
+3. Confirm payment through the invoicing or payment account before acknowledging receipt.
+4. Keep donation activity separate from service invoicing and client balances.
 
-Approved packages can still be configured through `PUBLIC_OFFERS_JSON`; their actions request arrangements with John. The former hosted checkout URLs are no longer used.
+Approved packages can still be configured through `PUBLIC_OFFERS_JSON`; their actions request an invoice or a conversation with John. Hosted checkout URLs are not part of the production flow.

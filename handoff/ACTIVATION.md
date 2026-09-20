@@ -2,11 +2,11 @@
 
 ## Current website experience
 
-The selected Keepsake website exposes Payments and Book a consultation in navigation. Payments are collected only through Cash App, Venmo, and Zelle. The payment section names these methods and opens an email draft to request instructions from John. The booking section uses the approved live Cal.com event at `making-small-memories-llc/15min`. No payment is processed or marked complete on the website.
+The selected Keepsake website exposes Donations and Book a consultation in navigation. The Donations section opens the approved Cash App profile at `$MSMllcJCSVKS`. Payment for services is handled later through invoices sent by John. The booking section uses the approved live Cal.com event at `making-small-memories-llc/15min`. No invoice, donation, or service payment is processed or marked complete on the website.
 
 The supplied `docs/john.jpg` portrait has been incorporated on the user’s explicit instruction; personal-photo acquisition is no longer a blocker.
 
-The public site is usable through John’s verified phone/email and live Cal.com calendar. Payment instructions are shared directly after service and amount are agreed. No private API keys are needed for this static site.
+The public site is usable through John’s verified phone/email, live Cal.com calendar, and approved Cash App donation profile. John sends invoice payment instructions after the service, scope, and fees are agreed. No private API keys are needed for this static site.
 
 ## 1. Booking
 
@@ -16,11 +16,11 @@ The website then shows a native, keyboard-accessible modal containing Cal.com's 
 
 Reference: https://cal.com/help/embedding/embed-instructions
 
-## 2. Payments and packages
+## 2. Service invoices and packages
 
-Only Cash App, Venmo, and Zelle are accepted for service payments. See [Payment instructions](PAYMENTS.md). Service-payment recipient details are provided by John after the service and amount are agreed; the site does not treat the contact email/phone as a payment destination.
+See [Invoices and donations](PAYMENTS.md). John sends invoices for services after the scope and fees are agreed. The website does not list a service-payment method or treat the public contact email, phone number, or donation profile as a service-payment destination.
 
-The PDF has no offers or pricing. Configure `PUBLIC_OFFERS_JSON` only with approved public package names, service scope, service ID, and price labels. Optional installment labels must contain approved terms. All package actions lead to an inquiry with John; payment URLs are no longer part of the schema.
+The PDF has no offers or pricing. Configure `PUBLIC_OFFERS_JSON` only with approved public package names, service scope, service ID, and price labels. Optional installment labels must contain approved terms. All package actions request an invoice or an invoice payment-plan discussion with John; checkout URLs are not part of the schema.
 
 ```json
 [
@@ -38,7 +38,7 @@ This illustrates the schema; do not publish placeholder content. Leave productio
 
 ## 3. Donations
 
-The donation action opens the owner-approved Cash App profile at `https://cash.app/$MSMllcJCSVKS`. Visitors are reminded to confirm the cashtag before sending. No nonprofit or tax deduction claim is made.
+The donation action opens the owner-approved Cash App profile at `https://cash.app/$MSMllcJCSVKS`. Visitors are reminded to confirm the cashtag before sending. Donations are presented separately from service invoices. No nonprofit or tax deduction claim is made.
 
 ## 4. Personal story and imagery
 

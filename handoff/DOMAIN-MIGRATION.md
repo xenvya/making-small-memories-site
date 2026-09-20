@@ -22,7 +22,7 @@ The account, explicit zone IDs and both custom domains are saved in `wrangler.js
 - Live automated checks also verify HTTP redirects for both hostnames, preserved URL encoding and multiple query parameters, and correct canonical/Open Graph/organization URLs on the homepage and privacy page.
 - Lint, Astro checks (zero errors/warnings/hints), production build and Wrangler dry run passed.
 - Local browser checks: 22 passed; one public-domain redirect check intentionally skipped on the local Astro preview.
-- Production browser checks: all 23 passed, including mobile/tablet/desktop accessibility, logo assets, navigation, travel gallery, booking preview, payment instructions, legacy URLs and 404 behavior.
+- Production browser checks: all 23 passed, including mobile/tablet/desktop accessibility, logo assets, navigation, travel gallery, live booking, donations, invoice-billing guidance, legacy URLs and 404 behavior.
 - The final extended production audit passed with no console errors, broken images, bad links, missing anchors or overflow at 320, 390, 768, 1024 and 1920 pixels. Reduced motion was enabled for that audit. Recorded layout shift was below 0.01 on both pages. Current results are saved in `handoff/release-audit.json`.
 
 ## Hosting performance monitoring

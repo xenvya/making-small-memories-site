@@ -197,7 +197,7 @@ dialog?.addEventListener("keydown", (event) => {
   }
 });
 
-// Presentation flows never submit personal/payment data or reserve availability.
+// Presentation flows never submit personal or financial data or reserve availability.
 const previewDialogs = [
   ...document.querySelectorAll<HTMLDialogElement>(".experience-dialog"),
 ];

@@ -86,11 +86,11 @@ try {
     );
     await page.goto("http://localhost:4322/");
     await expect(
-      page.getByRole("link", { name: "Arrange payment in full", exact: true }),
+      page.getByRole("link", { name: "Request an invoice", exact: true }),
     ).toHaveAttribute("href", "#booking");
     await expect(
       page.getByRole("link", {
-        name: "Discuss installment plan",
+        name: "Discuss an invoice payment plan",
         exact: true,
       }),
     ).toHaveAttribute("href", "#booking");
@@ -150,7 +150,7 @@ try {
   expect(fixtureFiles).not.toContain("QA fixture");
   expect(fixtureFiles).not.toContain("qa-fixture");
   console.log(
-    `${passed} integration scenarios passed: selected homepage at mobile/desktop, full-payment and installment inquiry links, real Cal.com embed bootstrap with intercepted appointment page, modal keyboard/focus, blocked-embed fallback. No live booking or charge made.`,
+    `${passed} integration scenarios passed: selected homepage at mobile/desktop, invoice and payment-plan inquiry links, real Cal.com embed bootstrap with intercepted appointment page, modal keyboard/focus, blocked-embed fallback. No live booking, invoice, or charge was created.`,
   );
 } finally {
   await browser?.close();

@@ -19,15 +19,15 @@ for (const [name, path] of [
   });
   if (name === "home") {
     await page
-      .locator("#payments")
-      .screenshot({ path: "handoff/screenshots/payments-desktop.png" });
+      .locator("#donations")
+      .screenshot({ path: "handoff/screenshots/donations-desktop.png" });
   }
   for (const width of [768, 390]) {
     await page.setViewportSize({ width, height: 1000 });
     if (name === "home") {
       await page
-        .locator("#payments")
-        .screenshot({ path: `handoff/screenshots/payments-${width}.png` });
+        .locator("#donations")
+        .screenshot({ path: `handoff/screenshots/donations-${width}.png` });
     }
     await page.screenshot({
       path: `handoff/screenshots/${name}-${width}.png`,

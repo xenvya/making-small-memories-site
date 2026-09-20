@@ -46,3 +46,11 @@ Local visual evidence is in the ignored `handoff/screenshots/` folder. Reproduce
 Replaced the payment preview and hosted checkout configuration with Cash App, Venmo, and Zelle method cards and an email action requesting payment instructions. Package inquiries and donations also route through John. This supersedes the earlier payment-preview and hosted-payment activation notes above.
 
 Validation: Astro check (zero diagnostics), production build, formatting, 20 browser tests, 3 integration scenarios, deployment dry run, and visual review of desktop and 390px payment-section screenshots all passed. No live transfers were attempted; recipient details are shared directly by John.
+
+## Donations and invoice billing update — September 19, 2026
+
+Replaced the public Payments navigation and service-payment methods with a dedicated Donations section linked only to the approved Cash App profile at `$MSMllcJCSVKS`. Service billing now explains that John agrees on scope and fees, then sends the customer an invoice with payment instructions. Cash App is not presented as a service-payment method, and Venmo and Zelle no longer appear in the public experience. This supersedes the September 17 payment-method update above.
+
+Production offer actions, when offers are configured, request an invoice or an invoice payment-plan discussion. The website collects no financial credentials and makes no nonprofit or tax-deductibility claim.
+
+Validation: formatting, lint, Astro check (zero diagnostics), production build, both Wrangler deployment dry runs, dependency audit (zero vulnerabilities), 22 local browser tests with one expected local-domain skip, and 3 integration scenarios passed. Desktop and 390px donation-section screenshots were visually reviewed with no clipping or overflow.

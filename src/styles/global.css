@@ -404,6 +404,68 @@ details[open] > summary > span {
 .arrangements .text-link {
   margin-top: 24px;
 }
+.donation-card,
+.invoice-note,
+.donation-disclosure {
+  grid-column: 1 / -1;
+}
+.donation-card {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 26px;
+  margin-top: 8px;
+  padding: clamp(24px, 4vw, 48px);
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--soft) 55%, var(--bg));
+}
+.donation-mark {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 25px;
+  font-weight: 700;
+}
+.donation-card h3 {
+  margin: 8px 0 6px;
+}
+.donation-card p {
+  color: var(--muted);
+  font-size: 13px;
+}
+.donation-card .button {
+  flex-shrink: 0;
+}
+.invoice-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.invoice-note p {
+  max-width: 680px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.invoice-note strong {
+  color: var(--ink);
+}
+.invoice-note .text-link {
+  flex-shrink: 0;
+  margin: 0;
+}
+.donation-disclosure {
+  margin: -14px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
 .offers {
   grid-column: 1/-1;
   display: flex;
@@ -518,24 +580,6 @@ details[open] > summary > span {
   font-size: 11px;
   line-height: 1.6;
   margin-top: 20px;
-}
-.giving {
-  padding-block: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  border-bottom: 1px solid var(--line);
-}
-.giving p {
-  margin-top: 8px;
-  font-size: 15px;
-}
-.giving small {
-  display: block;
-  margin-top: 8px;
-  color: var(--muted);
-  font-size: 12px;
 }
 .footer {
   display: flex;
@@ -771,7 +815,19 @@ body:has(dialog[open]) {
   .contact-links a {
     font-size: 14px;
   }
-  .giving {
+  .donation-card {
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 18px;
+  }
+  .donation-mark {
+    width: 46px;
+    height: 46px;
+  }
+  .donation-card .button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+  .invoice-note {
     align-items: flex-start;
     flex-direction: column;
   }

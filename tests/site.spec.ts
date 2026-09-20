@@ -77,7 +77,7 @@ for (const width of [390, 768, 1440])
           "about",
           "services",
           "process",
-          "payments",
+          "donations",
           "faq",
           "booking",
         ])
@@ -224,7 +224,7 @@ test("Unknown URLs return the custom 404", async ({ page }) => {
 });
 
 for (const width of [390, 1440])
-  test(`homepage ${width}: live booking and accepted payment methods`, async ({
+  test(`homepage ${width}: live booking, donations and invoice billing`, async ({
     page,
   }) => {
     await page.setViewportSize({ width, height: 1000 });
@@ -260,24 +260,33 @@ for (const width of [390, 1440])
       page.getByRole("button", { name: "View appointments", exact: true }),
     ).toBeFocused();
 
-    const payment = page.locator("#payments");
-    await payment.scrollIntoViewIfNeeded();
-    await expect(payment.locator(".payment-method")).toHaveCount(3);
-    for (const method of ["Cash App", "Venmo", "Zelle"]) {
-      await expect(
-        payment.getByRole("heading", { name: method, exact: true }),
-      ).toBeVisible();
-    }
+    const donations = page.locator("#donations");
+    await donations.scrollIntoViewIfNeeded();
     await expect(
-      payment.getByRole("link", { name: "Request payment instructions" }),
-    ).toHaveAttribute(
-      "href",
-      /^mailto:.*subject=Payment%20instructions%20request/,
+      donations.getByRole("heading", { name: "Support what matters." }),
+    ).toBeVisible();
+    await expect(
+      donations.getByRole("link", {
+        name: "Donate with Cash App (opens in a new tab)",
+      }),
+    ).toHaveAttribute("href", "https://cash.app/$MSMllcJCSVKS");
+    await expect(donations).toContainText(
+      "John will send you an invoice with payment instructions",
     );
+    await expect(donations).not.toContainText(/Venmo|Zelle/);
+    await expect(page.locator('nav a[href="#donations"]')).toHaveText(
+      "Donations",
+    );
+    await expect(page.locator("#payments, .payment-method")).toHaveCount(0);
     await expect(
       page.locator('a[href*="stripe.com"], #payment-demo'),
     ).toHaveCount(0);
     await expect(page.locator("body")).not.toContainText(/stripe/i);
+    await expect(
+      donations.getByRole("link", {
+        name: "Discuss services & pricing",
+      }),
+    ).toHaveAttribute("href", "#booking");
     expect(
       (await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa"]).analyze())
         .violations,

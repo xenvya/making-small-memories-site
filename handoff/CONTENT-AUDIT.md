@@ -1,6 +1,6 @@
 # Content audit
 
-Revision: the user subsequently supplied the portrait and requested public incorporation and interactive booking/payment demonstrations. The selected Keepsake direction is now the sole public homepage. The demonstrations are explicitly labeled, use sample dates/times, collect no card data, make no booking or charge, and do not invent prices. Source commercial terms remain pending.
+Revision: the user subsequently supplied the portrait, the live Cal.com event, and the approved Cash App donation profile. The selected Keepsake direction is now the sole public homepage. Service payments are handled through invoices sent by John; the website makes no booking, donation, invoice, or charge and does not invent prices. Source commercial terms remain pending.
 
 Primary source: `docs/Making Small Memories Content and Information.pdf` (6 pages). All six pages were text-extracted, rendered, and visually inspected. The supplied PDF and private proposal/contract documents remain local and are excluded from Git and deployment.
 
@@ -24,7 +24,7 @@ Instead of fictional packages or testimonials, all four pages provide complete v
 - The service overview includes unresolved reference markers [1]–[5] and an apparent drafting-assistant question. No linked bibliography is provided; markers and drafting artifacts were omitted.
 - The confidentiality paragraph names “Impact Coaching, Consulting, and Counseling Center.” This unrelated identity was omitted from the condensed website privacy policy. Its confidentiality/security substance was preserved. The client should confirm the policy applies to Making Small Memories and whether the insurance/healthcare provisions accurately describe operations.
 - No physical mailing address is invented.
-- The source PDF did not provide donation payment details. The owner subsequently supplied and authorized `https://cash.app/$MSMllcJCSVKS` for donations. No tax-deductibility claim is made.
+- The source PDF did not provide donation payment details. The owner subsequently supplied and authorized `https://cash.app/$MSMllcJCSVKS` for donations. Donations are kept separate from service invoices, and no tax-deductibility claim is made.
 
 ## SEO
 

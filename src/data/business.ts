@@ -129,8 +129,12 @@ export const faqs = [
     a: "Claims roadmap coaching, organizing service records and secondary conditions, and guidance on benefits such as HISA, dental enrollment, and CHAMPVA. Discuss your circumstances with John to understand the scope of support.",
   },
   {
-    q: "How do I find out about pricing and payment?",
-    a: "We accept Cash App, Venmo, and Zelle. Contact John to agree on your service, scope, and fees. He will then share the payment instructions and recipient details.",
+    q: "How do I pay for services?",
+    a: "Contact John to discuss the service, scope, and fees. Once the details are agreed, John will send you an invoice with the payment instructions.",
+  },
+  {
+    q: "How can I make a donation?",
+    a: "Use the Donations section to open the approved Cash App profile for $MSMllcJCSVKS. Confirm the cashtag before sending. Donations are separate from invoices for services.",
   },
   {
     q: "How do I arrange a consultation?",
