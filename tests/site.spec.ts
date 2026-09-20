@@ -57,10 +57,13 @@ for (const width of [390, 768, 1440])
       }
     });
 
-test("homepage mobile navigation, FAQ, inquiry and keyboard", async ({
+test("homepage mobile navigation, FAQ, booking and keyboard", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
+  await page.route("https://app.cal.com/embed/embed.js", (route) =>
+    route.abort(),
+  );
   await page.goto("/");
   await page.getByRole("button", { name: "Menu" }).click();
   await expect(page.locator("#main-nav")).toBeVisible();
@@ -71,10 +74,16 @@ test("homepage mobile navigation, FAQ, inquiry and keyboard", async ({
     "open",
     "",
   );
-  await page.locator("#interest").selectOption("Retirement planning");
-  await page.locator("#first-name").fill("QA visitor");
-  await page.getByRole("button", { name: "Request a consultation" }).click();
-  await expect(page.locator("#email-status")).toContainText("email app");
+  await page.getByRole("button", { name: "View appointments" }).click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "Open Cal.com in a new tab" }),
+  ).toHaveAttribute("href", "https://cal.com/making-small-memories-llc/15min");
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("dialog")).not.toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "View appointments" }),
+  ).toBeFocused();
   await page.goto("/");
   await page.keyboard.press("Tab");
   await expect(
@@ -173,36 +182,40 @@ test("Unknown URLs return the custom 404", async ({ page }) => {
 });
 
 for (const width of [390, 1440])
-  test(`homepage ${width}: booking and accepted payment methods`, async ({
+  test(`homepage ${width}: live booking and accepted payment methods`, async ({
     page,
   }) => {
     await page.setViewportSize({ width, height: 1000 });
+    await page.route("https://app.cal.com/embed/embed.js", (route) =>
+      route.abort(),
+    );
     await page.goto("/");
     await page
-      .getByRole("button", { name: "Book a consultation", exact: true })
+      .getByRole("button", { name: "View appointments", exact: true })
       .click();
-    const booking = page.getByRole("dialog", {
-      name: "A conversation with John.",
-    });
+    const booking = page.getByRole("dialog");
     await expect(booking).toBeVisible();
-    await expect(page.locator("[data-booking-review]")).toBeDisabled();
-    await page.locator(".demo-days button").nth(2).click();
-    await page.getByRole("button", { name: "1:00 PM", exact: true }).click();
-    await page.locator("#demo-service").selectOption("Life coaching");
+    await expect(booking).toHaveAttribute(
+      "data-calendar",
+      "making-small-memories-llc/15min",
+    );
+    await expect(
+      page.getByRole("link", { name: "Open Cal.com in a new tab" }),
+    ).toHaveAttribute(
+      "href",
+      "https://cal.com/making-small-memories-llc/15min",
+    );
+    await expect(page.locator("#cal-inline")).toContainText(
+      "Please use the calendar link below",
+    );
     expect(
       (await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa"]).analyze())
         .violations,
     ).toEqual([]);
-    await page.getByRole("button", { name: "Review appointment" }).click();
-    await expect(page.locator("[data-review-service]")).toHaveText(
-      "Life coaching",
-    );
-    await expect(booking).toContainText("No appointment has been booked");
-    await page.getByRole("button", { name: "Choose another time" }).click();
     await page.keyboard.press("Escape");
     await expect(booking).not.toBeVisible();
     await expect(
-      page.getByRole("button", { name: "Book a consultation", exact: true }),
+      page.getByRole("button", { name: "View appointments", exact: true }),
     ).toBeFocused();
 
     const payment = page.locator("#payments");

@@ -28,7 +28,7 @@ npm run deploy:check
 npm audit
 ```
 
-`npm test` runs browser scenarios including WCAG A/AA checks at mobile/tablet/desktop sizes, navigation, the 33-photo travel gallery and keyboard lightbox, inquiries, FAQs, approved external resources, legacy redirects, and no-JavaScript fallback. `TEST_BASE_URL` switches the same suite to the deployed site. The integration harness builds synthetic offers/calendar data only into ignored `tmp/activation/`, checks the real Cal.com embed bootstrap with the appointment page intercepted, checks package/payment associations and modal keyboard behavior, and tests blocked-embed fallback. It never creates a real booking or charge and cannot publish its fixtures through the production `dist/` target.
+`npm test` runs browser scenarios including WCAG A/AA checks at mobile/tablet/desktop sizes, navigation, the live Cal.com booking entry and fallback, the 33-photo travel gallery and keyboard lightbox, FAQs, approved external resources, legacy redirects, and no-JavaScript fallback. `TEST_BASE_URL` switches the same suite to the deployed site. The integration harness builds synthetic offers/calendar data only into ignored `tmp/activation/`, checks the real Cal.com embed bootstrap with the appointment page intercepted, checks package/payment associations and modal keyboard behavior, and tests blocked-embed fallback. It never creates a real booking or charge and cannot publish its fixtures through the production `dist/` target.
 
 ```sh
 TEST_BASE_URL=https://makingsmallmemories.com npm test
@@ -61,7 +61,7 @@ Fonts are self-hosted. The homepage portrait and travel gallery are delivered as
 - [QA and deployment record](handoff/QA.md)
 - [Production domain migration and verification](handoff/DOMAIN-MIGRATION.md)
 
-The six-page source PDF contains no package prices, installment terms, testimonials, biography or booking URL. The user subsequently supplied and authorized the portrait used on the homepage. The live experience offers verified services, contact and pricing inquiries, accepted payment methods, plus an explicitly labeled interactive appointment preview. It intentionally does not show invented offers or testimonials. Personal-photo layout references are documented in `handoff/images/`, outside the public assets.
+The six-page source PDF contains no package prices, installment terms, testimonials, biography or booking URL. The user subsequently supplied and authorized the portrait used on the homepage and the Cal.com event at `making-small-memories-llc/15min`. The live experience offers verified services, contact and pricing inquiries, accepted payment methods, and a live appointment calendar. It intentionally does not show invented offers or testimonials. Personal-photo layout references are documented in `handoff/images/`, outside the public assets.
 
 The local client `docs/` and `proposal/` directories are excluded from Git and never deployed. No pre-existing code, Git history, dependency conventions or deployment existed when this work began; the GitHub repository was confirmed empty before initialization. Existing local documents were preserved.
 
