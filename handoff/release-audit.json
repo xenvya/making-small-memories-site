@@ -1,16 +1,16 @@
 {
   "base": "https://makingsmallmemories.com",
-  "checkedAt": "2026-09-18T01:57:32.756Z",
+  "checkedAt": "2026-09-20T02:12:04.310Z",
   "note": "Observed browser load measurements, not a throttled Lighthouse benchmark.",
   "pages": [
     {
       "path": "/",
       "status": 200,
       "metrics": {
-        "cls": 0.007017585063922553,
-        "lcp": 700,
-        "bytes": 2451191,
-        "requests": 44
+        "cls": 0.007178839079391809,
+        "lcp": 264,
+        "bytes": 2385473,
+        "requests": 43
       },
       "invalidAnchors": [],
       "errors": [],
@@ -49,8 +49,8 @@
       "status": 200,
       "metrics": {
         "cls": 0.00023271403748312118,
-        "lcp": 200,
-        "bytes": 128971,
+        "lcp": 220,
+        "bytes": 128943,
         "requests": 5
       },
       "invalidAnchors": [],
