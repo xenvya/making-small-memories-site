@@ -56,3 +56,7 @@ Production offer actions, when offers are configured, request an invoice or an i
 Validation: formatting, lint, Astro check (zero diagnostics), production build, both Wrangler deployment dry runs, dependency audit (zero vulnerabilities), 22 local browser tests with one expected local-domain skip, and 3 integration scenarios passed. Desktop and 390px donation-section screenshots were visually reviewed with no clipping or overflow.
 
 Post-deployment verification: all 23 browser tests passed on `https://makingsmallmemories.com`; 22 passed with the expected custom-domain redirect test skipped on the concept mirror. The extended live-domain audit found no console errors, broken images, invalid anchors, bad links, or horizontal overflow at 320, 390, 768, 1024, and 1920 pixels. The deployed blue concept donation section was visually reviewed at desktop and 390px.
+
+## 30-minute consultation update — September 21, 2026
+
+Changed the approved Cal.com event from `making-small-memories-llc/15min` to `making-small-memories-llc/30min` across production configuration, tests, and client documentation. The public Cal.com URL returned HTTP 200. Formatting, lint, Astro check, production build, both Wrangler dry runs, and 22 local browser tests passed with one expected local-domain skip. After deployment, the booking modal and fallback link passed focused mobile and desktop tests on both public hosts.
