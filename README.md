@@ -62,7 +62,7 @@ Fonts are self-hosted. The homepage portrait and travel gallery are delivered as
 - [QA and deployment record](handoff/QA.md)
 - [Production domain migration and verification](handoff/DOMAIN-MIGRATION.md)
 
-The six-page source PDF contains no package prices, installment terms, testimonials, biography or booking URL. The user subsequently supplied and authorized the portrait used on the homepage, the Cal.com event at `making-small-memories-llc/15min`, and the Cash App donation profile at `$MSMllcJCSVKS`. The live experience offers verified services, contact and pricing inquiries, invoice-first service billing, voluntary donations, and a live appointment calendar. It intentionally does not show invented offers or testimonials. Personal-photo layout references are documented in `handoff/images/`, outside the public assets.
+The six-page source PDF contains no package prices, installment terms, testimonials, biography or booking URL. The user subsequently supplied and authorized the portrait used on the homepage, the 30-minute Cal.com event at `making-small-memories-llc/30min`, and the Cash App donation profile at `$MSMllcJCSVKS`. The live experience offers verified services, contact and pricing inquiries, invoice-first service billing, voluntary donations, and a live appointment calendar. It intentionally does not show invented offers or testimonials. Personal-photo layout references are documented in `handoff/images/`, outside the public assets.
 
 The local client `docs/` and `proposal/` directories are excluded from Git and never deployed. No pre-existing code, Git history, dependency conventions or deployment existed when this work began; the GitHub repository was confirmed empty before initialization. Existing local documents were preserved.
 

@@ -2,7 +2,7 @@
 
 ## Current website experience
 
-The selected Keepsake website exposes Donations and Book a consultation in navigation. The Donations section opens the approved Cash App profile at `$MSMllcJCSVKS`. Payment for services is handled later through invoices sent by John. The booking section uses the approved live Cal.com event at `making-small-memories-llc/15min`. No invoice, donation, or service payment is processed or marked complete on the website.
+The selected Keepsake website exposes Donations and Book a consultation in navigation. The Donations section opens the approved Cash App profile at `$MSMllcJCSVKS`. Payment for services is handled later through invoices sent by John. The booking section uses the approved live 30-minute Cal.com event at `making-small-memories-llc/30min`. No invoice, donation, or service payment is processed or marked complete on the website.
 
 The supplied `docs/john.jpg` portrait has been incorporated on the user’s explicit instruction; personal-photo acquisition is no longer a blocker.
 
@@ -10,7 +10,7 @@ The public site is usable through John’s verified phone/email, live Cal.com ca
 
 ## 1. Booking
 
-The approved production event is `https://cal.com/making-small-memories-llc/15min`. Its public path is centralized in `src/data/business.ts`. `PUBLIC_CAL_LINK` remains available as an optional build-time override for a future replacement event. Any change requires a rebuild and deployment.
+The approved production event is `https://cal.com/making-small-memories-llc/30min`. Its public path is centralized in `src/data/business.ts`. `PUBLIC_CAL_LINK` remains available as an optional build-time override for a future replacement event. Any change requires a rebuild and deployment.
 
 The website then shows a native, keyboard-accessible modal containing Cal.com's inline embed. It loads only after “View appointments” is selected. An ordinary Cal.com link and phone link remain available if the embed is blocked. Escape, close-button and focus restoration are supported. Without configuration, the request form prepares an email draft and explicitly tells visitors that they must send it; it does not pretend to book an appointment or submit an inquiry to a server.
 

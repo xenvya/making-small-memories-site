@@ -111,7 +111,7 @@ test("homepage mobile navigation, FAQ, booking and keyboard", async ({
   await expect(page.getByRole("dialog")).toBeVisible();
   await expect(
     page.getByRole("link", { name: "Open Cal.com in a new tab" }),
-  ).toHaveAttribute("href", "https://cal.com/making-small-memories-llc/15min");
+  ).toHaveAttribute("href", "https://cal.com/making-small-memories-llc/30min");
   await page.keyboard.press("Escape");
   await expect(page.getByRole("dialog")).not.toBeVisible();
   await expect(
@@ -239,13 +239,13 @@ for (const width of [390, 1440])
     await expect(booking).toBeVisible();
     await expect(booking).toHaveAttribute(
       "data-calendar",
-      "making-small-memories-llc/15min",
+      "making-small-memories-llc/30min",
     );
     await expect(
       page.getByRole("link", { name: "Open Cal.com in a new tab" }),
     ).toHaveAttribute(
       "href",
-      "https://cal.com/making-small-memories-llc/15min",
+      "https://cal.com/making-small-memories-llc/30min",
     );
     await expect(page.locator("#cal-inline")).toContainText(
       "Please use the calendar link below",
